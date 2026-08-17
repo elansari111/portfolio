@@ -1,116 +1,97 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
-import { useState, useEffect } from 'react'
-import { supabase } from '../../lib/supabase'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import ThemeToggle from '../ui/ThemeToggle'
+
+const links = [
+    { name: 'About', path: '/#about' },
+    { name: 'Projects', path: '/projects' },
+    { name: 'Blog', path: '/blogs' },
+    { name: 'Contact', path: '/contact' },
+]
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
-    const [cvUrl, setCvUrl] = useState(null)
+    const location = useLocation()
 
-    useEffect(() => {
-        fetchCVUrl()
-    }, [])
-
-    async function fetchCVUrl() {
-        try {
-            const { data, error } = await supabase.storage
-                .from('portfolio')
-                .list('cv', {
-                    limit: 1,
-                    sortBy: { column: 'created_at', order: 'desc' }
-                })
-
-            if (error) throw error
-
-            if (data && data.length > 0) {
-                const { data: urlData } = supabase.storage
-                    .from('portfolio')
-                    .getPublicUrl(`cv/${data[0].name}`)
-
-                setCvUrl(urlData.publicUrl)
-            }
-        } catch (error) {
-            console.error('Error fetching CV:', error.message)
-        }
+    const isActive = (path) => {
+        if (path.startsWith('/#')) return location.pathname === '/' && location.hash === path.slice(1)
+        return location.pathname === path || location.pathname.startsWith(path + '/')
     }
-
-    const links = [
-        { name: 'Home', path: '/' },
-        { name: 'Projects', path: '/projects' },
-        { name: 'Skills', path: '/skills' },
-        { name: 'Experience', path: '/experience' },
-        { name: 'Contact', path: '/contact' },
-    ]
 
     return (
         <>
-            {/* Floating Capsule Navbar - Desktop */}
-            <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-50 hidden md:flex items-center gap-4">
-                <div className="bg-gray-900/80 backdrop-blur-xl border border-gray-800 rounded-full px-6 py-3 shadow-2xl">
-                    <div className="flex items-center space-x-8">
-                        {links.map((link) => (
-                            <Link
-                                key={link.name}
-                                to={link.path}
-                                className="text-gray-300 hover:text-white text-sm font-medium transition-all relative group"
-                                data-hover
-                            >
-                                <span className="relative inline-block">
-                                    {link.name}
-                                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 group-hover:w-full transition-all duration-500 ease-out"></span>
-                                    <span className="absolute inset-0 bg-white/5 rounded-lg scale-0 group-hover:scale-110 transition-transform duration-300 -z-10"></span>
-                                </span>
-                            </Link>
-                        ))}
-                    </div>
+            {/* Desktop Navbar */}
+            <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 hidden md:flex items-center gap-3">
+                <div className="bg-white/5 dark:bg-white/5 backdrop-blur-2xl border border-white/10 rounded-full px-2 py-2 shadow-2xl flex items-center gap-1">
+                    {/* Logo */}
+                    <Link to="/" className="px-4 py-2 flex items-center gap-1 font-heading font-bold text-white text-sm">
+                        Y<span className="text-primary">↗</span>
+                    </Link>
+
+                    <div className="w-px h-5 bg-white/10" />
+
+                    {links.map((link) => (
+                        <Link
+                            key={link.name}
+                            to={link.path}
+                            className={`relative px-4 py-2 text-sm font-medium transition-colors rounded-full ${
+                                isActive(link.path)
+                                    ? 'text-white'
+                                    : 'text-gray-400 hover:text-white'
+                            }`}
+                        >
+                            {isActive(link.path) && (
+                                <span className="absolute left-1.5 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-primary" />
+                            )}
+                            {link.name}
+                        </Link>
+                    ))}
                 </div>
 
-                {/* CV Button */}
-                {cvUrl && (
-                    <a
-                        href={cvUrl}
-                        download
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-white text-black px-6 py-3 rounded-full font-semibold text-sm hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white hover:shadow-2xl hover:shadow-purple-500/50 hover:scale-105 transition-all duration-300 flex items-center gap-2"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Import CV
-                    </a>
-                )}
+                <ThemeToggle />
             </nav>
 
-            {/* Mobile Menu Button */}
-            <div className="md:hidden fixed top-6 right-6 z-50">
+            {/* Mobile hamburger */}
+            <div className="md:hidden fixed top-5 right-5 z-50 flex items-center gap-2">
+                <ThemeToggle />
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="bg-gray-900/80 backdrop-blur-xl border border-gray-800 rounded-full p-3 text-white"
+                    className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-full p-3 text-white"
                 >
-                    {isOpen ? <X size={24} /> : <Menu size={24} />}
+                    {isOpen ? <X size={22} /> : <Menu size={22} />}
                 </button>
             </div>
 
-            {/* Mobile Menu */}
-            {isOpen && (
-                <div className="md:hidden fixed inset-0 z-40 bg-black/95 backdrop-blur-xl">
-                    <div className="flex flex-col items-center justify-center h-full space-y-8">
-                        {links.map((link) => (
-                            <Link
+            {/* Mobile overlay */}
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="md:hidden fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center"
+                    >
+                        {links.map((link, i) => (
+                            <motion.div
                                 key={link.name}
-                                to={link.path}
-                                onClick={() => setIsOpen(false)}
-                                className="text-white text-2xl font-display font-bold hover:text-gray-400 transition-colors"
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: i * 0.08, ease: 'easeOut' }}
                             >
-                                {link.name}
-                            </Link>
+                                <Link
+                                    to={link.path}
+                                    onClick={() => setIsOpen(false)}
+                                    className="block text-3xl font-heading font-bold text-white py-4 hover:text-primary transition-colors"
+                                >
+                                    {link.name}
+                                </Link>
+                            </motion.div>
                         ))}
-                    </div>
-                </div>
-            )}
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </>
     )
 }

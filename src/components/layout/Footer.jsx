@@ -1,26 +1,33 @@
-import { Github, Linkedin, Twitter } from 'lucide-react'
+import { Github, Linkedin, Twitter, Instagram } from 'lucide-react'
+import { profile } from '../../data/profile'
 
 export default function Footer() {
+    const socials = [
+        { icon: Github, href: profile.socials.github, label: 'GitHub' },
+        { icon: Linkedin, href: profile.socials.linkedin, label: 'LinkedIn' },
+        { icon: Twitter, href: profile.socials.twitter, label: 'Twitter' },
+        { icon: Instagram, href: profile.socials.instagram, label: 'Instagram' },
+    ]
+
     return (
-        <footer className="bg-black border-t border-white/10 py-12">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex flex-col md:flex-row justify-between items-center">
-                    <div className="mb-4 md:mb-0">
-                        <p className="text-gray-400 text-sm">
-                            © {new Date().getFullYear()} Portfolio. All rights reserved.
-                        </p>
-                    </div>
-                    <div className="flex space-x-6">
-                        <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                            <Github size={20} />
+        <footer className="bg-black border-t border-white/10 py-8">
+            <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p className="text-gray-500 text-sm">
+                    © {new Date().getFullYear()} {profile.name}. All rights reserved.
+                </p>
+                <div className="flex items-center gap-5">
+                    {socials.map((s) => (
+                        <a
+                            key={s.label}
+                            href={s.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={s.label}
+                            className="text-gray-500 hover:text-primary hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.6)] transition-all duration-300"
+                        >
+                            <s.icon size={20} />
                         </a>
-                        <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                            <Linkedin size={20} />
-                        </a>
-                        <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                            <Twitter size={20} />
-                        </a>
-                    </div>
+                    ))}
                 </div>
             </div>
         </footer>

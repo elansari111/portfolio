@@ -1,130 +1,117 @@
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { ArrowRight, Copy } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { Download, ArrowDown } from 'lucide-react'
+import { useReducedMotion } from '../../hooks/useReducedMotion'
+import SEO from '../ui/SEO'
 
-export default function Hero() {
-    const containerRef = useRef(null)
-    const titleRef = useRef(null)
-    const ctaRef = useRef(null)
-    const bioRef = useRef(null)
-    const statusRef = useRef(null)
+const container = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.12 } }
+}
+const itemVariant = {
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } }
+}
 
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            const tl = gsap.timeline()
-
-            // Animate title letters
-            tl.from('.title-word', {
-                y: 100,
-                opacity: 0,
-                stagger: 0.1,
-                duration: 1,
-                ease: 'power4.out',
-                delay: 0.3
-            })
-                .from(ctaRef.current, {
-                    y: 30,
-                    opacity: 0,
-                    duration: 0.8,
-                    ease: 'power2.out'
-                }, '-=0.5')
-                .from(bioRef.current, {
-                    y: 30,
-                    opacity: 0,
-                    duration: 0.8,
-                    ease: 'power2.out'
-                }, '-=0.6')
-                .from(statusRef.current, {
-                    y: 20,
-                    opacity: 0,
-                    duration: 0.6,
-                    ease: 'power2.out'
-                }, '-=0.4')
-
-        }, containerRef)
-
-        return () => ctx.revert()
-    }, [])
-
-    const title = ["YASSINE", "EL ANSARI"]
+export default function Hero({ profile }) {
+    const prefersReduced = useReducedMotion()
+    const scrollToContact = () => {
+        document.getElementById('contact-cta')?.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth' })
+    }
 
     return (
-        <section ref={containerRef} className="h-screen bg-black relative overflow-hidden flex flex-col">
-            {/* Particle/Noise Background Effect */}
-            <div className="absolute inset-0 opacity-30 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOSIgbnVtT2N0YXZlcz0iNCIgLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjbm9pc2UpIiBvcGFjaXR5PSIwLjMiLz48L3N2Zz4=')]"></div>
-            <div className="absolute inset-0 opacity-30 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYmxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC45IiBudW1PY3RhdmVzPSI0IiAvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkiIG9wYWNpdHk9IjAuMyIvPjwvc3ZnPg==')]"></div>
-            <div className="absolute inset-0 opacity-30 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOSIgbnVtT2N0YXZlcz0iNCIgLz48L2ZpbHRlcn48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjbm9pc2UpIiBvcGFjaXR5PSIwLjMiLz48L3N2Zz4=')]"></div>
-            <div className="absolute inset-0 opacity-30 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYmVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOSIgbnVtT2N0YXZlcz0iNCIgLz48L2ZpbHRlcn48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjbm9pc2UpIiBvcGFjaXR5PSIwLjMiLz48L3N2Zz4=')]"></div>
+        <section className="min-h-screen flex items-center pt-28 pb-16">
+            <SEO
+                title={null}
+                description={`${profile.name} — ${profile.roles.join(' & ')}. ${profile.shortBio}`}
+                url="/"
+            />
+            <div className="max-w-6xl mx-auto px-6 w-full">
+                <motion.div
+                    variants={prefersReduced ? {} : container}
+                    initial={prefersReduced ? false : 'hidden'}
+                    animate={prefersReduced ? false : 'show'}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center"
+                >
+                    {/* Left — Portrait */}
+                    <motion.div
+                        variants={prefersReduced ? {} : itemVariant}
+                        className="relative flex justify-center md:justify-start order-2 md:order-1"
+                    >
+                        <div className="relative">
+                            <img
+                                src={profile.avatar}
+                                alt={`Portrait of ${profile.name}`}
+                                width={320}
+                                height={448}
+                                loading="eager"
+                                className="w-72 h-96 md:w-80 md:h-[28rem] object-cover rounded-3xl shadow-2xl"
+                            />
 
-            {/* Main Content Container */}
-            <div className="flex-1 flex flex-col justify-center items-center px-4 md:px-12 relative z-10">
-                {/* Large Title */}
-                <div ref={titleRef} className="text-center mb-auto mt-32 md:mt-40">
-                    {title.map((word, idx) => (
-                        <h1
-                            key={idx}
-                            className="title-word text-[10vw] md:text-[8vw] leading-[1.2] font-pixel text-white uppercase tracking-wider"
-                        >
-                            {word.split('').map((letter, i) => (
-                                <span
-                                    key={i}
-                                    className="inline-block hover:text-purple-400 hover:scale-110 transition-all duration-300 cursor-default hover:-rotate-6"
-                                    data-hover
+                            {/* Rotating "LET'S TALK" badge */}
+                            <button
+                                onClick={scrollToContact}
+                                aria-label="Scroll to contact section"
+                                className="absolute -bottom-6 -right-6 w-28 h-28 group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-full"
+                            >
+                                <svg
+                                    className={prefersReduced ? '' : 'animate-spin-slow'}
+                                    viewBox="0 0 100 100"
+                                    aria-hidden="true"
+                                    focusable="false"
                                 >
-                                    {letter}
-                                </span>
-                            ))}
-                        </h1>
-                    ))}
-                </div>
+                                    <defs>
+                                        <path id="circlePath" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+                                    </defs>
+                                    <text className="fill-white text-[11px] font-bold uppercase tracking-[4px]">
+                                        <textPath href="#circlePath">LET'S TALK • LET'S TALK •</textPath>
+                                    </text>
+                                </svg>
+                                <div className="absolute inset-0 flex items-center justify-center" aria-hidden="true">
+                                    <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                                        <ArrowDown size={18} className="text-white" />
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </motion.div>
 
-                {/* Bottom Section - Grid Layout */}
-                <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 mt-auto">
-                    {/* Left: CTA Button */}
-                    <div ref={ctaRef} className="flex flex-col space-y-4">
-                        <Link
-                            to="/contact"
-                            className="group inline-flex items-center space-x-3 bg-white text-black rounded-full px-6 py-4 font-semibold hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white hover:shadow-2xl hover:shadow-purple-500/50 hover:scale-105 transition-all duration-300 w-fit"
-                            data-hover
-                        >
-                            <span className="uppercase tracking-wide text-sm">Let's Connect</span>
-                            <ArrowRight className="group-hover:translate-x-2 group-hover:rotate-[-45deg] transition-all duration-300" size={20} />
-                        </Link>
-
-                        <button
-                            className="inline-flex items-center space-x-2 text-gray-400 hover:text-white transition-all duration-300 text-sm w-fit group hover:translate-x-2"
-                            data-hover
-                        >
-                            <Copy size={16} className="group-hover:rotate-12 transition-transform duration-300" />
-                            <span className="relative">
-                                info@yassinelansari.dev
-                                <span className="absolute bottom-0 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-500"></span>
+                    {/* Right — Text */}
+                    <div className="flex flex-col gap-6 order-1 md:order-2">
+                        <motion.div variants={prefersReduced ? {} : itemVariant} className="flex items-center gap-3">
+                            <span
+                                className={prefersReduced ? 'text-4xl' : 'animate-wave text-4xl'}
+                                aria-label="Waving hand"
+                                role="img"
+                            >
+                                👋
                             </span>
-                        </button>
-                    </div>
+                            <span className="text-gray-400 text-lg">{profile.greeting}</span>
+                        </motion.div>
 
-                    {/* Right: Bio Text */}
-                    <div ref={bioRef} className="flex items-end justify-end group cursor-default">
-                        <p className="text-gray-400 text-right max-w-md leading-relaxed transition-all duration-500 group-hover:text-gray-300">
-                            <span className="text-white font-semibold group-hover:text-purple-400 transition-colors duration-300">Creative developer</span> who combines technical expertise with deep design understanding to build exceptional digital experiences.
-                        </p>
-                    </div>
-                </div>
+                        <motion.h1 variants={prefersReduced ? {} : itemVariant} className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold leading-tight">
+                            A{' '}
+                            <span className="text-gradient-blue">{profile.roles[0]}</span>
+                            {' '}&amp;{' '}
+                            <span className="text-gradient-blue">{profile.roles[1]}</span>
+                        </motion.h1>
 
-                {/* Bottom Status Bar */}
-                <div ref={statusRef} className="w-full max-w-7xl flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs text-gray-500 pb-8 border-t border-gray-900 pt-4">
-                    <div className="flex items-center space-x-2">
-                        <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                        <span>Available now</span>
+                        <motion.p variants={prefersReduced ? {} : itemVariant} className="text-gray-400 text-lg max-w-lg leading-relaxed">
+                            {profile.shortBio}
+                        </motion.p>
+
+                        <motion.div variants={prefersReduced ? {} : itemVariant}>
+                            <a
+                                href={profile.resumeUrl}
+                                download
+                                aria-label="Download resume PDF"
+                                className="inline-flex items-center gap-2 bg-primary hover:bg-primary/80 text-white px-7 py-3 rounded-full font-semibold text-sm transition-all hover:shadow-lg hover:shadow-primary/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                            >
+                                <Download size={16} aria-hidden="true" />
+                                My Resume
+                            </a>
+                        </motion.div>
                     </div>
-                    <span>•</span>
-                    <span>Morocco</span>
-                    <span>•</span>
-                    <span>2+13 years experience</span>
-                    <span>•</span>
-                    <span>GitHub projects welcome</span>
-                </div>
+                </motion.div>
             </div>
         </section>
     )

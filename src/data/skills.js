@@ -1,0 +1,18 @@
+export const skills = [
+    { name: "React", icon: "⚛️" },
+    { name: "Next.js", icon: "▲" },
+    { name: "TypeScript", icon: "🔷" },
+    { name: "Node.js", icon: "🟢" },
+    { name: "Tailwind CSS", icon: "🎨" },
+    { name: "GSAP", icon: "🟩" },
+    { name: "Framer Motion", icon: "🎞️" },
+    { name: "Python", icon: "🐍" },
+    { name: "Docker", icon: "🐳" },
+    { name: "PostgreSQL", icon: "🐘" },
+    { name: "MongoDB", icon: "🍃" },
+    { name: "Git", icon: "🔀" },
+    { name: "Figma", icon: "🎯" },
+    { name: "AWS", icon: "☁️" },
+    { name: "GraphQL", icon: "◈" },
+    { name: "Redis", icon: "🔴" },
+];

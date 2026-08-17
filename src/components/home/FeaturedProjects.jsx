@@ -1,19 +1,18 @@
-import { useEffect, useState, useRef } from 'react'
-import { supabase } from '../../lib/supabase'
+import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
+import SpotlightCard from '../ui/SpotlightCard'
+import { projects } from '../../data/projects'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default function FeaturedProjects() {
-    const [projects, setProjects] = useState([])
     const containerRef = useRef(null)
 
     // Ref to hold the floating image element
     const revealImgRef = useRef(null)
-
-    useEffect(() => {
-        fetchFeaturedProjects()
-    }, [])
 
     useEffect(() => {
         // Reveal Animation on Scroll
@@ -26,28 +25,13 @@ export default function FeaturedProjects() {
                     stagger: 0.1,
                     scrollTrigger: {
                         trigger: containerRef.current,
-                        start: 'top 80%',
+                        start: 'top 70%',
                     }
                 })
             }, containerRef)
             return () => ctx.revert()
         }
     }, [projects])
-
-    async function fetchFeaturedProjects() {
-        try {
-            const { data, error } = await supabase
-                .from('projects')
-                .select('*')
-                .limit(4)
-                .order('created_at', { ascending: false })
-
-            if (error) throw error
-            setProjects(data || [])
-        } catch (error) {
-            console.error('Error fetching featured projects:', error)
-        }
-    }
 
     // Handle Hover Reveal
     const handleMouseEnter = (imageUrl) => {
@@ -89,30 +73,31 @@ export default function FeaturedProjects() {
 
                 <div className="flex flex-col">
                     {projects.map((project, index) => (
-                        <Link
-                            key={project.id}
-                            to={project.demo_url}
-                            target="_blank"
-                            className="project-row group border-b border-gray-800 py-12 flex justify-between items-center hover:bg-white/5 transition-colors px-4 cursor-none"
-                            onMouseEnter={() => handleMouseEnter(project.image_url)}
-                            onMouseLeave={handleMouseLeave}
-                        >
-                            <div className="flex items-baseline space-x-8">
-                                <span className="text-gray-500 font-mono text-sm">0{index + 1}/</span>
-                                <h3 className="text-4xl md:text-6xl font-bold text-white group-hover:text-gray-300 transition-colors uppercase">
-                                    {project.title}
-                                </h3>
-                            </div>
+                        <SpotlightCard key={project.id} className="mb-4 !p-0 bg-transparent border-transparent hover:border-gray-800">
+                            <Link
+                                to={project.demo_url}
+                                target="_blank"
+                                className="project-row group border-b border-gray-800 py-12 flex justify-between items-center hover:bg-white/5 transition-colors px-8 cursor-none w-full"
+                                onMouseEnter={() => handleMouseEnter(project.image_url)}
+                                onMouseLeave={handleMouseLeave}
+                            >
+                                <div className="flex items-baseline space-x-8">
+                                    <span className="text-gray-500 font-mono text-sm">0{index + 1}/</span>
+                                    <h3 className="text-4xl md:text-6xl font-bold text-white group-hover:text-gray-300 transition-colors uppercase">
+                                        {project.title}
+                                    </h3>
+                                </div>
 
-                            <div className="hidden md:flex flex-col items-end">
-                                <span className="text-gray-400 text-sm uppercase tracking-wider mb-2">{project.tags?.[0] || 'Development'}</span>
-                                <span className="bg-white text-black text-xs font-bold px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
-                                    VIEW CASE
-                                </span>
-                            </div>
+                                <div className="hidden md:flex flex-col items-end">
+                                    <span className="text-gray-400 text-sm uppercase tracking-wider mb-2">{project.tags?.[0] || 'Development'}</span>
+                                    <span className="bg-white text-black text-xs font-bold px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                                        VIEW CASE
+                                    </span>
+                                </div>
 
-                            <ArrowUpRight className="md:hidden text-white" />
-                        </Link>
+                                <ArrowUpRight className="md:hidden text-white" />
+                            </Link>
+                        </SpotlightCard>
                     ))}
                 </div>
 

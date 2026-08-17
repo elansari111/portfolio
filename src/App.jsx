@@ -10,6 +10,9 @@ import Skills from './pages/public/Skills'
 import Experience from './pages/public/Experience'
 import Contact from './pages/public/Contact'
 import Certificates from './pages/public/Certificates' // New Import
+import Blogs from './pages/public/Blogs'
+import BlogDetail from './pages/public/BlogDetail'
+import NotFound from './pages/public/NotFound'
 import Login from './pages/admin/Login'
 import Dashboard from './pages/admin/Dashboard'
 
@@ -25,6 +28,8 @@ function App() {
                     <Route path="/experience" element={<Layout><Experience /></Layout>} />
                     <Route path="/contact" element={<Layout><Contact /></Layout>} />
                     <Route path="/certificates" element={<Layout><Certificates /></Layout>} />
+                    <Route path="/blogs" element={<Layout><Blogs /></Layout>} />
+                    <Route path="/blogs/:slug" element={<Layout><BlogDetail /></Layout>} />
 
                     {/* Admin Routes */}
                     <Route path="/login" element={<Login />} />
@@ -33,6 +38,9 @@ function App() {
                             <Dashboard />
                         </ProtectedRoute>
                     } />
+
+                    {/* 404 */}
+                    <Route path="*" element={<NotFound />} />
 
                 </Routes>
             </Router>

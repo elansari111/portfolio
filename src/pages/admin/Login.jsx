@@ -1,90 +1,84 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../../context/AuthContext'
-import { Lock } from 'lucide-react'
+import { Lock, Eye, EyeOff } from 'lucide-react'
+
+// Simple local auth — password stored in env var (VITE_ADMIN_PASSWORD)
+// Default: "admin123" — change in .env for production
+const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD || 'admin123'
+const SESSION_KEY = 'portfolio_admin_auth'
+
+export function isAdminAuthenticated() {
+    return localStorage.getItem(SESSION_KEY) === 'true'
+}
 
 export default function Login() {
-    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState(null)
-    const { signIn } = useAuth()
+    const [error, setError] = useState('')
+    const [showPw, setShowPw] = useState(false)
     const navigate = useNavigate()
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
-        setLoading(true)
-        setError(null)
-
-        try {
-            const { error } = await signIn({ email, password })
-            if (error) throw error
+        if (password === ADMIN_PASSWORD) {
+            localStorage.setItem(SESSION_KEY, 'true')
             navigate('/admin')
-        } catch (err) {
-            setError(err.message)
-        } finally {
-            setLoading(false)
+        } else {
+            setError('Incorrect password.')
         }
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-black text-white px-4">
-            <div className="w-full max-w-md space-y-8 p-8 bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl">
-                <div className="text-center">
-                    <div className="mx-auto h-12 w-12 bg-purple-900/50 rounded-full flex items-center justify-center mb-4">
-                        <Lock className="h-6 w-6 text-purple-400" />
-                    </div>
-                    <h2 className="text-3xl font-bold">Admin Access</h2>
-                    <p className="mt-2 text-gray-400">Sign in to manage your portfolio</p>
+        <div className="min-h-screen flex items-center justify-center bg-black px-4">
+            <div className="w-full max-w-sm">
+                {/* Logo */}
+                <div className="text-center mb-10">
+                    <span className="text-4xl font-heading font-bold text-white">
+                        Y<span className="text-primary">↗</span>
+                    </span>
+                    <h1 className="text-xl font-heading font-bold text-white mt-3">Admin Access</h1>
+                    <p className="text-gray-500 text-sm mt-1">Sign in to manage your portfolio</p>
                 </div>
 
-                <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-                    <div className="space-y-4">
-                        <div>
-                            <label htmlFor="email" className="sr-only">Email address</label>
-                            <input
-                                id="email"
-                                name="email"
-                                type="email"
-                                autoComplete="email"
-                                required
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                className="appearance-none relative block w-full px-3 py-3 border border-gray-700 placeholder-gray-500 text-white bg-black rounded-lg focus:outline-none focus:ring-purple-500 focus:border-purple-500 focus:z-10 sm:text-sm"
-                                placeholder="Email address"
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="password" className="sr-only">Password</label>
+                <form onSubmit={handleSubmit} className="bg-[#0d0d0f] border border-white/10 rounded-2xl p-8 space-y-5">
+                    <div className="relative">
+                        <label htmlFor="password" className="block text-xs text-gray-400 uppercase tracking-wider mb-2">
+                            Password
+                        </label>
+                        <div className="relative">
                             <input
                                 id="password"
-                                name="password"
-                                type="password"
+                                type={showPw ? 'text' : 'password'}
+                                value={password}
+                                onChange={e => { setPassword(e.target.value); setError('') }}
+                                className="w-full bg-black border border-white/10 rounded-xl px-4 py-3 pr-11 text-white text-sm outline-none focus:border-primary transition-colors"
+                                placeholder="Enter admin password"
                                 autoComplete="current-password"
                                 required
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                className="appearance-none relative block w-full px-3 py-3 border border-gray-700 placeholder-gray-500 text-white bg-black rounded-lg focus:outline-none focus:ring-purple-500 focus:border-purple-500 focus:z-10 sm:text-sm"
-                                placeholder="Password"
                             />
+                            <button
+                                type="button"
+                                onClick={() => setShowPw(!showPw)}
+                                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white transition-colors"
+                                aria-label={showPw ? 'Hide password' : 'Show password'}
+                            >
+                                {showPw ? <EyeOff size={17} /> : <Eye size={17} />}
+                            </button>
                         </div>
+                        {error && <p className="text-red-400 text-xs mt-2">{error}</p>}
                     </div>
 
-                    {error && (
-                        <div className="text-red-400 text-sm text-center bg-red-900/20 p-2 rounded">
-                            {error}
-                        </div>
-                    )}
+                    <button
+                        type="submit"
+                        className="w-full bg-primary hover:bg-primary/80 text-white py-3 rounded-full font-semibold text-sm transition-all flex items-center justify-center gap-2"
+                    >
+                        <Lock size={16} />
+                        Sign In
+                    </button>
 
-                    <div>
-                        <button
-                            type="submit"
-                            disabled={loading}
-                            className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50 transition-colors"
-                        >
-                            {loading ? 'Signing in...' : 'Sign in'}
-                        </button>
-                    </div>
+                    <p className="text-gray-600 text-xs text-center">
+                        Default password: <code className="text-gray-400">admin123</code><br />
+                        Set <code className="text-gray-400">VITE_ADMIN_PASSWORD</code> in .env to change it.
+                    </p>
                 </form>
             </div>
         </div>

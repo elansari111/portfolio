@@ -2,95 +2,118 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Global focus-visible ring (keyboard nav) ────── */
+@layer base {
+    :focus-visible {
+        outline: 2px solid #3B82F6;
+        outline-offset: 3px;
+        border-radius: 4px;
+    }
+
+    /* Remove outline for mouse users */
+    :focus:not(:focus-visible) {
+        outline: none;
+    }
+}
+
+/* ── Scrollbar hide utility ───────────────────────── */
+@layer utilities {
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* ── Base ─────────────────────────────────────────── */
 body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background-color: #000;
-  color: #fff;
+    margin: 0;
+    font-family: 'Satoshi', sans-serif;
+    background-color: #000;
+    color: #fff;
 }
 
-/* Glitch RGB Effect */
-.glitch-text {
-  position: relative;
-  font-weight: 800;
-  text-transform: uppercase;
+.dark body {
+    background-color: #000;
+    color: #fff;
 }
 
-.glitch-text::before,
-.glitch-text::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Clash Display', sans-serif;
 }
 
-.glitch-text::before {
-  left: 2px;
-  text-shadow: -2px 0 #ff00de, 2px 2px #00ffff;
-  animation: glitch-1 0.3s infinite;
+/* ── Wave hand emoji ──────────────────────────────── */
+@keyframes wave-hand {
+    0%   { transform: rotate(0deg); }
+    10%  { transform: rotate(15deg); }
+    30%  { transform: rotate(-10deg); }
+    50%  { transform: rotate(15deg); }
+    70%  { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+.animate-wave {
+    display: inline-block;
+    transform-origin: 70% 70%;
+    animation: wave-hand 1.8s ease-in-out infinite;
 }
 
-.glitch-text::after {
-  left: -2px;
-  text-shadow: -2px 0 #00ffff, 2px 2px #ff00de;
-  animation: glitch-2 0.3s infinite;
+/* ── Spin for rotating badge ─────────────────────── */
+@keyframes spin-slow {
+    to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+    animation: spin-slow 12s linear infinite;
 }
 
-@keyframes glitch-1 {
-
-  0%,
-  100% {
-    transform: translate(0);
-  }
-
-  20% {
-    transform: translate(-2px, 2px);
-  }
-
-  40% {
-    transform: translate(-2px, -2px);
-  }
-
-  60% {
-    transform: translate(2px, 2px);
-  }
-
-  80% {
-    transform: translate(2px, -2px);
-  }
+/* ── Skills Marquee ───────────────────────────────── */
+@keyframes marquee-left {
+    to { transform: translateX(-50%); }
+}
+.animate-marquee {
+    animation: marquee-left 30s linear infinite;
+}
+.marquee-track:hover .animate-marquee {
+    animation-play-state: paused;
+}
+.marquee-mask {
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
-@keyframes glitch-2 {
-
-  0%,
-  100% {
-    transform: translate(0);
-  }
-
-  20% {
-    transform: translate(2px, -2px);
-  }
-
-  40% {
-    transform: translate(2px, 2px);
-  }
-
-  60% {
-    transform: translate(-2px, -2px);
-  }
-
-  80% {
-    transform: translate(-2px, 2px);
-  }
+/* ── Scroll-to-top button ─────────────────────────── */
+@keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+    animation: fade-in-up 0.3s ease-out forwards;
 }
 
-/* Glitch on hover only */
-.glitch-hover:hover::before {
-  animation: glitch-1 0.2s infinite;
+/* ── Ping for CTA dot ─────────────────────────────── */
+@keyframes ping-soft {
+    0%   { transform: scale(1); opacity: 0.75; }
+    75%  { transform: scale(2.2); opacity: 0; }
+    100% { transform: scale(2.2); opacity: 0; }
+}
+.animate-ping-soft {
+    animation: ping-soft 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
-.glitch-hover:hover::after {
-  animation: glitch-2 0.2s infinite;
+/* ── Blue gradient for hero title ─────────────────── */
+.text-gradient-blue {
+    background: linear-gradient(135deg, #3B82F6 0%, #38bdf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ── Prose overrides for dark mode blog ────────────── */
+.dark .prose {
+    --tw-prose-body: #d1d5db;
+    --tw-prose-headings: #fff;
+    --tw-prose-links: #3B82F6;
+    --tw-prose-bold: #fff;
+    --tw-prose-code: #e5e7eb;
 }
