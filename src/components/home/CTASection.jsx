@@ -11,7 +11,7 @@ export default function CTASection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="bg-[#0d0d0f] border border-white/10 rounded-3xl p-12 md:p-16 text-center"
+                className="bg-white/50 dark:bg-black/30 backdrop-blur-xl border border-black/10 dark:border-white/10 rounded-3xl p-12 md:p-16 text-center shadow-sm"
             >
                 {/* Green status badge */}
                 <div className="inline-flex items-center gap-2 bg-green-500/10 text-green-400 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-8">
@@ -22,11 +22,11 @@ export default function CTASection() {
                     {profile.status}
                 </div>
 
-                <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6 leading-tight">
+                <h2 className="text-3xl md:text-5xl font-heading font-bold text-gray-900 dark:text-white mb-6 leading-tight">
                     Let's create your next<br />big idea.
                 </h2>
 
-                <p className="text-gray-400 text-lg mb-10 max-w-md mx-auto">
+                <p className="text-gray-600 dark:text-gray-400 text-lg mb-10 max-w-md mx-auto">
                     Have a project in mind? Let's talk and make it happen.
                 </p>
 

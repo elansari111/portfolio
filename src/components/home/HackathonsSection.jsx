@@ -27,7 +27,7 @@ function EventCard({ event, prefersReduced }) {
                 whileInView={prefersReduced ? false : { opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 whileHover={prefersReduced ? {} : { scale: 1.02 }}
-                className="relative aspect-[3/4] rounded-2xl overflow-hidden group border border-white/10 shadow-lg"
+                className="relative aspect-[3/4] rounded-2xl overflow-hidden group border border-black/10 dark:border-white/10 shadow-lg"
                 style={prefersReduced ? {} : {
                     background: 'radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59,130,246,0.12), transparent 40%)'
                 }}
@@ -73,8 +73,8 @@ export default function HackathonsSection({ events = [] }) {
                 <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-5" aria-hidden="true">
                     🏆 Hackathons &amp; Events
                 </span>
-                <h2 className="text-4xl md:text-5xl font-heading font-bold">Hackathons &amp; Events</h2>
-                <p className="text-gray-400 mt-4 max-w-lg">The competitions and events that shaped my engineering journey.</p>
+                <h2 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 dark:text-white">Hackathons &amp; Events</h2>
+                <p className="text-gray-600 dark:text-gray-400 mt-4 max-w-lg">The competitions and events that shaped my engineering journey.</p>
             </div>
 
             {/* Mobile: snap-x horizontal scroll; desktop: flex row */}

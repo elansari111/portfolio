@@ -8,18 +8,23 @@ export default {
     theme: {
         extend: {
             colors: {
-                primary: '#3B82F6',
-                secondary: '#38bdf8',
-                success: '#00bb7f',
+                primary: '#8B5CF6',
+                secondary: '#06B6D4',
+                success: '#10B981',
                 dark: {
-                    bg: '#000000',
-                    card: '#0d0d0f',
+                    bg: '#05050A',
+                    card: 'rgba(20, 20, 30, 0.6)',
                     border: 'rgba(255,255,255,0.1)'
+                },
+                light: {
+                    bg: '#F8FAFC',
+                    card: 'rgba(255, 255, 255, 0.7)',
+                    border: 'rgba(0,0,0,0.1)'
                 }
             },
             fontFamily: {
-                sans: ['Satoshi', 'sans-serif'],
-                heading: ['Clash Display', 'sans-serif'],
+                sans: ['Outfit', 'sans-serif'],
+                heading: ['Space Grotesk', 'sans-serif'],
                 pixel: ['"Press Start 2P"', 'cursive'],
             },
         },

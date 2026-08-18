@@ -62,47 +62,47 @@ export default function FeaturedProjects() {
     return (
         <section
             ref={containerRef}
-            className="py-10 bg-black relative z-10"
+            className="py-10 relative z-10"
             onMouseMove={handleMouseMove}
         >
             <div className="container mx-auto px-4">
-                <div className="flex justify-between items-end mb-12 border-b border-gray-800 pb-6">
-                    <h2 className="text-sm font-bold text-gray-400 uppercase tracking-widest">Selected Works</h2>
-                    <span className="text-sm text-gray-500">2023 - 2026</span>
+                <div className="flex justify-between items-end mb-12 border-b border-black/10 dark:border-white/10 pb-6">
+                    <h2 className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">Selected Works</h2>
+                    <span className="text-sm text-gray-500 dark:text-gray-500">2023 - 2026</span>
                 </div>
 
                 <div className="flex flex-col">
                     {projects.map((project, index) => (
-                        <SpotlightCard key={project.id} className="mb-4 !p-0 bg-transparent border-transparent hover:border-gray-800">
+                        <SpotlightCard key={project.id} className="mb-4 !p-0 bg-transparent border-transparent hover:border-black/10 dark:hover:border-white/10">
                             <Link
                                 to={project.demo_url}
                                 target="_blank"
-                                className="project-row group border-b border-gray-800 py-12 flex justify-between items-center hover:bg-white/5 transition-colors px-8 cursor-none w-full"
+                                className="project-row group border-b border-black/10 dark:border-white/10 py-12 flex justify-between items-center hover:bg-black/5 dark:hover:bg-white/5 transition-colors px-8 cursor-none w-full"
                                 onMouseEnter={() => handleMouseEnter(project.image_url)}
                                 onMouseLeave={handleMouseLeave}
                             >
                                 <div className="flex items-baseline space-x-8">
-                                    <span className="text-gray-500 font-mono text-sm">0{index + 1}/</span>
-                                    <h3 className="text-4xl md:text-6xl font-bold text-white group-hover:text-gray-300 transition-colors uppercase">
+                                    <span className="text-gray-400 dark:text-gray-500 font-mono text-sm">0{index + 1}/</span>
+                                    <h3 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors uppercase">
                                         {project.title}
                                     </h3>
                                 </div>
 
                                 <div className="hidden md:flex flex-col items-end">
-                                    <span className="text-gray-400 text-sm uppercase tracking-wider mb-2">{project.tags?.[0] || 'Development'}</span>
-                                    <span className="bg-white text-black text-xs font-bold px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <span className="text-gray-500 dark:text-gray-400 text-sm uppercase tracking-wider mb-2">{project.tags?.[0] || 'Development'}</span>
+                                    <span className="bg-gray-900 text-white dark:bg-white dark:text-black text-xs font-bold px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
                                         VIEW CASE
                                     </span>
                                 </div>
 
-                                <ArrowUpRight className="md:hidden text-white" />
+                                <ArrowUpRight className="md:hidden text-gray-900 dark:text-white" />
                             </Link>
                         </SpotlightCard>
                     ))}
                 </div>
 
                 <div className="mt-12 text-center">
-                    <Link to="/projects" className="inline-block text-white border border-white/20 rounded-full px-8 py-3 hover:bg-white hover:text-black transition-all">
+                    <Link to="/projects" className="inline-block text-gray-900 dark:text-white border border-black/20 dark:border-white/20 rounded-full px-8 py-3 hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
                         View All Projects
                     </Link>
                 </div>

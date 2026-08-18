@@ -30,18 +30,19 @@
 /* ── Base ─────────────────────────────────────────── */
 body {
     margin: 0;
-    font-family: 'Satoshi', sans-serif;
-    background-color: #000;
-    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    background-color: #F8FAFC;
+    color: #0f172a;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .dark body {
-    background-color: #000;
-    color: #fff;
+    background-color: #05050A;
+    color: #e2e8f0;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Clash Display', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 /* ── Wave hand emoji ──────────────────────────────── */
@@ -113,7 +114,21 @@ h1, h2, h3, h4, h5, h6 {
 .dark .prose {
     --tw-prose-body: #d1d5db;
     --tw-prose-headings: #fff;
-    --tw-prose-links: #3B82F6;
+    --tw-prose-links: #8B5CF6;
     --tw-prose-bold: #fff;
     --tw-prose-code: #e5e7eb;
+}
+
+/* ── Blob Animation ───────────────────────────────── */
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+.animate-blob {
+  animation: blob 7s infinite;
+}
+.animation-delay-2000 {
+  animation-delay: 2s;
 }

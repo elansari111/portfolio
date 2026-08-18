@@ -24,13 +24,13 @@ export default function Navbar() {
         <>
             {/* Desktop Navbar */}
             <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 hidden md:flex items-center gap-3">
-                <div className="bg-white/5 dark:bg-white/5 backdrop-blur-2xl border border-white/10 rounded-full px-2 py-2 shadow-2xl flex items-center gap-1">
+                <div className="bg-black/5 dark:bg-white/5 backdrop-blur-2xl border border-black/10 dark:border-white/10 rounded-full px-2 py-2 shadow-2xl flex items-center gap-1">
                     {/* Logo */}
-                    <Link to="/" className="px-4 py-2 flex items-center gap-1 font-heading font-bold text-white text-sm">
+                    <Link to="/" className="px-4 py-2 flex items-center gap-1 font-heading font-bold text-gray-900 dark:text-white text-sm">
                         Y<span className="text-primary">↗</span>
                     </Link>
 
-                    <div className="w-px h-5 bg-white/10" />
+                    <div className="w-px h-5 bg-black/10 dark:bg-white/10" />
 
                     {links.map((link) => (
                         <Link
@@ -38,8 +38,8 @@ export default function Navbar() {
                             to={link.path}
                             className={`relative px-4 py-2 text-sm font-medium transition-colors rounded-full ${
                                 isActive(link.path)
-                                    ? 'text-white'
-                                    : 'text-gray-400 hover:text-white'
+                                    ? 'text-gray-900 dark:text-white'
+                                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
                             }`}
                         >
                             {isActive(link.path) && (
@@ -58,7 +58,7 @@ export default function Navbar() {
                 <ThemeToggle />
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-full p-3 text-white"
+                    className="bg-black/5 dark:bg-white/5 backdrop-blur-2xl border border-black/10 dark:border-white/10 rounded-full p-3 text-gray-900 dark:text-white"
                 >
                     {isOpen ? <X size={22} /> : <Menu size={22} />}
                 </button>
@@ -71,7 +71,7 @@ export default function Navbar() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="md:hidden fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center"
+                        className="md:hidden fixed inset-0 z-40 bg-white/95 dark:bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center"
                     >
                         {links.map((link, i) => (
                             <motion.div
@@ -83,7 +83,7 @@ export default function Navbar() {
                                 <Link
                                     to={link.path}
                                     onClick={() => setIsOpen(false)}
-                                    className="block text-3xl font-heading font-bold text-white py-4 hover:text-primary transition-colors"
+                                    className="block text-3xl font-heading font-bold text-gray-900 dark:text-white py-4 hover:text-primary dark:hover:text-primary transition-colors"
                                 >
                                     {link.name}
                                 </Link>

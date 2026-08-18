@@ -4,19 +4,20 @@ import { Sparkles, ArrowUpRight } from 'lucide-react'
 export default function ExperienceSection({ experience = [] }) {
     return (
         <section className="py-24 max-w-6xl mx-auto px-6">
-            {/* Label chip + heading */}
-            <div className="mb-16">
-                <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-5">
-                    <Sparkles size={14} />
-                    Work History
-                </span>
-                <h2 className="text-4xl md:text-5xl font-heading font-bold">Experience</h2>
-            </div>
+            <div className="bg-white/50 dark:bg-black/30 backdrop-blur-xl border border-black/10 dark:border-white/10 rounded-3xl p-8 md:p-12 shadow-sm">
+                {/* Label chip + heading */}
+                <div className="mb-12">
+                    <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-5">
+                        <Sparkles size={14} />
+                        Work History
+                    </span>
+                    <h2 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 dark:text-white">Experience</h2>
+                </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                 {/* Left — description */}
                 <div className="md:col-span-1">
-                    <p className="text-gray-400 leading-relaxed">
+                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                         A timeline of my professional journey building digital products, contributing to teams, and growing as an engineer.
                     </p>
                 </div>
@@ -30,16 +31,16 @@ export default function ExperienceSection({ experience = [] }) {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: '-80px' }}
                             transition={{ delay: i * 0.1, duration: 0.5 }}
-                            className="group flex items-center gap-5 py-6 border-b border-white/10 hover:bg-white/[0.02] px-4 -mx-4 rounded-xl transition-colors cursor-default"
+                            className="group flex items-center gap-5 py-6 border-b border-black/5 dark:border-white/5 hover:bg-black/5 dark:hover:bg-white/5 px-4 -mx-4 rounded-xl transition-colors cursor-default"
                         >
                             {/* Logo circle */}
-                            <div className="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 text-lg font-heading font-bold text-primary">
+                            <div className="w-11 h-11 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex items-center justify-center flex-shrink-0 text-lg font-heading font-bold text-primary">
                                 {job.company.charAt(0)}
                             </div>
 
                             {/* Info */}
                             <div className="flex-1 min-w-0">
-                                <p className="font-heading font-bold text-white text-base">{job.title}</p>
+                                <p className="font-heading font-bold text-gray-900 dark:text-white text-base">{job.title}</p>
                                 <p className="text-gray-500 text-sm">@{job.company}</p>
                             </div>
 
@@ -54,6 +55,7 @@ export default function ExperienceSection({ experience = [] }) {
                         </motion.div>
                     ))}
                 </div>
+            </div>
             </div>
         </section>
     )

@@ -4,11 +4,9 @@ import SkillsMarquee from '../../components/home/SkillsMarquee'
 import ExperienceSection from '../../components/home/ExperienceSection'
 import HackathonsSection from '../../components/home/HackathonsSection'
 import ExpertiseSection from '../../components/home/ExpertiseSection'
-import ProcessSection from '../../components/home/ProcessSection'
 import CTASection from '../../components/home/CTASection'
 import { store } from '../../data/store'
 
-// Read from store (localStorage overrides JS defaults)
 const profileData  = store.getProfile()
 const experienceData = store.getExperience()
 const skillsData   = store.getSkills()
@@ -23,13 +21,13 @@ export default function Home() {
                 url="/"
             />
             <main>
-                <Hero profile={profileData} />
+                <div className="pt-32 pb-8 max-w-7xl mx-auto px-4 sm:px-6">
+                    <Hero profile={profileData} />
+                </div>
                 <SkillsMarquee skills={skillsData} />
+                <ExpertiseSection />
                 <ExperienceSection experience={experienceData} />
                 <HackathonsSection events={eventsData} />
-                <ExpertiseSection />
-                <SkillsMarquee skills={skillsData} />
-                <ProcessSection />
                 <CTASection profile={profileData} />
             </main>
         </>

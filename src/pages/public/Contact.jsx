@@ -34,8 +34,8 @@ function Field({ label, id, error, type = 'text', textarea = false, ...props }) 
             <El
                 id={id}
                 type={type}
-                className={`w-full bg-white/5 border rounded-xl px-4 py-3 text-white placeholder-gray-600 outline-none text-sm transition-colors resize-none
-                    ${error ? 'border-red-500/50 focus:border-red-500' : 'border-white/10 focus:border-primary'}
+                className={`w-full bg-black/5 dark:bg-white/5 border rounded-xl px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-600 outline-none text-sm transition-colors resize-none
+                    ${error ? 'border-red-500/50 focus:border-red-500' : 'border-black/10 dark:border-white/10 focus:border-primary'}
                     ${textarea ? 'min-h-[140px]' : ''}`}
                 {...props}
             />
@@ -136,7 +136,7 @@ export default function Contact() {
                 {/* Header */}
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-16">
                     <p className="text-primary font-mono text-sm uppercase tracking-widest mb-3">CONNECT WITH ME /</p>
-                    <h1 className="text-5xl md:text-7xl font-heading font-bold leading-tight">
+                    <h1 className="text-5xl md:text-7xl font-heading font-bold leading-tight text-gray-900 dark:text-white">
                         Let's start a<br />project together.
                     </h1>
                 </motion.div>
@@ -204,7 +204,7 @@ export default function Contact() {
                         transition={{ delay: 0.2 }}
                         className="lg:col-span-2"
                     >
-                        <div className="bg-[#0d0d0f] border border-white/10 rounded-2xl p-7 sticky top-28">
+                        <div className="bg-white/50 dark:bg-black/30 backdrop-blur-md border border-black/10 dark:border-white/10 rounded-2xl p-7 sticky top-28 shadow-sm">
                             {/* Status badge */}
                             <div className="inline-flex items-center gap-2 bg-green-500/10 text-green-400 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
                                 <span className="relative flex h-2 w-2">
@@ -222,7 +222,7 @@ export default function Contact() {
                                     className="w-14 h-14 rounded-full object-cover border-2 border-primary/30"
                                 />
                                 <div>
-                                    <p className="font-heading font-bold text-white">{profile.name}</p>
+                                    <p className="font-heading font-bold text-gray-900 dark:text-white">{profile.name}</p>
                                     <p className="text-gray-500 text-sm">{profile.roles?.[0]}</p>
                                 </div>
                             </div>
@@ -231,7 +231,7 @@ export default function Contact() {
                                 {profile.bio}
                             </p>
 
-                            <div className="border-t border-white/10 pt-5">
+                            <div className="border-t border-black/10 dark:border-white/10 pt-5">
                                 <p className="text-gray-500 text-xs uppercase tracking-widest mb-4">Find me on</p>
                                 <div className="flex items-center gap-4">
                                     {socials.map((s) => (
