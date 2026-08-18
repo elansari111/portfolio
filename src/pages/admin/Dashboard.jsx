@@ -380,7 +380,7 @@ function SkillsManager() {
 
     const handleAdd = () => {
         if (!name.trim()) return
-        save([...items, { name: name.trim(), icon: icon.trim() || '⚙️' }])
+        save([...items, { name: name.trim(), icon: icon.trim() || 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/devicon/devicon-original.svg' }])
         setName(''); setIcon('')
     }
 
@@ -400,8 +400,8 @@ function SkillsManager() {
                     onKeyDown={e => e.key === 'Enter' && handleAdd()}
                 />
                 <input
-                    className="w-20 bg-black border border-white/10 rounded-xl px-3 py-2 text-white text-sm outline-none focus:border-primary transition-colors text-center"
-                    placeholder="Icon"
+                    className="w-48 bg-black border border-white/10 rounded-xl px-3 py-2 text-white text-sm outline-none focus:border-primary transition-colors"
+                    placeholder="Logo URL"
                     value={icon}
                     onChange={e => setIcon(e.target.value)}
                 />
@@ -412,7 +412,7 @@ function SkillsManager() {
             <div className="flex flex-wrap gap-2">
                 {items.map(skill => (
                     <div key={skill.name} className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm text-gray-300">
-                        <span>{skill.icon}</span>
+                        <img src={skill.icon} alt="" className="w-5 h-5 object-contain" />
                         {skill.name}
                         <button onClick={() => handleDelete(skill.name)} className="text-red-400 hover:text-red-300 ml-1"><X size={12} /></button>
                     </div>

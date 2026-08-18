@@ -18,7 +18,7 @@ export default function SkillsMarquee({ skills = [] }) {
                                 key={i}
                                 className="flex items-center gap-2 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full px-5 py-2.5 text-sm text-gray-800 dark:text-gray-300 whitespace-nowrap select-none"
                             >
-                                <span aria-hidden="true">{skill.icon}</span>
+                                <img src={skill.icon} alt="" aria-hidden="true" className="w-5 h-5 object-contain" loading="lazy" />
                                 {skill.name}
                             </div>
                         ))}
