@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion'
-import { Sparkles, ArrowUpRight } from 'lucide-react'
+import { Sparkles } from 'lucide-react'
+import InteractiveTimeline from './InteractiveTimeline'
 
 export default function ExperienceSection({ experience = [] }) {
     return (
@@ -14,48 +14,10 @@ export default function ExperienceSection({ experience = [] }) {
                     <h2 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 dark:text-white">Experience</h2>
                 </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                {/* Left — description */}
-                <div className="md:col-span-1">
-                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                        A timeline of my professional journey building digital products, contributing to teams, and growing as an engineer.
-                    </p>
+                {/* Interactive Timeline */}
+                <div className="py-8">
+                    <InteractiveTimeline experience={experience} />
                 </div>
-
-                {/* Right — job list */}
-                <div className="md:col-span-2">
-                    {experience.map((job, i) => (
-                        <motion.div
-                            key={job.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: '-80px' }}
-                            transition={{ delay: i * 0.1, duration: 0.5 }}
-                            className="group flex items-center gap-5 py-6 border-b border-black/5 dark:border-white/5 hover:bg-black/5 dark:hover:bg-white/5 px-4 -mx-4 rounded-xl transition-colors cursor-default"
-                        >
-                            {/* Logo circle */}
-                            <div className="w-11 h-11 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex items-center justify-center flex-shrink-0 text-lg font-heading font-bold text-primary">
-                                {job.company.charAt(0)}
-                            </div>
-
-                            {/* Info */}
-                            <div className="flex-1 min-w-0">
-                                <p className="font-heading font-bold text-gray-900 dark:text-white text-base">{job.title}</p>
-                                <p className="text-gray-500 text-sm">@{job.company}</p>
-                            </div>
-
-                            {/* Date + hover arrow */}
-                            <div className="flex items-center gap-3 flex-shrink-0">
-                                <span className="text-gray-500 text-sm hidden sm:block">{job.startDate} – {job.endDate}</span>
-                                <ArrowUpRight
-                                    size={16}
-                                    className="text-gray-600 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
-                                />
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
-            </div>
             </div>
         </section>
     )

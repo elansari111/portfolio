@@ -6,7 +6,9 @@ export const experience = [
         logo: "",
         startDate: "Jan 2024",
         endDate: "Present",
-        description: "Building scalable web applications and premium portfolios for international clients."
+        description: "Building scalable web applications and premium portfolios for international clients.",
+        icon: "Laptop",
+        color: "#8B5CF6"
     },
     {
         id: 2,
@@ -15,6 +17,8 @@ export const experience = [
         logo: "",
         startDate: "Jun 2023",
         endDate: "Dec 2023",
-        description: "Developed interactive UI components and optimized web performance."
+        description: "Developed interactive UI components and optimized web performance.",
+        icon: "Code",
+        color: "#06B6D4"
     }
 ];
