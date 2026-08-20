@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
 import SpotlightCard from '../ui/SpotlightCard'
+import Card3D from '../ui/Card3D'
 import { projects } from '../../data/projects'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -73,11 +74,11 @@ export default function FeaturedProjects() {
 
                 <div className="flex flex-col">
                     {projects.map((project, index) => (
-                        <SpotlightCard key={project.id} className="mb-4 !p-0 bg-transparent border-transparent hover:border-black/10 dark:hover:border-white/10">
+                        <Card3D key={project.id} className="mb-4" intensity={10}>
                             <Link
                                 to={project.demo_url}
                                 target="_blank"
-                                className="project-row group border-b border-black/10 dark:border-white/10 py-12 flex justify-between items-center hover:bg-black/5 dark:hover:bg-white/5 transition-colors px-8 cursor-none w-full"
+                                className="project-row group border-b border-black/10 dark:border-white/10 py-12 flex justify-between items-center hover:bg-black/5 dark:hover:bg-white/5 transition-colors px-8 cursor-none w-full bg-white/50 dark:bg-black/30 backdrop-blur-xl rounded-2xl"
                                 onMouseEnter={() => handleMouseEnter(project.image_url)}
                                 onMouseLeave={handleMouseLeave}
                             >
@@ -97,7 +98,7 @@ export default function FeaturedProjects() {
 
                                 <ArrowUpRight className="md:hidden text-gray-900 dark:text-white" />
                             </Link>
-                        </SpotlightCard>
+                        </Card3D>
                     ))}
                 </div>
 

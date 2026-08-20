@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ExternalLink, Github, X, ArrowUpRight } from 'lucide-react'
 import { store } from '../../data/store'
 import SEO from '../../components/ui/SEO'
+import Card3D from '../../components/ui/Card3D'
 
 const projects = store.getProjects()
 
@@ -16,23 +17,24 @@ function ProjectCard({ project, onClick, index }) {
     }
 
     return (
-        <motion.article
-            ref={cardRef}
-            onMouseMove={handleMouseMove}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ delay: index * 0.1, duration: 0.6, ease: 'easeOut' }}
-            className="group relative rounded-2xl overflow-hidden border border-white/10 cursor-pointer focus-within:ring-2 focus-within:ring-primary"
-            style={{
-                background: `radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), ${project.accentColor}18, transparent 40%)`,
-            }}
-        >
-            <button
-                onClick={() => onClick(project)}
-                aria-label={`View details for ${project.title}`}
-                className="block w-full text-left focus-visible:outline-none"
+        <Card3D intensity={12}>
+            <motion.article
+                ref={cardRef}
+                onMouseMove={handleMouseMove}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ delay: index * 0.1, duration: 0.6, ease: 'easeOut' }}
+                className="group relative rounded-2xl overflow-hidden border border-white/10 cursor-pointer focus-within:ring-2 focus-within:ring-primary"
+                style={{
+                    background: `radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), ${project.accentColor}18, transparent 40%)`,
+                }}
             >
+                <button
+                    onClick={() => onClick(project)}
+                    aria-label={`View details for ${project.title}`}
+                    className="block w-full text-left focus-visible:outline-none"
+                >
                 {/* Cover Image */}
                 <div
                     className="relative h-56 overflow-hidden"
@@ -79,6 +81,7 @@ function ProjectCard({ project, onClick, index }) {
                 </div>
             </button>
         </motion.article>
+        </Card3D>
     )
 }
 
