@@ -1,171 +1,176 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Code, Server, ShieldCheck, ChevronDown } from 'lucide-react'
-import { useReducedMotion } from '../../hooks/useReducedMotion'
+import { motion } from 'framer-motion'
+import { Code, Server, ShieldCheck, Zap, Layers, Cpu } from 'lucide-react'
+import Card3D from '../ui/Card3D'
 
 const areas = [
     {
         id: 'fullstack',
         title: 'Full-Stack Development',
         icon: Code,
+        color: '#8B5CF6',
         skills: ['React', 'Next.js', 'Node.js', 'Express', 'TypeScript', 'PostgreSQL', 'MongoDB', 'GraphQL'],
+        description: 'Building scalable web applications from frontend to backend with modern frameworks.'
     },
     {
         id: 'devops',
         title: 'DevOps Engineering',
         icon: Server,
+        color: '#06B6D4',
         skills: ['Docker', 'CI/CD', 'AWS', 'Nginx', 'GitHub Actions', 'Linux', 'Terraform'],
+        description: 'Automating deployment pipelines and managing cloud infrastructure efficiently.'
     },
     {
         id: 'qa',
         title: 'QA & Testing',
         icon: ShieldCheck,
+        color: '#10B981',
         skills: ['Jest', 'Cypress', 'Playwright', 'Vitest', 'React Testing Library', 'Storybook'],
+        description: 'Ensuring code quality through comprehensive testing strategies and automation.'
+    },
+    {
+        id: 'performance',
+        title: 'Performance Optimization',
+        icon: Zap,
+        color: '#F59E0B',
+        skills: ['Web Vitals', 'Code Splitting', 'Lazy Loading', 'Caching', 'CDN', 'Bundle Analysis'],
+        description: 'Optimizing applications for speed, accessibility, and user experience.'
+    },
+    {
+        id: 'architecture',
+        title: 'System Architecture',
+        icon: Layers,
+        color: '#EC4899',
+        skills: ['Microservices', 'REST APIs', 'GraphQL', 'Event-Driven', 'Design Patterns', 'Scalability'],
+        description: 'Designing robust and scalable system architectures for complex applications.'
+    },
+    {
+        id: 'ai',
+        title: 'AI Integration',
+        icon: Cpu,
+        color: '#6366F1',
+        skills: ['OpenAI', 'LangChain', 'Vector DBs', 'RAG', 'ML Models', 'Prompt Engineering'],
+        description: 'Integrating AI capabilities into applications for enhanced functionality.'
     },
 ]
 
-function Accordion({ area, isOpen, toggle, prefersReduced }) {
-    const panelId = `accordion-panel-${area.id}`
-    const buttonId = `accordion-btn-${area.id}`
-
+function ExpertiseCard({ area, index }) {
     return (
-        <div className="bg-white/50 dark:bg-black/30 backdrop-blur-md border border-black/10 dark:border-white/10 rounded-2xl overflow-hidden shadow-sm">
-            <button
-                id={buttonId}
-                onClick={toggle}
-                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle() } }}
-                aria-expanded={isOpen}
-                aria-controls={panelId}
-                className="w-full flex items-center gap-4 p-5 md:p-6 text-left group hover:bg-black/5 dark:hover:bg-white/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+        <Card3D intensity={8} className="h-full">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                className="relative h-full bg-white dark:bg-gray-900/80 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all group"
             >
-                <div className="w-12 h-12 rounded-2xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary flex-shrink-0" aria-hidden="true">
-                    <area.icon size={24} />
+                {/* Icon Container */}
+                <div 
+                    className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110 group-hover:rotate-5"
+                    style={{ backgroundColor: `${area.color}20` }}
+                >
+                    <area.icon size={32} style={{ color: area.color }} />
                 </div>
-                <span className="flex-1 font-heading font-bold text-xl text-gray-900 dark:text-white">{area.title}</span>
-                <ChevronDown
-                    size={24}
-                    aria-hidden="true"
-                    className={`text-gray-500 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+
+                {/* Title */}
+                <h3 className="text-xl font-heading font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">
+                    {area.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">
+                    {area.description}
+                </p>
+
+                {/* Skills */}
+                <div className="flex flex-wrap gap-2">
+                    {area.skills.slice(0, 4).map((skill, i) => (
+                        <span
+                            key={skill}
+                            className="text-xs px-3 py-1 rounded-full font-medium transition-colors group-hover:scale-105"
+                            style={{ 
+                                backgroundColor: `${area.color}15`,
+                                color: area.color,
+                                border: `1px solid ${area.color}30`
+                            }}
+                        >
+                            {skill}
+                        </span>
+                    ))}
+                    {area.skills.length > 4 && (
+                        <span className="text-xs px-3 py-1 rounded-full font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400">
+                            +{area.skills.length - 4}
+                        </span>
+                    )}
+                </div>
+
+                {/* Hover Glow Effect */}
+                <div 
+                    className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+                    style={{ 
+                        background: `radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), ${area.color}10, transparent 50%)`
+                    }}
                 />
-            </button>
-
-            <AnimatePresence initial={false}>
-                {isOpen && (
-                    <motion.div
-                        id={panelId}
-                        role="region"
-                        aria-labelledby={buttonId}
-                        initial={prefersReduced ? false : { height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={prefersReduced ? false : { height: 0, opacity: 0 }}
-                        transition={{ duration: 0.35, ease: 'easeInOut' }}
-                        className="overflow-hidden"
-                    >
-                        <div className="flex flex-wrap gap-2 px-5 pb-5 md:px-6 md:pb-6 pt-2">
-                            {area.skills.map(skill => (
-                                <span
-                                    key={skill}
-                                    className="bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-gray-700 dark:text-gray-300 px-4 py-1.5 rounded-full text-sm font-medium"
-                                >
-                                    {skill}
-                                </span>
-                            ))}
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </div>
-    )
-}
-
-function AtomAnimation({ prefersReduced }) {
-    if (prefersReduced) {
-        return (
-            <div className="flex items-center justify-center">
-                <svg viewBox="0 0 200 200" className="w-48 h-48 md:w-64 md:h-64" aria-label="Atom diagram" role="img">
-                    <circle cx="100" cy="100" r="8" fill="#8B5CF6" />
-                    <ellipse cx="100" cy="100" rx="70" ry="30" fill="none" stroke="currentColor" strokeWidth="1" className="text-black/10 dark:text-white/10" transform="rotate(-20 100 100)" />
-                    <ellipse cx="100" cy="100" rx="55" ry="65" fill="none" stroke="currentColor" strokeWidth="1" className="text-black/10 dark:text-white/10" transform="rotate(50 100 100)" />
-                    <ellipse cx="100" cy="100" rx="80" ry="25" fill="none" stroke="currentColor" strokeWidth="1" className="text-black/10 dark:text-white/10" transform="rotate(85 100 100)" />
-                </svg>
-            </div>
-        )
-    }
-
-    return (
-        <div className="flex items-center justify-center relative" aria-hidden="true">
-            {/* Soft background glow for the atom */}
-            <div className="absolute w-48 h-48 bg-primary/20 rounded-full blur-[80px]" />
-            <svg viewBox="0 0 200 200" className="w-48 h-48 md:w-64 md:h-64 relative z-10">
-                <defs>
-                    <filter id="glow">
-                        <feGaussianBlur stdDeviation="2" result="blur" />
-                        <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-                    </filter>
-                </defs>
-                <circle cx="100" cy="100" r="8" fill="#8B5CF6" filter="url(#glow)">
-                    <animate attributeName="r" values="7;9;7" dur="2s" repeatCount="indefinite" />
-                </circle>
-                <circle cx="100" cy="100" r="14" fill="none" stroke="#8B5CF6" strokeWidth="0.5" opacity="0.3">
-                    <animate attributeName="r" values="12;18;12" dur="2s" repeatCount="indefinite" />
-                </circle>
-                <ellipse cx="100" cy="100" rx="70" ry="30" fill="none" stroke="currentColor" strokeWidth="1" className="text-black/10 dark:text-white/10" transform="rotate(-20 100 100)" />
-                <circle r="4" fill="#8B5CF6" filter="url(#glow)">
-                    <animateMotion dur="4s" repeatCount="indefinite">
-                        <mpath href="#o1" />
-                    </animateMotion>
-                </circle>
-                <ellipse id="o1" cx="100" cy="100" rx="70" ry="30" fill="none" transform="rotate(-20 100 100)" />
-                <ellipse cx="100" cy="100" rx="55" ry="65" fill="none" stroke="currentColor" strokeWidth="1" className="text-black/10 dark:text-white/10" transform="rotate(50 100 100)" />
-                <circle r="3.5" fill="#06B6D4" filter="url(#glow)">
-                    <animateMotion dur="6s" repeatCount="indefinite">
-                        <mpath href="#o2" />
-                    </animateMotion>
-                </circle>
-                <ellipse id="o2" cx="100" cy="100" rx="55" ry="65" fill="none" transform="rotate(50 100 100)" />
-                <ellipse cx="100" cy="100" rx="80" ry="25" fill="none" stroke="currentColor" strokeWidth="1" className="text-black/10 dark:text-white/10" transform="rotate(85 100 100)" />
-                <circle r="3" fill="#10B981" filter="url(#glow)">
-                    <animateMotion dur="5s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear">
-                        <mpath href="#o3" />
-                    </animateMotion>
-                </circle>
-                <ellipse id="o3" cx="100" cy="100" rx="80" ry="25" fill="none" transform="rotate(85 100 100)" />
-            </svg>
-        </div>
+            </motion.div>
+        </Card3D>
     )
 }
 
 export default function ExpertiseSection() {
-    const [openIdx, setOpenIdx] = useState(0)
-    const prefersReduced = useReducedMotion()
-
     return (
-        <section className="py-24 max-w-6xl mx-auto px-6 relative" aria-labelledby="expertise-heading">
-            <div className="mb-16 text-center md:text-left">
-                <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-5" aria-hidden="true">
-                    🎯 Core Competencies
-                </span>
-                <h2 id="expertise-heading" className="text-4xl md:text-5xl font-heading font-bold text-gray-900 dark:text-white">Areas of Expertise</h2>
-                <p className="text-gray-600 dark:text-gray-400 mt-4 max-w-lg mx-auto md:mx-0">My technical toolkit and competencies across the modern software development lifecycle.</p>
+        <section className="py-24 max-w-7xl mx-auto px-6 relative" aria-labelledby="expertise-heading">
+            {/* Background Decoration */}
+            <div className="absolute top-20 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] -z-10" />
+            <div className="absolute bottom-20 left-0 w-96 h-96 bg-secondary/5 rounded-full blur-[120px] -z-10" />
+
+            {/* Header */}
+            <div className="mb-16 text-center">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <span className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 text-primary px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-5 border border-primary/20">
+                        🎯 Core Competencies
+                    </span>
+                    <h2 id="expertise-heading" className="text-4xl md:text-6xl font-heading font-bold text-gray-900 dark:text-white mb-4">
+                        Areas of Expertise
+                    </h2>
+                    <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
+                        My technical toolkit and competencies across the modern software development lifecycle
+                    </p>
+                </motion.div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-                <div role="list" aria-label="Expertise areas" className="flex flex-col gap-4">
-                    {areas.map((area, i) => (
-                        <div key={area.id} role="listitem">
-                            <Accordion
-                                area={area}
-                                isOpen={openIdx === i}
-                                toggle={() => setOpenIdx(openIdx === i ? -1 : i)}
-                                prefersReduced={prefersReduced}
-                            />
-                        </div>
-                    ))}
-                </div>
-                <div className="hidden md:flex items-center justify-center min-h-[400px]">
-                    <AtomAnimation prefersReduced={prefersReduced} />
-                </div>
+            {/* Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" role="list" aria-label="Expertise areas">
+                {areas.map((area, index) => (
+                    <div key={area.id} role="listitem">
+                        <ExpertiseCard area={area} index={index} />
+                    </div>
+                ))}
             </div>
+
+            {/* Stats Bar */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
+            >
+                {[
+                    { label: 'Technologies', value: '20+' },
+                    { label: 'Projects', value: '15+' },
+                    { label: 'Years Exp', value: '3+' },
+                    { label: 'Happy Clients', value: '10+' }
+                ].map((stat, i) => (
+                    <div key={i} className="text-center p-6 bg-white/50 dark:bg-black/30 backdrop-blur-xl border border-black/10 dark:border-white/10 rounded-2xl">
+                        <div className="text-3xl font-heading font-bold text-primary mb-1">{stat.value}</div>
+                        <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
+                    </div>
+                ))}
+            </motion.div>
         </section>
     )
 }
