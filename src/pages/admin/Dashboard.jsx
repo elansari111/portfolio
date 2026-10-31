@@ -599,6 +599,15 @@ export default function Dashboard() {
                     >
                         <RefreshCw size={18} /> Reset to Defaults
                     </button>
+                    <button
+                        onClick={() => {
+                            localStorage.removeItem('portfolio_admin_auth')
+                            window.location.href = '/login'
+                        }}
+                        className="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-red-400 hover:bg-red-500/10 transition-all"
+                    >
+                        <LogOut size={18} /> Logout
+                    </button>
                 </div>
             </aside>
 
