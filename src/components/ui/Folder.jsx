@@ -734,7 +734,7 @@ const DOC_HEADING_STYLE = {
   background: 'var(--folder-paper-ink-strong)'
 };
 const DOC_LINE_STYLE = { height: 'calc(4px * var(--folder-scale))', background: 'var(--folder-paper-ink)' };
-const DOC_BLOCK_STYLE = {
+const _DOC_BLOCK_STYLE = {
   height: 'calc(40px * var(--folder-scale))',
   margin: 'calc(3px * var(--folder-scale)) 0',
   borderRadius: 'calc(5px * var(--folder-scale))',

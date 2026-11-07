@@ -1,0 +1,776 @@
+{
+  "date": "2026-11-07",
+  "checks": [
+    {
+      "w": 320,
+      "path": "/",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "w": 320,
+      "path": "/projects",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "w": 320,
+      "path": "/skills",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "w": 320,
+      "path": "/experience",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "w": 320,
+      "path": "/certificates",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "w": 320,
+      "path": "/blogs",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "w": 320,
+      "path": "/blogs/mastering-react-animations",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "w": 320,
+      "path": "/contact",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "w": 320,
+      "path": "/events",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "w": 320,
+      "path": "/not-a-page",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "w": 320,
+      "path": "/login",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 305,
+      "width": 305
+    },
+    {
+      "w": 375,
+      "path": "/",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 360,
+      "width": 360
+    },
+    {
+      "w": 375,
+      "path": "/projects",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 360,
+      "width": 360
+    },
+    {
+      "w": 375,
+      "path": "/skills",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 360,
+      "width": 360
+    },
+    {
+      "w": 375,
+      "path": "/experience",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 360,
+      "width": 360
+    },
+    {
+      "w": 375,
+      "path": "/certificates",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 360,
+      "width": 360
+    },
+    {
+      "w": 375,
+      "path": "/blogs",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 360,
+      "width": 360
+    },
+    {
+      "w": 375,
+      "path": "/blogs/mastering-react-animations",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 360,
+      "width": 360
+    },
+    {
+      "w": 375,
+      "path": "/contact",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 360,
+      "width": 360
+    },
+    {
+      "w": 375,
+      "path": "/events",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 360,
+      "width": 360
+    },
+    {
+      "w": 375,
+      "path": "/not-a-page",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 360,
+      "width": 360
+    },
+    {
+      "w": 375,
+      "path": "/login",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 360,
+      "width": 360
+    },
+    {
+      "w": 640,
+      "path": "/",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 625,
+      "width": 625
+    },
+    {
+      "w": 640,
+      "path": "/projects",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 625,
+      "width": 625
+    },
+    {
+      "w": 640,
+      "path": "/skills",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 625,
+      "width": 625
+    },
+    {
+      "w": 640,
+      "path": "/experience",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 625,
+      "width": 625
+    },
+    {
+      "w": 640,
+      "path": "/certificates",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 625,
+      "width": 625
+    },
+    {
+      "w": 640,
+      "path": "/blogs",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 625,
+      "width": 625
+    },
+    {
+      "w": 640,
+      "path": "/blogs/mastering-react-animations",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 625,
+      "width": 625
+    },
+    {
+      "w": 640,
+      "path": "/contact",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 625,
+      "width": 625
+    },
+    {
+      "w": 640,
+      "path": "/events",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 625,
+      "width": 625
+    },
+    {
+      "w": 640,
+      "path": "/not-a-page",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 640,
+      "width": 640
+    },
+    {
+      "w": 640,
+      "path": "/login",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 625,
+      "width": 625
+    },
+    {
+      "w": 768,
+      "path": "/",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "w": 768,
+      "path": "/projects",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "w": 768,
+      "path": "/skills",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "w": 768,
+      "path": "/experience",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "w": 768,
+      "path": "/certificates",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "w": 768,
+      "path": "/blogs",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "w": 768,
+      "path": "/blogs/mastering-react-animations",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "w": 768,
+      "path": "/contact",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "w": 768,
+      "path": "/events",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "w": 768,
+      "path": "/not-a-page",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "w": 768,
+      "path": "/login",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 753,
+      "width": 753
+    },
+    {
+      "w": 1024,
+      "path": "/",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1009,
+      "width": 1009
+    },
+    {
+      "w": 1024,
+      "path": "/projects",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1009,
+      "width": 1009
+    },
+    {
+      "w": 1024,
+      "path": "/skills",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1009,
+      "width": 1009
+    },
+    {
+      "w": 1024,
+      "path": "/experience",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1009,
+      "width": 1009
+    },
+    {
+      "w": 1024,
+      "path": "/certificates",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1009,
+      "width": 1009
+    },
+    {
+      "w": 1024,
+      "path": "/blogs",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1009,
+      "width": 1009
+    },
+    {
+      "w": 1024,
+      "path": "/blogs/mastering-react-animations",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1009,
+      "width": 1009
+    },
+    {
+      "w": 1024,
+      "path": "/contact",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1009,
+      "width": 1009
+    },
+    {
+      "w": 1024,
+      "path": "/events",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1009,
+      "width": 1009
+    },
+    {
+      "w": 1024,
+      "path": "/not-a-page",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1009,
+      "width": 1009
+    },
+    {
+      "w": 1024,
+      "path": "/login",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1009,
+      "width": 1009
+    },
+    {
+      "w": 1440,
+      "path": "/",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1425,
+      "width": 1425
+    },
+    {
+      "w": 1440,
+      "path": "/projects",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1425,
+      "width": 1425
+    },
+    {
+      "w": 1440,
+      "path": "/skills",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1425,
+      "width": 1425
+    },
+    {
+      "w": 1440,
+      "path": "/experience",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1425,
+      "width": 1425
+    },
+    {
+      "w": 1440,
+      "path": "/certificates",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1425,
+      "width": 1425
+    },
+    {
+      "w": 1440,
+      "path": "/blogs",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1425,
+      "width": 1425
+    },
+    {
+      "w": 1440,
+      "path": "/blogs/mastering-react-animations",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1425,
+      "width": 1425
+    },
+    {
+      "w": 1440,
+      "path": "/contact",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1425,
+      "width": 1425
+    },
+    {
+      "w": 1440,
+      "path": "/events",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1425,
+      "width": 1425
+    },
+    {
+      "w": 1440,
+      "path": "/not-a-page",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1425,
+      "width": 1425
+    },
+    {
+      "w": 1440,
+      "path": "/login",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1425,
+      "width": 1425
+    },
+    {
+      "w": 1920,
+      "path": "/",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1905,
+      "width": 1905
+    },
+    {
+      "w": 1920,
+      "path": "/projects",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1905,
+      "width": 1905
+    },
+    {
+      "w": 1920,
+      "path": "/skills",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1905,
+      "width": 1905
+    },
+    {
+      "w": 1920,
+      "path": "/experience",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1905,
+      "width": 1905
+    },
+    {
+      "w": 1920,
+      "path": "/certificates",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1905,
+      "width": 1905
+    },
+    {
+      "w": 1920,
+      "path": "/blogs",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1905,
+      "width": 1905
+    },
+    {
+      "w": 1920,
+      "path": "/blogs/mastering-react-animations",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1905,
+      "width": 1905
+    },
+    {
+      "w": 1920,
+      "path": "/contact",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1905,
+      "width": 1905
+    },
+    {
+      "w": 1920,
+      "path": "/events",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1905,
+      "width": 1905
+    },
+    {
+      "w": 1920,
+      "path": "/not-a-page",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1905,
+      "width": 1905
+    },
+    {
+      "w": 1920,
+      "path": "/login",
+      "loading": false,
+      "clipped": [],
+      "h1": 1,
+      "main": 1,
+      "scroll": 1905,
+      "width": 1905
+    }
+  ],
+  "scope": "Public routes, dark Midnight theme; theme switch and light Experience visually checked. Admin protected redirect checked; authenticated dashboard not available."
+}

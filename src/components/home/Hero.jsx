@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import { Download, ArrowRight, CircleDot, MapPin, Briefcase } from 'lucide-react'
 import { useReducedMotion } from '../../hooks/useReducedMotion'
-import SEO from '../ui/SEO'
 
 const container = {
     hidden: {},
@@ -20,12 +19,7 @@ export default function Hero({ profile }) {
     }
 
     return (
-        <section className="w-full relative z-10" aria-label="Hero">
-            <SEO
-                title={null}
-                description={`${profile.name} — ${profile.roles.join(' & ')}. ${profile.shortBio}`}
-                url="/"
-            />
+        <section id="about" className="w-full relative z-10" aria-label="Hero">
             <motion.div
                 variants={prefersReduced ? {} : container}
                 initial={prefersReduced ? false : 'hidden'}

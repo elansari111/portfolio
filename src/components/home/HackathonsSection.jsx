@@ -16,8 +16,8 @@ function EventCard({ event, prefersReduced }) {
 
     return (
         <Link
-            to={`/blogs/${event.slug}`}
-            aria-label={`Read about ${event.title}`}
+            to="/events"
+            aria-label={`Explore hackathons and events, including ${event.title}`}
             className="flex-shrink-0 w-64 md:w-72 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-2xl"
         >
             <motion.article
@@ -50,7 +50,7 @@ function EventCard({ event, prefersReduced }) {
                 </div>
 
                 {/* Title bar */}
-                <div className={`absolute bottom-0 left-0 right-0 p-5 transition-all duration-400 ${prefersReduced ? '' : 'translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100'}`}>
+                <div className={`absolute bottom-0 left-0 right-0 p-5 transition-all duration-400 `}>
                     <div className="flex items-center gap-3">
                         <div className="w-1 h-8 bg-primary rounded-full flex-shrink-0" aria-hidden="true" />
                         <div>

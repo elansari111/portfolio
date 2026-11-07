@@ -5,8 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 import ThemeToggle from '../ui/ThemeToggle'
 
 const links = [
-    { name: 'About', path: '/#about' },
     { name: 'Projects', path: '/projects' },
+    { name: 'Skills', path: '/skills' },
+    { name: 'Experience', path: '/experience' },
+    { name: 'Certificates', path: '/certificates' },
+    { name: 'Events', path: '/events' },
     { name: 'Blog', path: '/blogs' },
     { name: 'Contact', path: '/contact' },
 ]
@@ -23,7 +26,7 @@ export default function Navbar() {
     return (
         <>
             {/* Desktop Navbar */}
-            <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 hidden md:flex items-center gap-3">
+            <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 hidden lg:flex items-center gap-3">
                 <div className="bg-black/5 dark:bg-white/5 backdrop-blur-2xl border border-black/10 dark:border-white/10 rounded-full px-2 py-2 shadow-2xl flex items-center gap-1">
                     {/* Logo */}
                     <Link to="/" className="px-4 py-2 flex items-center gap-1 font-heading font-bold text-gray-900 dark:text-white text-sm">
@@ -54,7 +57,7 @@ export default function Navbar() {
             </nav>
 
             {/* Mobile hamburger */}
-            <div className="md:hidden fixed top-5 right-5 z-50 flex items-center gap-2">
+            <div className="lg:hidden fixed top-5 right-5 z-50 flex items-center gap-2">
                 <ThemeToggle />
                 <button
                     onClick={() => setIsOpen(!isOpen)}
@@ -71,7 +74,7 @@ export default function Navbar() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="md:hidden fixed inset-0 z-40 bg-white/95 dark:bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center"
+                        className="lg:hidden fixed inset-0 z-40 bg-white/95 dark:bg-black/95 backdrop-blur-xl flex flex-col items-center justify-start overflow-y-auto py-20"
                     >
                         {links.map((link, i) => (
                             <motion.div
@@ -83,7 +86,7 @@ export default function Navbar() {
                                 <Link
                                     to={link.path}
                                     onClick={() => setIsOpen(false)}
-                                    className="block text-3xl font-heading font-bold text-gray-900 dark:text-white py-4 hover:text-primary dark:hover:text-primary transition-colors"
+                                    className="block text-2xl sm:text-3xl font-heading font-bold text-gray-900 dark:text-white py-2 sm:py-4 hover:text-primary dark:hover:text-primary transition-colors"
                                 >
                                     {link.name}
                                 </Link>

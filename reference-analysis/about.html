@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>More about Wendy Enyinnaya</title>
+<meta name="description" content="A note from Wendy: how she got into design during the COVID-19 lockdown, why she added tech support to her skills, and the one rule she designs by.">
+<meta name="theme-color" content="#3b0450">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://wendyenyi.vercel.app/about.html">
+<meta property="og:title" content="More about Wendy Enyinnaya">
+<meta property="og:description" content="Hi, I’m Wendy. I design apps and websites that people just get, no instructions needed.">
+<meta property="og:image" content="https://wendyenyi.vercel.app/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Dancing+Script:wght@700&display=swap">
+<style>
+:root{--bg:#3b0450;--fg:#fdeeff;--accent:#e12fe9;--deep:color-mix(in srgb,var(--accent) 62%,var(--bg));--soft:color-mix(in srgb,var(--bg) 70%,var(--fg));--line:color-mix(in srgb,var(--bg) 14%,transparent);
+  --display:"Anton","Impact",sans-serif;--body:"Plus Jakarta Sans",system-ui,sans-serif;--hand:"Dancing Script",cursive;--ease:cubic-bezier(.23,1,.32,1);--gut:clamp(20px,6vw,96px)}
+*{box-sizing:border-box;margin:0;padding:0}
+img{display:block;max-width:100%}
+a{color:inherit}
+html,body{overflow-x:clip}
+body{background:var(--fg);color:var(--bg);font:400 17px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+::selection{background:var(--accent);color:#fff}
+.bar{position:sticky;top:0;z-index:10;padding:12px var(--gut);background:color-mix(in srgb,var(--fg) 86%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.back{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px 0 12px;border-radius:99px;border:1px solid var(--line);font-weight:600;font-size:14px;text-decoration:none;transition:background-color .2s ease,color .2s ease}
+.back:hover{background:var(--bg);color:var(--fg)}
+.back svg{width:16px}
+
+/* one narrow column, written like a note to the reader; short side notes sit in the margin on wide screens */
+.note{padding:clamp(56px,8vw,110px) var(--gut) 100px}
+.col{max-width:660px;margin:0 auto;position:relative}
+.head{display:flex;align-items:center;gap:18px}
+.head .av{flex:none;width:72px;height:72px;border-radius:50%;overflow:hidden;background:var(--bg)}
+.head .av img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;transform:scale(1.25);transform-origin:50% 26%}
+.head b{display:block;font:700 17px/1.2 var(--body)}
+.head span{font-size:15px;color:var(--soft)}
+h1{margin-top:56px;font:400 clamp(40px,5.4vw,68px)/.95 var(--display);text-transform:uppercase;letter-spacing:.005em}
+h1 em{font-style:normal;color:var(--accent)}
+.body p{margin-top:28px;font-size:clamp(18px,1.4vw,21px);line-height:1.75;color:var(--soft)}
+.body p b{color:var(--bg);font-weight:600}
+.body h2{margin-top:0;font:400 clamp(36px,4.6vw,56px)/.95 var(--display);text-transform:uppercase;letter-spacing:.01em;color:var(--bg)}
+.aside{position:absolute;left:calc(100% + 56px);width:220px;font-size:14px;line-height:1.55;color:var(--soft);border-left:2px solid var(--accent);padding-left:14px}
+.aside b{display:block;color:var(--bg);font-size:13px;margin-bottom:2px}
+.body p.rule{position:relative;margin-top:26px;font:italic 500 clamp(28px,3.2vw,40px)/1.25 var(--body);letter-spacing:-.015em;color:var(--bg)}
+.facts{margin-top:24px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 34px}
+.facts small{display:block;font:600 13px/1 var(--body);color:var(--deep)}
+.facts span{display:block;margin-top:6px;font:600 17px/1.4 var(--body)}
+.ps{margin-top:40px;display:flex;flex-wrap:wrap;gap:24px;align-items:center}
+.mail{display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border-radius:99px;background:var(--bg);color:var(--fg);font:700 16px/1 var(--body);text-decoration:none;transition:transform .16s ease-out}
+.mail:active{transform:scale(.97)}
+/* available for work: a live green dot, one line on what you're open to, then the two ways to act */
+.avail{margin-top:56px;padding-top:40px;border-top:1px solid var(--line);display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:center}
+.avail-badge{position:relative;width:132px;height:132px}
+.avail-badge svg{width:100%;height:100%;animation:spin 14s linear infinite}
+.avail-badge text{font:700 10px/1 var(--body);fill:var(--bg)}
+.avail-badge i{position:absolute;left:50%;top:50%;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;background:#1f9d55;box-shadow:0 0 0 6px color-mix(in srgb,#1f9d55 22%,transparent)}
+.avail-badge i::after{content:"";position:absolute;inset:0;border-radius:50%;background:#1f9d55;animation:ping 2.2s cubic-bezier(.23,1,.32,1) infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes ping{0%{transform:scale(1);opacity:.6}80%,100%{transform:scale(2.4);opacity:0}}
+.body p.avail-k{margin:0;font:700 14px/1 var(--body);color:#167a43}
+.body p.avail-t{margin-top:10px;font:400 clamp(26px,3.4vw,38px)/1.02 var(--display);text-transform:uppercase;letter-spacing:.01em;color:var(--bg)}
+@media (max-width:560px){.avail{grid-template-columns:1fr;gap:18px}.avail-badge{width:104px;height:104px}}
+@media (prefers-reduced-motion:reduce){.avail-badge svg,.avail-badge i::after{animation:none}}
+.avail .ps{margin-top:24px}
+/* the three parts of the story, and the "nope" after "a single line of code" */
+.body p.chap{margin-top:40px;font:700 14px/1 var(--body);color:var(--deep)}
+.body p.chap+p{margin-top:10px}
+.body p.chap:first-child{margin-top:36px}
+.nope{display:inline-block;transform-origin:50% 90%}
+.rv.in .nope{animation:nope .9s cubic-bezier(.36,.07,.19,.97) .5s 2}
+@keyframes nope{0%,100%{transform:rotate(0)}20%{transform:rotate(-14deg)}40%{transform:rotate(12deg)}60%{transform:rotate(-8deg)}80%{transform:rotate(5deg)}}
+@media (prefers-reduced-motion:reduce){.rv.in .nope{animation:none}}
+@media (prefers-reduced-motion:reduce){.avail-k i::after{animation:none}}
+.link{font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;text-decoration-color:var(--accent)}
+.foot{max-width:660px;margin:0 auto;padding:28px var(--gut) 40px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:14px;color:var(--soft);border-top:1px solid var(--line)}
+.foot a{text-decoration:none}.foot a:hover{text-decoration:underline}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media (max-width:1180px){.aside{position:static;width:auto;margin-top:18px}}
+@media (max-width:560px){.facts{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+.chips{margin-top:22px;display:flex;flex-wrap:wrap;gap:12px;list-style:none;padding:0}
+.chips li{padding:12px 22px;border:2px solid var(--bg);border-radius:99px;font:600 17px/1.2 var(--body)}
+.rule .q{color:var(--accent)}
+/* where I've worked: a ledger, newest first. Each company in its own colours on the left, roles and dates on the right */
+.jobs{margin:22px 0 0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.jobs li{display:grid;grid-template-columns:170px minmax(0,1fr);align-items:center;gap:20px;padding:24px 0;border-bottom:1px solid var(--line)}
+.job-logo{display:flex;align-items:center;height:44px}
+.job-logo img{display:block;width:auto;max-width:150px;object-fit:contain}
+.job-roles{display:grid;gap:12px}
+.body .job-roles p{margin:0;display:flex;justify-content:space-between;align-items:baseline;gap:16px;font-size:16px;line-height:1.4}
+.job-roles b{font-weight:600;color:var(--bg)}
+.job-roles span{flex:none;font-size:14px;color:var(--soft);font-variant-numeric:tabular-nums}
+@media (max-width:560px){.jobs li{grid-template-columns:1fr;gap:14px}.body .job-roles p{flex-direction:column;gap:2px}}
+/* what I do: four roles that open one at a time, strung on a line that fills as you scroll through them */
+.roles{position:relative;margin-top:22px;padding-left:34px}
+.roles-rail{position:absolute;left:8px;top:14px;bottom:14px;width:2px;border-radius:2px;background:var(--line)}
+.roles-rail span{position:absolute;inset:0;border-radius:inherit;background:var(--accent);transform-origin:top;transform:scaleY(0)}
+.role{position:relative;border-bottom:1px solid var(--line)}
+.role h3{margin:0}
+.role-q{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:baseline;gap:4px 14px;width:100%;padding:22px 0;border:0;background:none;color:var(--bg);font:inherit;text-align:left;cursor:pointer}
+.role-dot{position:absolute;left:-31px;top:29px;width:12px;height:12px;border-radius:50%;background:var(--fg);box-shadow:inset 0 0 0 2px var(--line);transition:background-color .3s ease,box-shadow .3s ease}
+.role.lit .role-dot{background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 18%,transparent)}
+.role-t{font:400 clamp(26px,3.4vw,36px)/1 var(--display);text-transform:uppercase;letter-spacing:.01em}
+.role-y{font:700 14px/1 var(--body);color:var(--deep);white-space:nowrap}
+.role-s{grid-column:1/-1;grid-row:2;font-size:16px;line-height:1.5;color:var(--soft)}
+.role-ic{grid-column:3;grid-row:1;align-self:center;width:22px;height:22px;color:var(--deep);transition:transform .3s cubic-bezier(.23,1,.32,1)}
+.role.is-open .role-ic{transform:rotate(180deg)}
+.role-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.23,1,.32,1)}
+.role-a>div{overflow:hidden}
+.role.is-open .role-a{grid-template-rows:1fr}
+.body .role-a p{margin:0;padding-bottom:14px;font-size:clamp(16px,1.2vw,18px);line-height:1.7}
+.role-a ul{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0 0 24px;list-style:none}
+.role-a li{padding:7px 14px;border-radius:99px;background:color-mix(in srgb,var(--accent) 10%,transparent);border:1px solid var(--line);font:600 13px/1.2 var(--body)}
+@media (hover:hover) and (pointer:fine){.role-q:hover .role-t{color:var(--deep)}}
+@media (prefers-reduced-motion:reduce){.role-a,.role-ic,.role-dot{transition:none}}
+.body p.proof-k{margin-top:40px;font:700 14px/1 var(--body);color:var(--deep)}
+.proof{display:grid;gap:12px;margin-top:16px}
+.pc{display:grid;grid-template-columns:150px minmax(0,1fr) auto;align-items:center;gap:18px;padding:10px 18px 10px 10px;border-radius:20px;background:color-mix(in srgb,var(--bg) 5%,transparent);border:1px solid var(--line);color:var(--bg);text-decoration:none;transition:transform .3s cubic-bezier(.23,1,.32,1),box-shadow .3s ease}
+.pc img{width:150px;aspect-ratio:16/10;object-fit:cover;border-radius:12px}
+.pc b{display:block;font:400 24px/1 var(--display);text-transform:uppercase;letter-spacing:.01em}
+.pc small{display:block;margin-top:6px;font-size:15px;line-height:1.5;color:var(--soft)}
+.pc svg{width:20px;height:20px;color:var(--accent);transition:transform .3s cubic-bezier(.23,1,.32,1)}
+.pc:active{transform:scale(.98)}
+@media (hover:hover) and (pointer:fine){.pc:hover{transform:translateY(-3px);box-shadow:0 18px 36px -24px color-mix(in srgb,var(--bg) 60%,transparent)}.pc:hover svg{transform:translate(2px,-2px)}}
+@media (max-width:560px){.pc{grid-template-columns:96px minmax(0,1fr);gap:14px}.pc img{width:96px;aspect-ratio:1;}.pc svg{display:none}}
+/* where you are on the page: plain words on one thin line; a pink stretch of that line slides to the section being read.
+   Phones: a row under the Back bar. Wide screens: a column on the left. */
+.sec{scroll-margin-top:140px}
+.sec+.sec{margin-top:72px}
+.toc{position:sticky;top:69px;z-index:9;display:flex;gap:22px;overflow-x:auto;padding:0 var(--gut);box-shadow:inset 0 -2px 0 var(--line);background:color-mix(in srgb,var(--fg) 86%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);scrollbar-width:none}
+.toc::-webkit-scrollbar{display:none}
+.toc a{flex:none;padding:14px 0 13px;font:600 14px/1 var(--body);text-decoration:none;color:var(--soft);transition:color .25s ease}
+.toc a[aria-current=true]{color:var(--bg)}
+.toc .ind{position:absolute;left:0;bottom:0;z-index:1;height:2px;width:1px;background:var(--accent);transform-origin:0 0;transition:transform .45s var(--ease)}   /* moved and stretched with transform only */
+@media (min-width:1180px){
+  .sec{scroll-margin-top:100px}
+  .toc{position:fixed;top:50%;left:max(var(--gut),calc(50% - 330px - 260px));transform:translateY(-50%);flex-direction:column;gap:0;width:210px;padding:0 0 0 20px;background:none;backdrop-filter:none;-webkit-backdrop-filter:none;overflow:visible}
+  .toc{box-shadow:none}
+  .toc::after{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--line)}
+  .toc a{padding:12px 0}
+  .toc .ind{left:0;top:0;bottom:auto;width:2px;height:1px}
+}
+@media (prefers-reduced-motion:reduce){.toc .ind{transition:none}}
+.facts p{margin-top:6px;font-size:15px;line-height:1.55;color:var(--soft)}
+.facts{row-gap:30px}
+/* each fact gets a small tile: line icons in the page colours; Figma and Teams keep their own logos */
+.fi{position:relative;display:grid;place-items:center;width:46px;height:46px;margin-bottom:14px;border-radius:14px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--deep)}
+.fi svg{width:24px;height:24px}
+.fi-logo img{width:22px;height:22px;object-fit:contain}
+/* the Teams tile rings: two waves pulse out from it */
+.fi-ring b{position:absolute;inset:0;border-radius:14px;border:2px solid #5059c9;opacity:0;animation:ring 1.8s cubic-bezier(.23,1,.32,1) infinite}
+.fi-ring b+b{animation-delay:.6s}
+.fi-ring img{animation:buzz 1.8s ease-in-out infinite}
+@keyframes ring{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.6);opacity:0}}
+@keyframes buzz{0%,60%,100%{transform:rotate(0)}64%{transform:rotate(-14deg)}68%{transform:rotate(12deg)}72%{transform:rotate(-10deg)}76%{transform:rotate(8deg)}80%{transform:rotate(0)}}
+@media (prefers-reduced-motion:reduce){.fi-ring b,.fi-ring img{animation:none}}
+.facts span.nope{display:inline-block;margin:0;font:inherit}
+/* story emojis: each does its own move once its paragraph appears */
+.emo{display:inline-block;transform-origin:50% 90%}
+.rv.in .e-wobble{animation:nope .9s cubic-bezier(.36,.07,.19,.97) .5s 2}
+.rv.in .e-beat{animation:beat 1.1s ease-in-out .5s 3}
+.rv.in .e-hop{animation:hop .8s cubic-bezier(.23,1,.32,1) .5s 3}
+@keyframes beat{0%,100%{transform:scale(1)}20%{transform:scale(1.3)}40%{transform:scale(1)}60%{transform:scale(1.2)}}
+@keyframes hop{0%,100%{transform:translateY(0)}40%{transform:translateY(-7px)}70%{transform:translateY(0) scaleY(.9)}}
+/* fact icons, each with a small loop of its own */
+.fi-figma img{animation:float 3.2s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-3px) rotate(-6deg)}}
+.fi-talk .b1{animation:chat 2.4s ease-in-out infinite}
+.fi-talk .b2{animation:chat 2.4s ease-in-out 1.2s infinite}
+@keyframes chat{0%,100%{transform:translateY(0)}15%{transform:translateY(-2.5px)}30%{transform:translateY(0)}}
+.fi-music .n{animation:note 2.2s ease-out infinite;opacity:0}
+.fi-music .n2{animation-delay:.7s}.fi-music .n3{animation-delay:1.4s}
+@keyframes note{0%{transform:translate(0,2px);opacity:0}25%{opacity:1}100%{transform:translate(3px,-6px);opacity:0}}
+.fi-music .hp{transform-origin:12px 14px;animation:groove 1.1s ease-in-out infinite}
+@keyframes groove{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+.fi-form .l{stroke-dasharray:10;animation:wipe 2.8s ease-in-out infinite}
+.fi-form .l2{animation-delay:.15s}
+@keyframes wipe{0%,15%{stroke-dashoffset:0}45%,70%{stroke-dashoffset:10}100%{stroke-dashoffset:0}}
+.fi-form .x{animation:xpop 2.8s ease-in-out infinite;transform-origin:16.5px 17.5px}
+@keyframes xpop{0%,35%,100%{transform:scale(1)}45%{transform:scale(1.35)}55%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.fi *,.emo{animation:none!important;opacity:1!important}}
+/* moving between the homepage and the About page: the page cross-fades, and the photo glides between its two spots
+   (browsers without cross-page view transitions simply load the page) */
+@view-transition{navigation:auto}
+::view-transition-group(wendy-photo){animation-duration:.6s;animation-timing-function:cubic-bezier(.23,1,.32,1)}
+::view-transition-old(wendy-photo),::view-transition-new(wendy-photo){height:100%;object-fit:cover}
+@media (prefers-reduced-motion:reduce){@view-transition{navigation:none}}
+.head .av{view-transition-name:wendy-photo}
+</style>
+<script>
+  // same colours as the portfolio: whichever theme was picked there during this visit (index.html PORTFOLIO.themes)
+  (function(){
+    const T = [{ bg: '#3b0450', fg: '#fdeeff', accent: '#e12fe9' }, { bg: '#04301f', fg: '#ecfbe6', accent: '#3fe07c' },
+               { bg: '#07154f', fg: '#eaf0ff', accent: '#5b93ff' }, { bg: '#4a0c06', fg: '#fff1e6', accent: '#ff6a2b' }];
+    // a refresh starts over in the first theme (Plum); moving between pages keeps the colour picked during the visit
+  let i = 0; try { const nav = (performance.getEntriesByType && performance.getEntriesByType('navigation')[0]) || {};
+    if (nav.type === 'reload') sessionStorage.removeItem('theme'); else i = +sessionStorage.getItem('theme') || 0; } catch (e) {}
+    const t = T[i] || T[0], r = document.documentElement.style;
+    r.setProperty('--bg', t.bg); r.setProperty('--fg', t.fg); r.setProperty('--accent', t.accent);
+    document.querySelector('meta[name="theme-color"]').content = t.bg;
+  })();
+</script>
+  <!-- Vercel Web Analytics: counts visits, no cookies -->
+  <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+<header class="bar"><a class="back" href="./#about"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>Back</a></header>
+
+<nav class="toc" aria-label="On this page">
+  <a href="#intro">Introduction</a><a href="#roles">What I do</a><a href="#worked">Experience</a><a href="#rule">The rule I design by</a><a href="#things">A few things about me</a><i class="ind" aria-hidden="true"></i>
+</nav>
+
+<main class="note"><div class="col">
+  <section id="intro" class="sec">
+    <div class="head"><span class="av"><img src="images/wendy-about.webp" alt=""></span><div><b>Wendy Enyinnaya</b><span>Product designer</span></div></div>
+    <h1>Hi, I’m Wendy. I design apps and websites that people <em>just get</em>, no instructions needed.</h1>
+    <div class="body">
+      <p class="chap rv">How it started</p>
+      <p class="rv">During the COVID-19 lockdown <span class="emo e-wobble" role="img" aria-label="face mask">😷</span>, school was on pause and I wanted to learn a skill. I decided on tech, but <b>I didn’t want to write a single line of code</b> <span class="nope" role="img" aria-label="no thanks">🙅🏾‍♀️</span>. Then I found UI/UX and taught myself the basics. A couple of years later, after finishing school, I got serious: bootcamps, tech events, connecting with other designers, and eventually a full-time job as a designer.</p>
+      <p class="chap rv">The plot twist</p>
+      <p class="rv">At the end of 2025 I started learning a new skill alongside design: <b>tech support</b>. By 2026 it was my full-time role, and I fell completely in love with it <span class="emo e-beat" role="img" aria-label="heart eyes">😍</span>. Support turned out to be a front-row seat to how people actually use products. Every confused message is a design brief in disguise, and suddenly design and support weren’t two different jobs anymore.</p>
+      <p class="chap rv">Right now</p>
+      <p class="rv">Now I’m back to designing full time, with that support experience in every decision. And I’m <b>open to my next full-time role</b>. <span class="emo e-hop" role="img" aria-label="eyes">👀</span></p>
+    </div>
+  </section>
+  <!-- EDIT: the four hats from the ID card. Click one to open it; the line fills as you scroll through -->
+  <section id="roles" class="sec body">
+    <h2 class="rv">What I do</h2>
+    <div class="roles rv">
+      <div class="roles-rail" aria-hidden="true"><span></span></div>
+      <div class="role is-open">
+        <h3><button class="role-q" type="button" id="role-q-pd" aria-expanded="true" aria-controls="role-a-pd"><i class="role-dot" aria-hidden="true"></i><span class="role-t">Product designer</span><span class="role-y">4+ years</span><span class="role-s">Apps and websites people just get.</span><svg class="role-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h3>
+        <div class="role-a" id="role-a-pd" role="region" aria-labelledby="role-q-pd"><div><p>I design mobile apps and websites from the first flow to the final screen: research, user flows, interfaces, prototypes and design systems. Then I stay through the build, so what ships is what was designed.</p><ul><li>UI/UX design</li><li>Design systems</li><li>Prototyping</li><li>User flows</li></ul></div></div>
+      </div>
+      <div class="role">
+        <h3><button class="role-q" type="button" id="role-q-pl" aria-expanded="false" aria-controls="role-a-pl"><i class="role-dot" aria-hidden="true"></i><span class="role-t">Partnerships lead</span><span class="role-s">Relationships that help products grow.</span><svg class="role-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h3>
+        <div class="role-a" id="role-a-pl" role="region" aria-labelledby="role-q-pl"><div><p>I find and look after partners: the first conversation, the follow-ups, and the relationship long after the deal, so both sides keep getting something out of it.</p><ul><li>Partnerships</li><li>Relationships</li><li>Growth</li></ul></div></div>
+      </div>
+      <div class="role">
+        <h3><button class="role-q" type="button" id="role-q-ai" aria-expanded="false" aria-controls="role-a-ai"><i class="role-dot" aria-hidden="true"></i><span class="role-t">AI builder</span><span class="role-s">Using AI to build faster and test sooner.</span><svg class="role-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h3>
+        <div class="role-a" id="role-a-ai" role="region" aria-labelledby="role-q-ai"><div><p>I use AI tools to automate the repetitive parts of my work and turn ideas into working prototypes quickly, so real people can try them sooner.</p><ul><li>AI tools</li><li>Automation</li><li>Prototypes</li></ul></div></div>
+      </div>
+      <div class="role">
+        <h3><button class="role-q" type="button" id="role-q-ts" aria-expanded="false" aria-controls="role-a-ts"><i class="role-dot" aria-hidden="true"></i><span class="role-t">Tech support specialist</span><span class="role-y">1+ year</span><span class="role-s">A front-row seat to where people get stuck.</span><svg class="role-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h3>
+        <div class="role-a" id="role-a-ts" role="region" aria-labelledby="role-q-ts"><div><p>I troubleshoot problems, onboard new users and dig into APIs to find out what actually went wrong. Every ticket shows me something a screen didn’t explain, and that goes straight back into my designs.</p><ul><li>Troubleshooting</li><li>Onboarding</li><li>APIs</li></ul></div></div>
+      </div>
+    </div>
+  </section>
+  <!-- EDIT: experience, current roles first. Logos are in images/companies -->
+  <section id="worked" class="sec body">
+    <h2 class="rv">Experience</h2>
+    <ol class="jobs rv">
+      <li><span class="job-logo"><img src="images/companies/cowrywise.svg" alt="Cowrywise" style="height:26px"></span>
+        <div class="job-roles"><p><b>Ambassadors Partnerships Lead</b><span>Nov 2024 – Present</span></p></div></li>
+      <li><span class="job-logo"><img src="images/companies/udc.png" alt="Untitled Designers Conference" style="height:26px"></span>
+        <div class="job-roles"><p><b>Head of Partnerships</b><span>Mar 2024 – Present</span></p></div></li>
+      <li><span class="job-logo"><img src="images/companies/remita.svg" alt="Remita" style="height:30px"></span>
+        <div class="job-roles"><p><b>Technical Support Specialist</b><span>Jan – Jul 2026</span></p><p><b>Product Designer</b><span>Jul – Dec 2025</span></p></div></li>
+      <li><span class="job-logo"><img src="images/companies/visaintel.png" alt="Visaintel" style="height:22px"></span>
+        <div class="job-roles"><p><b>UI/UX Designer</b><span>Feb 2023 – Jun 2025</span></p></div></li>
+      <li><span class="job-logo"><img src="images/companies/obiwezy.png" alt="Obiwezy" style="height:32px"></span>
+        <div class="job-roles"><p><b>Junior UI/UX Designer</b><span>Aug – Dec 2021</span></p></div></li>
+    </ol>
+  </section>
+  <section id="rule" class="sec body">
+    <h2 class="rv">The one rule I design by</h2>
+    <p class="rule rv"><span class="q">“</span>Where would I look if I was in a hurry?<span class="q">”</span></p>
+    <p class="rv">The same questions kept coming up, and most of them weren’t the client’s fault. The answer was usually right there on the screen, just not where anyone would think to look. So now, before I call any design finished, I ask myself that one question.</p>
+    <!-- EDIT: projects that answer the question; each opens its case study on the portfolio -->
+    <p class="proof-k rv">Where it shows up in my work</p>
+    <div class="proof rv">
+      <a class="pc" href="index.html?from=about#project/orvo"><img src="images/orvo/send.jpg" alt="" loading="lazy"><span><b>Orvo</b><small>The fee, the network and the total sit on one review screen, before anyone is asked for a PIN.</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+      <a class="pc" href="index.html?from=about#project/zukky"><img src="images/zukky/fare.jpg" alt="" loading="lazy"><span><b>Zukky</b><small>What you’ll pay sits right under where you’re going, so the price is never a surprise.</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+      <a class="pc" href="index.html?from=about#project/seats"><img src="images/seats/money.jpg" alt="" loading="lazy"><span><b>Seats</b><small>Money is held until you confirm you’re in, so nobody has to ask where their payment went.</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+    </div>
+  </section>
+  <section id="things" class="sec body">
+    <h2 class="rv">A few things about me</h2>
+    <div class="facts rv">
+      <div><i class="fi fi-logo fi-figma" style="background:#1e1e1e" aria-hidden="true"><img src="images/tools/figma.svg" alt=""></i><small>Favourite tool</small><span>Figma</span><p>My canvas, my happy place and, honestly, my second home.</p></div>
+      <div><i class="fi fi-talk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path class="b1" d="M4 5h11a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><path class="b2" d="M17 9h3a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1v3l-4-3h-4a2 2 0 0 1-1.7-1"/></svg></i><small>Secret weapon</small><span>Talking to real users</span><p>I hear exactly where people get stuck, then design around it.</p></div>
+      <div><i class="fi fi-music" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><g class="hp"><path d="M3 15v-3a7 7 0 0 1 14 0v3"/><rect x="2" y="14" width="4" height="6" rx="1.5"/><rect x="14" y="14" width="4" height="6" rx="1.5"/></g><path class="n" d="M20 6v3"/><circle class="n n2" cx="21.5" cy="4" r="1"/><path class="n n3" d="M18.5 3.5v2.5"/></svg></i><small>Powered by</small><span>A good playlist and the right fruit drink</span><p>Get both right and I’m good to go for hours.</p></div>
+      <div><i class="fi fi-form" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path class="l" d="M8 8h8"/><path class="l l2" d="M8 12h5"/><path class="x" d="M14.5 15.5l4 4M18.5 15.5l-4 4"/></svg></i><small>Pet peeve</small><span>Forms that wipe everything you typed</span><p>…because one field was wrong. All of it. Gone. Why are we like this?</p></div>
+      <div><i class="fi fi-logo fi-ring" style="background:#5059c9" aria-hidden="true"><img src="images/tools/teams.svg" alt=""><b></b><b></b></i><small>Can’t stand</small><span>The Microsoft Teams ringtone</span><p>Not the app. The ringtone. That sound has haunted me through far too many calls. <span class="nope" role="img" aria-label="exhausted">😩</span></p></div>
+    </div>
+    <!-- EDIT: your availability -->
+    <div class="avail rv">
+      <div class="avail-badge" aria-hidden="true">
+        <svg viewBox="0 0 120 120"><defs><path id="ring" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
+          <text><textPath href="#ring" textLength="286" lengthAdjust="spacing">AVAILABLE FOR WORK • AVAILABLE FOR WORK • </textPath></text></svg>
+        <i></i>
+      </div>
+      <div>
+        <p class="avail-k">Available for work</p>
+        <p class="avail-t">Open to full-time product design roles. Ready to start now, remote or worldwide.</p>
+        <div class="ps"><a class="mail" href="mailto:chiwendy1@gmail.com?subject=Product%20design%20role">Let’s talk about a role</a><a class="link" href="./#work">See my projects</a></div>
+      </div>
+    </div>
+  </section>
+</div></main>
+<footer class="foot"><span>&copy; 2026 Wendy Enyinnaya</span><span><a href="https://dribbble.com/Whendee_" target="_blank" rel="noopener">Dribbble</a> &middot; <a href="https://www.behance.net/chichiwendy" target="_blank" rel="noopener">Behance</a> &middot; <a href="https://www.linkedin.com/in/wendy-enyinnaya/" target="_blank" rel="noopener">LinkedIn</a></span></footer>
+<script>
+  // quiet reveals as each paragraph reaches the screen
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+  // what I do: one role open at a time; the line fills with scroll and lights each role's dot as it passes
+  const roles = [...document.querySelectorAll('.role')], rolesBox = document.querySelector('.roles'), rail = document.querySelector('.roles-rail span');
+  roles.forEach(r => r.querySelector('.role-q').addEventListener('click', () => {
+    const open = !r.classList.contains('is-open');
+    roles.forEach(o => { o.classList.toggle('is-open', o === r && open); o.querySelector('.role-q').setAttribute('aria-expanded', o === r && open); });
+  }));
+  const fillRail = () => { const b = rolesBox.getBoundingClientRect(), p = Math.min(1, Math.max(0, (innerHeight * .6 - b.top) / b.height));
+    rail.style.transform = `scaleY(${p.toFixed(4)})`;
+    roles.forEach(r => r.classList.toggle('lit', r.offsetTop + 30 <= p * rolesBox.offsetHeight)); };
+  addEventListener('scroll', () => requestAnimationFrame(fillRail), { passive: true }); addEventListener('resize', fillRail); fillRail();
+  // the section being read is highlighted in the list (and scrolled into view in the phone row)
+  const links = [...document.querySelectorAll('.toc a')];
+  const ind = document.querySelector('.toc .ind'), side = matchMedia('(min-width: 1180px)');
+  let current = 'intro';
+  const place = () => { const a = links.find(l => l.hash === '#' + current); if (!a) return;
+    ind.style.transform = side.matches ? `translateY(${a.offsetTop}px) scaleY(${a.offsetHeight})` : `translateX(${a.offsetLeft}px) scaleX(${a.offsetWidth})`; };
+  const mark = id => { current = id; links.forEach(a => a.setAttribute('aria-current', a.hash === '#' + id)); place();
+    const a = links.find(l => l.hash === '#' + id), row = a.parentElement;
+    if (!side.matches && row.scrollWidth > row.clientWidth) row.scrollTo({ left: a.offsetLeft - 20, behavior: 'smooth' }); };
+  addEventListener('resize', place); document.fonts && document.fonts.ready.then(place);
+  // the active section is the last one whose top has passed 40% of the screen, or the last one once the page bottom is reached
+  const secs = [...document.querySelectorAll('.sec')], end = document.querySelector('.foot');
+  let last = '';
+  const pick = () => { let id = secs[0].id;
+    secs.forEach(sec => { if (sec.getBoundingClientRect().top <= innerHeight * .4) id = sec.id; });
+    if (end.getBoundingClientRect().bottom <= innerHeight + 2) id = secs[secs.length - 1].id;
+    if (id !== last) { last = id; mark(id); } };
+  const so = new IntersectionObserver(pick, { threshold: Array.from({ length: 21 }, (_, i) => i / 20) });
+  [...secs, end].forEach(el => so.observe(el));
+  pick();
+</script>
+</body>
+</html>

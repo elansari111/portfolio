@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Sparkles, Briefcase, FolderOpen } from 'lucide-react'
 import Folder from '../ui/Folder'
 
 const WORK_EXPERIENCE_ITEMS = [
@@ -26,8 +25,17 @@ const WORK_EXPERIENCE_ITEMS = [
     }
 ]
 
-export default function ExperienceSection() {
+export default function ExperienceSection({ experience = [] }) {
     const [selectedItem, setSelectedItem] = useState(null)
+
+    const folderItems = (experience && experience.length > 0)
+        ? experience.map(e => ({
+            title: e.role || e.title,
+            company: e.company,
+            period: e.period,
+            description: `${e.company || ''} ${e.period ? `(${e.period})` : ''}. ${e.description || ''}`
+        }))
+        : WORK_EXPERIENCE_ITEMS
 
     return (
         <section className="py-16 max-w-7xl mx-auto px-4 md:px-6">
@@ -35,7 +43,7 @@ export default function ExperienceSection() {
                 <div className="py-6 flex items-center justify-center w-full">
                     <Folder
                         label="Work Experience"
-                        items={WORK_EXPERIENCE_ITEMS}
+                        items={folderItems}
                         mode="flap"
                         variant="solid"
                         layout="spread"

@@ -1,18 +1,18 @@
 export const profile = {
     name: "Yassine El Ansari",
     firstName: "Yassine",
-    roles: ["Software Engineer", "Full-Stack Developer"],
+    roles: ["Software Engineer", "Full-Stack Developer", "Creative Technologist"],
     greeting: "Hello there!",
-    bio: "I create digital experiences that merge art, design, and technology. Focused on building brands and websites that stand out through motion and interactivity.",
-    shortBio: "A passionate developer crafting beautiful, performant web applications with modern technologies.",
+    bio: "I design and build high-performance web applications that merge thoughtful design with robust software architecture. Specialized in React, Next.js, TypeScript, and modern cloud backends.",
+    shortBio: "Full-Stack Engineer building high-conversion digital experiences, performant web platforms, and interactive interfaces.",
     avatar: "/avatar.PNG",
     resumeUrl: "/resume.pdf",
-    status: "Available for work",
+    status: "Available for high-impact projects",
     socials: {
         github: "https://github.com/elansari111",
-        linkedin: "#",
-        twitter: "#",
-        instagram: "#",
+        linkedin: "https://linkedin.com/in/yassine-elansari",
+        twitter: "https://twitter.com/yassine_dev",
+        instagram: "https://instagram.com/yassine_codes",
         email: "mailto:contact@yassinelansari.dev"
     }
 };

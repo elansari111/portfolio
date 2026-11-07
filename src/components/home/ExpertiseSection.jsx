@@ -83,7 +83,7 @@ function ExpertiseCard({ area, index }) {
 
                 {/* Skills */}
                 <div className="flex flex-wrap gap-2">
-                    {area.skills.slice(0, 4).map((skill, i) => (
+                    {area.skills.slice(0, 4).map((skill) => (
                         <span
                             key={skill}
                             className="text-xs px-3 py-1 rounded-full font-medium transition-colors group-hover:scale-105"

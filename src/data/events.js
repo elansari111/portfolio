@@ -12,7 +12,7 @@ export const events = [
     },
     {
         id: 2,
-        slug: "mastering-react-animations",
+        slug: "building-micro-frontends",
         title: "Web3 Summit Buildathon",
         role: "Frontend Engineer",
         date: "Oct 2024",

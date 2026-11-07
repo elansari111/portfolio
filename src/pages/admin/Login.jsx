@@ -1,88 +1,49 @@
-import { useState } from 'react'
+import PageShell from '../../components/immersive/PageShell'
+import SEO from '../../components/ui/SEO'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Lock, Eye, EyeOff } from 'lucide-react'
-
-// Simple local auth — password stored in env var (VITE_ADMIN_PASSWORD)
-// Default: "admin123" — change in .env for production
-const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD || 'admin123'
-const SESSION_KEY = 'portfolio_admin_auth'
-
-export function isAdminAuthenticated() {
-    return localStorage.getItem(SESSION_KEY) === 'true'
-}
+import { Eye, EyeOff, Loader2, ShieldCheck, ArrowUpRight } from 'lucide-react'
+import { useAuth } from '../../context/AuthContext'
 
 export default function Login() {
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
+    const [submitting, setSubmitting] = useState(false)
     const [showPw, setShowPw] = useState(false)
+    const { signIn, user, isConfigured } = useAuth()
     const navigate = useNavigate()
 
-    const handleSubmit = (e) => {
+    useEffect(() => {
+        if (user) {
+            navigate('/admin', { replace: true })
+        }
+    }, [user, navigate])
+
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        const entered = (password || '').trim()
-        const expected = (ADMIN_PASSWORD || '').trim().replace(/^['"]|['"]$/g, '')
-        if (entered === expected || entered === 'admin123') {
-            localStorage.setItem(SESSION_KEY, 'true')
-            navigate('/admin')
-        } else {
-            setError('Incorrect password.')
+        setError('')
+        setSubmitting(true)
+
+        if (!isConfigured) {
+            setError('Supabase is not configured yet. Please check your .env variables.')
+            setSubmitting(false)
+            return
+        }
+
+        try {
+            const { error: authError } = await signIn({ email: email.trim(), password })
+            if (authError) {
+                throw authError
+            }
+            navigate('/admin', { replace: true })
+        } catch (err) {
+            console.error('Login error:', err)
+            setError(err.message || 'Authentication failed. Please verify your credentials.')
+        } finally {
+            setSubmitting(false)
         }
     }
 
-    return (
-        <div className="min-h-screen flex items-center justify-center bg-black px-4">
-            <div className="w-full max-w-sm">
-                {/* Logo */}
-                <div className="text-center mb-10">
-                    <span className="text-4xl font-heading font-bold text-white">
-                        Y<span className="text-primary">↗</span>
-                    </span>
-                    <h1 className="text-xl font-heading font-bold text-white mt-3">Admin Access</h1>
-                    <p className="text-gray-500 text-sm mt-1">Sign in to manage your portfolio</p>
-                </div>
-
-                <form onSubmit={handleSubmit} className="bg-[#0d0d0f] border border-white/10 rounded-2xl p-8 space-y-5">
-                    <div className="relative">
-                        <label htmlFor="password" className="block text-xs text-gray-400 uppercase tracking-wider mb-2">
-                            Password
-                        </label>
-                        <div className="relative">
-                            <input
-                                id="password"
-                                type={showPw ? 'text' : 'password'}
-                                value={password}
-                                onChange={e => { setPassword(e.target.value); setError('') }}
-                                className="w-full bg-black border border-white/10 rounded-xl px-4 py-3 pr-11 text-white text-sm outline-none focus:border-primary transition-colors"
-                                placeholder="Enter admin password"
-                                autoComplete="current-password"
-                                required
-                            />
-                            <button
-                                type="button"
-                                onClick={() => setShowPw(!showPw)}
-                                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white transition-colors"
-                                aria-label={showPw ? 'Hide password' : 'Show password'}
-                            >
-                                {showPw ? <EyeOff size={17} /> : <Eye size={17} />}
-                            </button>
-                        </div>
-                        {error && <p className="text-red-400 text-xs mt-2">{error}</p>}
-                    </div>
-
-                    <button
-                        type="submit"
-                        className="w-full bg-primary hover:bg-primary/80 text-white py-3 rounded-full font-semibold text-sm transition-all flex items-center justify-center gap-2"
-                    >
-                        <Lock size={16} />
-                        Sign In
-                    </button>
-
-                    <p className="text-gray-600 text-xs text-center">
-                        Default password: <code className="text-gray-400">admin123</code><br />
-                        Set <code className="text-gray-400">VITE_ADMIN_PASSWORD</code> in .env to change it.
-                    </p>
-                </form>
-            </div>
-        </div>
-    )
+    return <><SEO title="Workspace sign in"/><PageShell className="renew-login" label="PORTFOLIO / PRIVATE WORKSPACE"><section className="renew-login-layout"><div><p className="renew-eyebrow">BEHIND THE SCENES</p><h1>YOUR WORK.<br/><span>YOUR SPACE.</span></h1><p>Manage the projects, stories and details that make this portfolio yours.</p><ShieldCheck size={50}/></div><form onSubmit={handleSubmit} className="renew-login-form" aria-busy={submitting}><span className="renew-eyebrow">WORKSPACE ACCESS</span><h2>WELCOME BACK.</h2><p>Sign in to manage your portfolio.</p>{!isConfigured&&<p className="renew-login-warning" role="status">Authentication is not configured. Add the Supabase URL and public key to the project environment to enable sign in.</p>}{error&&<p role="alert" className="renew-login-warning">{error}</p>}<label htmlFor="admin-email">Email address<input id="admin-email" type="email" autoComplete="username" required value={email} onChange={e=>{setEmail(e.target.value);setError('')}} placeholder="you@example.com" disabled={submitting}/></label><label htmlFor="admin-password">Password<div className="renew-password"><input id="admin-password" type={showPw?'text':'password'} autoComplete="current-password" required value={password} onChange={e=>{setPassword(e.target.value);setError('')}} placeholder="Your password" disabled={submitting}/><button type="button" onClick={()=>setShowPw(!showPw)} aria-label={showPw?'Hide password':'Show password'}>{showPw?<EyeOff size={18}/>:<Eye size={18}/>}</button></div></label><button className="renew-login-submit" disabled={submitting||!isConfigured} type="submit"><span>{submitting?'Signing in…':'Sign in to workspace'}</span>{submitting?<Loader2 className="renew-spinner" size={18}/>:<ArrowUpRight size={19}/>}</button><small>Access is restricted to authorized portfolio administrators.</small></form></section></PageShell></>
 }

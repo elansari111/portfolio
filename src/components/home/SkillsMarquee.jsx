@@ -6,8 +6,9 @@ export default function SkillsMarquee({ skills = [] }) {
 
     return (
         <section className="py-6 w-full max-w-6xl mx-auto px-6" aria-label="Skills marquee">
+            <h2 className="sr-only">Skills and Technologies: {skills.map(s => s.name).join(', ')}</h2>
             <div className="bg-white/50 dark:bg-black/30 backdrop-blur-xl border border-black/10 dark:border-white/10 rounded-3xl py-4 overflow-hidden shadow-sm relative">
-                <div className={`marquee-track marquee-mask ${prefersReduced ? '' : ''}`}>
+                <div className="marquee-track marquee-mask">
                     <div
                         className={prefersReduced ? 'flex flex-wrap justify-center gap-3 px-6' : 'animate-marquee flex w-max gap-4'}
                         style={prefersReduced ? {} : { animationDuration: '40s' }}

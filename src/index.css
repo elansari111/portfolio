@@ -132,3 +132,8 @@ h1, h2, h3, h4, h5, h6 {
 .animation-delay-2000 {
   animation-delay: 2s;
 }
+/* A folder's spread must fit its card at narrow viewport sizes. */
+.responsive-folder-frame{width:100%;min-width:0;display:flex;align-items:center;justify-content:center}
+.experience-page{min-width:0;overflow-wrap:anywhere}
+.experience-page>div{min-width:0;max-width:100%}
+@media(max-width:480px){.experience-page .text-lg{font-size:1rem}.experience-page .p-8{padding:1.25rem}}

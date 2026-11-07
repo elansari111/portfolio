@@ -1,11 +1,18 @@
-import { useState, useEffect, useCallback } from 'react'
+import PageShell from '../../components/immersive/PageShell'
+import SEO from '../../components/ui/SEO'
+import { useEffect, useRef, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import {
     LogOut, User, FolderKanban, FileText, Briefcase,
     Star, Calendar, Plus, Trash2, Edit2, Save, X,
-    RefreshCw, Eye, ChevronDown, ChevronUp, ArrowLeft
+    RefreshCw, Eye, Menu, ArrowLeft,
+    Award, FileDown, Mail
 } from 'lucide-react'
 import { store } from '../../data/store'
+import { useAuth } from '../../context/AuthContext'
+import CertificatesManager from '../../components/admin/managers/CertificatesManager'
+import CVManager from '../../components/admin/managers/CVManager'
+import MessagesManager from '../../components/admin/managers/MessagesManager'
 
 /* ─── tiny helpers ───────────────────────────────────────── */
 const slug = (str) => str.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
@@ -522,126 +529,66 @@ function SimpleForm({ title, item, fields, onSave, onCancel }) {
    DASHBOARD SHELL
 ═══════════════════════════════════════════════════════════ */
 const TABS = [
-    { id: 'profile',    label: 'Profile',    icon: User },
-    { id: 'projects',   label: 'Projects',   icon: FolderKanban },
-    { id: 'posts',      label: 'Blog Posts', icon: FileText },
-    { id: 'experience', label: 'Experience', icon: Briefcase },
-    { id: 'skills',     label: 'Skills',     icon: Star },
-    { id: 'events',     label: 'Events',     icon: Calendar },
+    { id: 'profile',      label: 'Profile',         icon: User },
+    { id: 'projects',     label: 'Projects',        icon: FolderKanban },
+    { id: 'posts',        label: 'Blog Posts',      icon: FileText },
+    { id: 'experience',   label: 'Experience',      icon: Briefcase },
+    { id: 'skills',       label: 'Skills',          icon: Star },
+    { id: 'certificates', label: 'Certificates',    icon: Award },
+    { id: 'cv',           label: 'Resume / CV',     icon: FileDown },
+    { id: 'messages',     label: 'Inquiries',       icon: Mail },
+    { id: 'events',       label: 'Events',          icon: Calendar },
 ]
 
 export default function Dashboard() {
     const [activeTab, setActiveTab] = useState('profile')
     const [sidebarOpen, setSidebarOpen] = useState(false)
+    const { signOut, user, isConfigured } = useAuth()
+    const navigate = useNavigate()
 
     const handleReset = () => {
-        if (window.confirm('Reset ALL data to defaults from JS files? This cannot be undone.')) {
+        if (window.confirm('Reset ALL local cache data to defaults from JS files? This cannot be undone.')) {
             store.resetAll()
             window.location.reload()
         }
     }
 
+    const handleLogout = async () => {
+        try {
+            await signOut()
+        } finally {
+            navigate('/login')
+        }
+    }
+
     const renderContent = () => {
         switch (activeTab) {
-            case 'profile':    return <ProfileManager />
-            case 'projects':   return <ProjectsManager />
-            case 'posts':      return <PostsManager />
-            case 'experience': return <ExperienceManager />
-            case 'skills':     return <SkillsManager />
-            case 'events':     return <EventsManager />
-            default:           return null
+            case 'profile':      return <ProfileManager />
+            case 'projects':     return <ProjectsManager />
+            case 'posts':        return <PostsManager />
+            case 'experience':   return <ExperienceManager />
+            case 'skills':       return <SkillsManager />
+            case 'certificates': return <CertificatesManager />
+            case 'cv':           return <CVManager />
+            case 'messages':     return <MessagesManager />
+            case 'events':       return <EventsManager />
+            default:             return null
         }
     }
 
     const activeLabel = TABS.find(t => t.id === activeTab)?.label
 
-    return (
-        <div className="min-h-screen bg-[#070707] flex">
-            {/* Sidebar */}
-            <aside className={`fixed top-0 left-0 h-full w-60 bg-[#0d0d0f] border-r border-white/10 z-40 flex flex-col transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`}>
-                {/* Logo */}
-                <div className="p-5 border-b border-white/10">
-                    <p className="font-heading font-bold text-white text-lg">
-                        Y<span className="text-primary">↗</span> Admin
-                    </p>
-                    <p className="text-gray-500 text-xs mt-0.5">Portfolio CMS</p>
-                </div>
-
-                {/* Nav */}
-                <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
-                    {TABS.map(tab => (
-                        <button
-                            key={tab.id}
-                            onClick={() => { setActiveTab(tab.id); setSidebarOpen(false) }}
-                            className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
-                                activeTab === tab.id
-                                    ? 'bg-primary text-white'
-                                    : 'text-gray-400 hover:bg-white/5 hover:text-white'
-                            }`}
-                        >
-                            <tab.icon size={18} aria-hidden="true" />
-                            {tab.label}
-                        </button>
-                    ))}
-                </nav>
-
-                {/* Bottom */}
-                <div className="p-3 border-t border-white/10 space-y-2">
-                    <Link
-                        to="/"
-                        className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-gray-400 hover:bg-white/5 hover:text-white transition-all"
-                    >
-                        <Eye size={18} /> View Site
-                    </Link>
-                    <button
-                        onClick={handleReset}
-                        className="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-orange-400 hover:bg-orange-500/10 transition-all"
-                    >
-                        <RefreshCw size={18} /> Reset to Defaults
-                    </button>
-                    <button
-                        onClick={() => {
-                            localStorage.removeItem('portfolio_admin_auth')
-                            window.location.href = '/login'
-                        }}
-                        className="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-red-400 hover:bg-red-500/10 transition-all"
-                    >
-                        <LogOut size={18} /> Logout
-                    </button>
-                </div>
-            </aside>
-
-            {/* Mobile overlay */}
-            {sidebarOpen && (
-                <div className="fixed inset-0 z-30 bg-black/60 md:hidden" onClick={() => setSidebarOpen(false)} />
-            )}
-
-            {/* Main */}
-            <main className="flex-1 md:ml-60 flex flex-col min-h-screen">
-                {/* Top bar */}
-                <header className="sticky top-0 z-20 bg-[#0d0d0f]/80 backdrop-blur border-b border-white/10 px-6 py-4 flex items-center justify-between">
-                    <div className="flex items-center gap-4">
-                        <button
-                            onClick={() => setSidebarOpen(!sidebarOpen)}
-                            className="md:hidden text-gray-400 hover:text-white transition-colors"
-                        >
-                            <ChevronDown size={22} className={`transition-transform ${sidebarOpen ? 'rotate-180' : ''}`} />
-                        </button>
-                        <h1 className="font-heading font-bold text-white text-xl">{activeLabel}</h1>
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-500 text-xs">
-                        <span className="w-2 h-2 rounded-full bg-green-500 inline-block" />
-                        Local Storage Mode
-                    </div>
-                </header>
-
-                {/* Content */}
-                <div className="flex-1 p-6 md:p-8">
-                    <div className="max-w-4xl mx-auto bg-[#0d0d0f] border border-white/10 rounded-2xl p-6 md:p-8">
-                        {renderContent()}
-                    </div>
-                </div>
-            </main>
-        </div>
-    )
+    const mobileTrigger = useRef(null)
+    const sidebar = useRef(null)
+    useEffect(() => {
+        if (!sidebarOpen) return
+        const previous = document.body.style.overflow
+        const returnFocus = mobileTrigger.current
+        document.body.style.overflow = 'hidden'
+        sidebar.current?.querySelector('button')?.focus()
+        const escape = event => { if (event.key === 'Escape') setSidebarOpen(false) }
+        document.addEventListener('keydown', escape)
+        return () => { document.body.style.overflow = previous; document.removeEventListener('keydown', escape); returnFocus?.focus() }
+    }, [sidebarOpen])
+    return <><SEO title="Portfolio workspace"/><PageShell chrome={false} className="admin-workspace"><div className="renew-admin-layout"><aside ref={sidebar} className={`renew-admin-sidebar ${sidebarOpen?'is-open':''}`} id="workspace-navigation"><Link to="/" className="renew-admin-logo">Yassine<span>✳</span></Link><p>PORTFOLIO WORKSPACE</p><button className="renew-admin-close" onClick={()=>setSidebarOpen(false)} aria-label="Close workspace navigation"><X size={21}/></button><nav aria-label="Workspace sections">{TABS.map(tab=><button key={tab.id} aria-current={activeTab===tab.id?'page':undefined} onClick={()=>{setActiveTab(tab.id);setSidebarOpen(false)}}><tab.icon size={18}/>{tab.label}</button>)}</nav><div className="renew-admin-sidebar-end"><Link to="/"><Eye size={17}/> View portfolio</Link><button onClick={handleReset}><RefreshCw size={17}/> Reset local data</button><button onClick={handleLogout}><LogOut size={17}/> Sign out</button></div></aside>{sidebarOpen&&<button className="renew-admin-overlay" onClick={()=>setSidebarOpen(false)} aria-label="Close navigation overlay"/>}<main className="renew-admin-main"><header><div><button ref={mobileTrigger} className="renew-admin-menu" onClick={()=>setSidebarOpen(!sidebarOpen)} aria-label="Open workspace navigation" aria-expanded={sidebarOpen} aria-controls="workspace-navigation"><Menu size={21}/></button><div><span>YOUR WORKSPACE / CONTENT</span><h1>{activeLabel}</h1></div></div><p><i/>{isConfigured?'Supabase configured':'Local workspace'}{user?.email&&<small>{user.email}</small>}</p></header><section className="renew-admin-content" aria-label={`${activeLabel} manager`}><div className="renew-admin-manager" key={activeTab}>{renderContent()}</div></section></main></div></PageShell></>
 }

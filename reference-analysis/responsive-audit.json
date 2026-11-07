@@ -1,0 +1,1807 @@
+{
+  "routes": [
+    "/projects",
+    "/skills",
+    "/experience",
+    "/certificates",
+    "/blogs",
+    "/blogs/mastering-react-animations",
+    "/contact",
+    "/events"
+  ],
+  "home": [
+    {
+      "back": {
+        "bottom": 230.59110260009768,
+        "height": 338,
+        "scroll": 239,
+        "scrollHeight": 338,
+        "top": -109.20891571044922,
+        "width": 239
+      },
+      "badge": {
+        "bottom": 572.3875274658203,
+        "height": 340,
+        "scroll": 241,
+        "scrollHeight": 340,
+        "top": 232.58750915527344,
+        "width": 241
+      },
+      "documentWidth": 305,
+      "front": {
+        "bottom": 230.59110260009768,
+        "height": 338,
+        "scroll": 239,
+        "scrollHeight": 338,
+        "top": -109.20891571044922,
+        "width": 239
+      },
+      "heroRole": {
+        "bottom": 755.9999923706055,
+        "height": 91,
+        "scroll": 261,
+        "scrollHeight": 91,
+        "top": 665.2999877929688,
+        "width": 261
+      },
+      "heroTitle": {
+        "bottom": 179.75000762939453,
+        "height": 110,
+        "scroll": 261,
+        "scrollHeight": 136,
+        "top": 70.20000457763672,
+        "width": 261
+      },
+      "overflow": [],
+      "processCopy": {
+        "bottom": 0,
+        "height": 0,
+        "scroll": 0,
+        "scrollHeight": 0,
+        "top": 0,
+        "width": 0
+      },
+      "processRail": {
+        "bottom": 0,
+        "height": 0,
+        "scroll": 0,
+        "scrollHeight": 0,
+        "top": 0,
+        "width": 0
+      },
+      "viewport": [
+        320,
+        568
+      ]
+    },
+    {
+      "back": {
+        "bottom": 366.4990110397339,
+        "height": 379,
+        "scroll": 268,
+        "scrollHeight": 379,
+        "top": -14.201001167297363,
+        "width": 268
+      },
+      "badge": {
+        "bottom": 607.8500213623047,
+        "height": 381,
+        "scroll": 270,
+        "scrollHeight": 381,
+        "top": 227.15000915527344,
+        "width": 270
+      },
+      "documentWidth": 345,
+      "front": {
+        "bottom": 366.4990110397339,
+        "height": 379,
+        "scroll": 268,
+        "scrollHeight": 379,
+        "top": -14.201001167297363,
+        "width": 268
+      },
+      "heroRole": {
+        "bottom": 776,
+        "height": 96,
+        "scroll": 301,
+        "scrollHeight": 96,
+        "top": 679.625,
+        "width": 301
+      },
+      "heroTitle": {
+        "bottom": 195.25,
+        "height": 123,
+        "scroll": 301,
+        "scrollHeight": 145,
+        "top": 72,
+        "width": 301
+      },
+      "overflow": [],
+      "processCopy": {
+        "bottom": 0,
+        "height": 0,
+        "scroll": 0,
+        "scrollHeight": 0,
+        "top": 0,
+        "width": 0
+      },
+      "processRail": {
+        "bottom": 0,
+        "height": 0,
+        "scroll": 0,
+        "scrollHeight": 0,
+        "top": 0,
+        "width": 0
+      },
+      "viewport": [
+        360,
+        800
+      ]
+    },
+    {
+      "back": {
+        "bottom": 489.4114990234375,
+        "height": 379,
+        "scroll": 268,
+        "scrollHeight": 379,
+        "top": 108.71148681640624,
+        "width": 268
+      },
+      "badge": {
+        "bottom": 634.8500213623047,
+        "height": 381,
+        "scroll": 270,
+        "scrollHeight": 381,
+        "top": 254.15000915527344,
+        "width": 270
+      },
+      "documentWidth": 375,
+      "front": {
+        "bottom": 489.4114990234375,
+        "height": 379,
+        "scroll": 268,
+        "scrollHeight": 379,
+        "top": 108.71148681640624,
+        "width": 268
+      },
+      "heroRole": {
+        "bottom": 820,
+        "height": 101,
+        "scroll": 328,
+        "scrollHeight": 101,
+        "top": 719.25,
+        "width": 328
+      },
+      "heroTitle": {
+        "bottom": 209.60001373291016,
+        "height": 134,
+        "scroll": 328,
+        "scrollHeight": 151,
+        "top": 75.95000457763672,
+        "width": 328
+      },
+      "overflow": [],
+      "processCopy": {
+        "bottom": 4118.987548828125,
+        "height": 216,
+        "scroll": 328,
+        "scrollHeight": 216,
+        "top": 3903.362548828125,
+        "width": 328
+      },
+      "processRail": {
+        "bottom": 4238.625293731689,
+        "height": 32,
+        "scroll": 328,
+        "scrollHeight": 32,
+        "top": 4206.42529296875,
+        "width": 328
+      },
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "back": {
+        "bottom": 638.8329772949219,
+        "height": 379,
+        "scroll": 268,
+        "scrollHeight": 379,
+        "top": 258.1329650878906,
+        "width": 268
+      },
+      "badge": {
+        "bottom": 686.8500061035156,
+        "height": 381,
+        "scroll": 270,
+        "scrollHeight": 381,
+        "top": 306.1499938964844,
+        "width": 270
+      },
+      "documentWidth": 415,
+      "front": {
+        "bottom": 638.8329772949219,
+        "height": 379,
+        "scroll": 268,
+        "scrollHeight": 379,
+        "top": 258.1329650878906,
+        "width": 268
+      },
+      "heroRole": {
+        "bottom": 907.9999923706056,
+        "height": 106,
+        "scroll": 364,
+        "scrollHeight": 106,
+        "top": 801.5499877929688,
+        "width": 364
+      },
+      "heroTitle": {
+        "bottom": 231.2250061035156,
+        "height": 147,
+        "scroll": 364,
+        "scrollHeight": 163,
+        "top": 83.875,
+        "width": 364
+      },
+      "overflow": [
+        {
+          "class": "im-sr-only",
+          "excess": 97,
+          "tag": "P",
+          "text": "React, Next.js, TypeScript, Node.js, Tailwind"
+        }
+      ],
+      "processCopy": {
+        "bottom": 7619.3876953125,
+        "height": 216,
+        "scroll": 364,
+        "scrollHeight": 216,
+        "top": 7403.7626953125,
+        "width": 364
+      },
+      "processRail": {
+        "bottom": 7783.025196075439,
+        "height": 32,
+        "scroll": 364,
+        "scrollHeight": 32,
+        "top": 7750.8251953125,
+        "width": 364
+      },
+      "viewport": [
+        430,
+        932
+      ]
+    },
+    {
+      "back": {
+        "bottom": 582.8407897949219,
+        "height": 263,
+        "scroll": 186,
+        "scrollHeight": 263,
+        "top": 317.853271484375,
+        "width": 186
+      },
+      "badge": {
+        "bottom": 577.9875183105469,
+        "height": 265,
+        "scroll": 188,
+        "scrollHeight": 270,
+        "top": 313,
+        "width": 188
+      },
+      "documentWidth": 625,
+      "front": {
+        "bottom": 582.8407897949219,
+        "height": 263,
+        "scroll": 186,
+        "scrollHeight": 263,
+        "top": 317.853271484375,
+        "width": 186
+      },
+      "heroRole": {
+        "bottom": 776.0000457763672,
+        "height": 136,
+        "scroll": 548,
+        "scrollHeight": 136,
+        "top": 639.6000366210938,
+        "width": 548
+      },
+      "heroTitle": {
+        "bottom": 291.125,
+        "height": 219,
+        "scroll": 548,
+        "scrollHeight": 241,
+        "top": 72,
+        "width": 548
+      },
+      "overflow": [
+        {
+          "class": "im-sr-only",
+          "excess": 97,
+          "tag": "P",
+          "text": "React, Next.js, TypeScript, Node.js, Tailwind"
+        }
+      ],
+      "processCopy": {
+        "bottom": 8478.212692260742,
+        "height": 192,
+        "scroll": 548,
+        "scrollHeight": 192,
+        "top": 8286.6376953125,
+        "width": 548
+      },
+      "processRail": {
+        "bottom": 8597.87480545044,
+        "height": 32,
+        "scroll": 548,
+        "scrollHeight": 32,
+        "top": 8565.6748046875,
+        "width": 548
+      },
+      "viewport": [
+        640,
+        800
+      ]
+    },
+    {
+      "back": {
+        "bottom": 831.44775390625,
+        "height": 506,
+        "scroll": 358,
+        "scrollHeight": 506,
+        "top": 323.8477478027344,
+        "width": 358
+      },
+      "badge": {
+        "bottom": 800.8000183105469,
+        "height": 508,
+        "scroll": 360,
+        "scrollHeight": 538,
+        "top": 293.20001220703125,
+        "width": 360
+      },
+      "documentWidth": 753,
+      "front": {
+        "bottom": 831.44775390625,
+        "height": 506,
+        "scroll": 358,
+        "scrollHeight": 506,
+        "top": 323.8477478027344,
+        "width": 358
+      },
+      "heroRole": {
+        "bottom": 1000.0000381469728,
+        "height": 82,
+        "scroll": 661,
+        "scrollHeight": 82,
+        "top": 918.3500366210938,
+        "width": 661
+      },
+      "heroTitle": {
+        "bottom": 216.2875061035156,
+        "height": 83,
+        "scroll": 661,
+        "scrollHeight": 96,
+        "top": 133.1125030517578,
+        "width": 661
+      },
+      "overflow": [
+        {
+          "class": "im-sr-only",
+          "excess": 97,
+          "tag": "P",
+          "text": "React, Next.js, TypeScript, Node.js, Tailwind"
+        }
+      ],
+      "processCopy": {
+        "bottom": 6061.299896240234,
+        "height": 268,
+        "scroll": 297,
+        "scrollHeight": 268,
+        "top": 5793.14990234375,
+        "width": 297
+      },
+      "processRail": {
+        "bottom": 6358.225292205811,
+        "height": 34,
+        "scroll": 297,
+        "scrollHeight": 34,
+        "top": 6324.42529296875,
+        "width": 297
+      },
+      "viewport": [
+        768,
+        1024
+      ]
+    },
+    {
+      "back": {
+        "bottom": 623.9810638427734,
+        "height": 387,
+        "scroll": 274,
+        "scrollHeight": 387,
+        "top": 235.0060272216797,
+        "width": 274
+      },
+      "badge": {
+        "bottom": 590.9750061035156,
+        "height": 389,
+        "scroll": 276,
+        "scrollHeight": 422,
+        "top": 202,
+        "width": 276
+      },
+      "documentWidth": 1009,
+      "front": {
+        "bottom": 623.9810638427734,
+        "height": 387,
+        "scroll": 274,
+        "scrollHeight": 387,
+        "top": 235.0060272216797,
+        "width": 274
+      },
+      "heroRole": {
+        "bottom": 744.0000152587891,
+        "height": 91,
+        "scroll": 886,
+        "scrollHeight": 91,
+        "top": 653.1375122070312,
+        "width": 886
+      },
+      "heroTitle": {
+        "bottom": 180.00000762939453,
+        "height": 111,
+        "scroll": 886,
+        "scrollHeight": 128,
+        "top": 69.11250305175781,
+        "width": 886
+      },
+      "overflow": [
+        {
+          "class": "im-sr-only",
+          "excess": 97,
+          "tag": "P",
+          "text": "React, Next.js, TypeScript, Node.js, Tailwind"
+        }
+      ],
+      "processCopy": {
+        "bottom": 6008.900100708008,
+        "height": 248,
+        "scroll": 399,
+        "scrollHeight": 248,
+        "top": 5760.72509765625,
+        "width": 399
+      },
+      "processRail": {
+        "bottom": 6181.637401580811,
+        "height": 34,
+        "scroll": 399,
+        "scrollHeight": 34,
+        "top": 6147.83740234375,
+        "width": 399
+      },
+      "viewport": [
+        1024,
+        768
+      ]
+    },
+    {
+      "back": {
+        "bottom": 604.0965576171875,
+        "height": 338,
+        "scroll": 240,
+        "scrollHeight": 338,
+        "top": 264.1215515136719,
+        "width": 240
+      },
+      "badge": {
+        "bottom": 578.9750061035156,
+        "height": 340,
+        "scroll": 241,
+        "scrollHeight": 365,
+        "top": 239,
+        "width": 241
+      },
+      "documentWidth": 1351,
+      "front": {
+        "bottom": 604.0965576171875,
+        "height": 338,
+        "scroll": 240,
+        "scrollHeight": 338,
+        "top": 264.1215515136719,
+        "width": 240
+      },
+      "heroRole": {
+        "bottom": 744,
+        "height": 103,
+        "scroll": 1187,
+        "scrollHeight": 103,
+        "top": 640.8125,
+        "width": 1187
+      },
+      "heroTitle": {
+        "bottom": 217.08750915527344,
+        "height": 148,
+        "scroll": 1187,
+        "scrollHeight": 171,
+        "top": 69.11250305175781,
+        "width": 1187
+      },
+      "overflow": [
+        {
+          "class": "im-sr-only",
+          "excess": 97,
+          "tag": "P",
+          "text": "React, Next.js, TypeScript, Node.js, Tailwind"
+        }
+      ],
+      "processCopy": {
+        "bottom": 6720.64990234375,
+        "height": 261,
+        "scroll": 534,
+        "scrollHeight": 261,
+        "top": 6459.64990234375,
+        "width": 534
+      },
+      "processRail": {
+        "bottom": 6879.424999237061,
+        "height": 34,
+        "scroll": 534,
+        "scrollHeight": 34,
+        "top": 6845.625,
+        "width": 534
+      },
+      "viewport": [
+        1366,
+        768
+      ]
+    },
+    {
+      "back": {
+        "bottom": 723.4805297851562,
+        "height": 447,
+        "scroll": 317,
+        "scrollHeight": 447,
+        "top": 274.4930114746094,
+        "width": 317
+      },
+      "badge": {
+        "bottom": 707.9875183105469,
+        "height": 449,
+        "scroll": 318,
+        "scrollHeight": 464,
+        "top": 259,
+        "width": 318
+      },
+      "documentWidth": 1425,
+      "front": {
+        "bottom": 723.4805297851562,
+        "height": 447,
+        "scroll": 317,
+        "scrollHeight": 447,
+        "top": 274.4930114746094,
+        "width": 317
+      },
+      "heroRole": {
+        "bottom": 876.0000381469727,
+        "height": 106,
+        "scroll": 1252,
+        "scrollHeight": 106,
+        "top": 770.1625366210938,
+        "width": 1252
+      },
+      "heroTitle": {
+        "bottom": 236.9499969482422,
+        "height": 156,
+        "scroll": 1252,
+        "scrollHeight": 180,
+        "top": 81,
+        "width": 1252
+      },
+      "overflow": [
+        {
+          "class": "im-sr-only",
+          "excess": 97,
+          "tag": "P",
+          "text": "React, Next.js, TypeScript, Node.js, Tailwind"
+        }
+      ],
+      "processCopy": {
+        "bottom": 7057.67529296875,
+        "height": 269,
+        "scroll": 563,
+        "scrollHeight": 269,
+        "top": 6788.55029296875,
+        "width": 563
+      },
+      "processRail": {
+        "bottom": 7276.762401580811,
+        "height": 34,
+        "scroll": 563,
+        "scrollHeight": 34,
+        "top": 7242.96240234375,
+        "width": 563
+      },
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "back": {
+        "bottom": 705.1606750488281,
+        "height": 385,
+        "scroll": 273,
+        "scrollHeight": 385,
+        "top": 318.1731872558594,
+        "width": 273
+      },
+      "badge": {
+        "bottom": 697.9875183105469,
+        "height": 387,
+        "scroll": 274,
+        "scrollHeight": 394,
+        "top": 311,
+        "width": 274
+      },
+      "documentWidth": 1905,
+      "front": {
+        "bottom": 705.1606750488281,
+        "height": 385,
+        "scroll": 273,
+        "scrollHeight": 385,
+        "top": 318.1731872558594,
+        "width": 273
+      },
+      "heroRole": {
+        "bottom": 880,
+        "height": 120,
+        "scroll": 1705,
+        "scrollHeight": 120,
+        "top": 760,
+        "width": 1705
+      },
+      "heroTitle": {
+        "bottom": 289.2750015258789,
+        "height": 208,
+        "scroll": 1705,
+        "scrollHeight": 241,
+        "top": 81.3499984741211,
+        "width": 1705
+      },
+      "overflow": [
+        {
+          "class": "im-sr-only",
+          "excess": 97,
+          "tag": "P",
+          "text": "React, Next.js, TypeScript, Node.js, Tailwind"
+        }
+      ],
+      "processCopy": {
+        "bottom": 7775.375,
+        "height": 279,
+        "scroll": 767,
+        "scrollHeight": 279,
+        "top": 7496.0625,
+        "width": 767
+      },
+      "processRail": {
+        "bottom": 7988.824901580811,
+        "height": 34,
+        "scroll": 767,
+        "scrollHeight": 34,
+        "top": 7955.02490234375,
+        "width": 767
+      },
+      "viewport": [
+        1920,
+        904
+      ]
+    },
+    {
+      "back": {
+        "bottom": 1057.0623474121094,
+        "height": 506,
+        "scroll": 358,
+        "scrollHeight": 506,
+        "top": 549.4623413085938,
+        "width": 358
+      },
+      "badge": {
+        "bottom": 1055.3000183105469,
+        "height": 508,
+        "scroll": 360,
+        "scrollHeight": 509,
+        "top": 547.7000122070312,
+        "width": 360
+      },
+      "documentWidth": 2545,
+      "front": {
+        "bottom": 1057.0623474121094,
+        "height": 506,
+        "scroll": 358,
+        "scrollHeight": 506,
+        "top": 549.4623413085938,
+        "width": 358
+      },
+      "heroRole": {
+        "bottom": 1416,
+        "height": 120,
+        "scroll": 2345,
+        "scrollHeight": 120,
+        "top": 1296,
+        "width": 2345
+      },
+      "heroTitle": {
+        "bottom": 346.20001220703125,
+        "height": 217,
+        "scroll": 2345,
+        "scrollHeight": 250,
+        "top": 129.60000610351562,
+        "width": 2345
+      },
+      "overflow": [
+        {
+          "class": "im-sr-only",
+          "excess": 97,
+          "tag": "P",
+          "text": "React, Next.js, TypeScript, Node.js, Tailwind"
+        }
+      ],
+      "processCopy": {
+        "bottom": 9541.275390625,
+        "height": 279,
+        "scroll": 1055,
+        "scrollHeight": 279,
+        "top": 9261.962890625,
+        "width": 1055
+      },
+      "processRail": {
+        "bottom": 10022.72480392456,
+        "height": 34,
+        "scroll": 1055,
+        "scrollHeight": 34,
+        "top": 9988.9248046875,
+        "width": 1055
+      },
+      "viewport": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "back": {
+        "bottom": 568.6916198730469,
+        "height": 359,
+        "scroll": 254,
+        "scrollHeight": 359,
+        "top": 207.7041015625,
+        "width": 254
+      },
+      "badge": {
+        "bottom": 569.9875183105469,
+        "height": 361,
+        "scroll": 256,
+        "scrollHeight": 361,
+        "top": 209,
+        "width": 256
+      },
+      "documentWidth": 829,
+      "front": {
+        "bottom": 568.6916198730469,
+        "height": 359,
+        "scroll": 254,
+        "scrollHeight": 359,
+        "top": 207.7041015625,
+        "width": 254
+      },
+      "heroRole": {
+        "bottom": 715.9999923706055,
+        "height": 84,
+        "scroll": 728,
+        "scrollHeight": 84,
+        "top": 631.6124877929688,
+        "width": 728
+      },
+      "heroTitle": {
+        "bottom": 187.58750915527344,
+        "height": 91,
+        "scroll": 728,
+        "scrollHeight": 106,
+        "top": 96.20000457763672,
+        "width": 728
+      },
+      "overflow": [
+        {
+          "class": "im-sr-only",
+          "excess": 97,
+          "tag": "P",
+          "text": "React, Next.js, TypeScript, Node.js, Tailwind"
+        }
+      ],
+      "processCopy": {
+        "bottom": 0,
+        "height": 0,
+        "scroll": 0,
+        "scrollHeight": 0,
+        "top": 0,
+        "width": 0
+      },
+      "processRail": {
+        "bottom": 0,
+        "height": 0,
+        "scroll": 0,
+        "scrollHeight": 0,
+        "top": 0,
+        "width": 0
+      },
+      "viewport": [
+        844,
+        390
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "route": "/projects",
+      "size": {
+        "width": 320,
+        "height": 568
+      },
+      "client": 305,
+      "clipped": [],
+      "width": 305
+    },
+    {
+      "route": "/skills",
+      "size": {
+        "width": 320,
+        "height": 568
+      },
+      "client": 305,
+      "clipped": [],
+      "width": 305
+    },
+    {
+      "route": "/experience",
+      "size": {
+        "width": 320,
+        "height": 568
+      },
+      "client": 305,
+      "clipped": [],
+      "width": 305
+    },
+    {
+      "route": "/certificates",
+      "size": {
+        "width": 320,
+        "height": 568
+      },
+      "client": 305,
+      "clipped": [],
+      "width": 305
+    },
+    {
+      "route": "/blogs",
+      "size": {
+        "width": 320,
+        "height": 568
+      },
+      "client": 305,
+      "clipped": [],
+      "width": 305
+    },
+    {
+      "route": "/blogs/mastering-react-animations",
+      "size": {
+        "width": 320,
+        "height": 568
+      },
+      "client": 305,
+      "clipped": [],
+      "width": 305
+    },
+    {
+      "route": "/contact",
+      "size": {
+        "width": 320,
+        "height": 568
+      },
+      "client": 305,
+      "clipped": [],
+      "width": 305
+    },
+    {
+      "route": "/events",
+      "size": {
+        "width": 320,
+        "height": 568
+      },
+      "client": 305,
+      "clipped": [],
+      "width": 305
+    },
+    {
+      "route": "/projects",
+      "size": {
+        "width": 360,
+        "height": 800
+      },
+      "client": 345,
+      "clipped": [],
+      "width": 345
+    },
+    {
+      "route": "/skills",
+      "size": {
+        "width": 360,
+        "height": 800
+      },
+      "client": 345,
+      "clipped": [],
+      "width": 345
+    },
+    {
+      "route": "/experience",
+      "size": {
+        "width": 360,
+        "height": 800
+      },
+      "client": 345,
+      "clipped": [],
+      "width": 345
+    },
+    {
+      "route": "/certificates",
+      "size": {
+        "width": 360,
+        "height": 800
+      },
+      "client": 360,
+      "clipped": [],
+      "width": 360
+    },
+    {
+      "route": "/blogs",
+      "size": {
+        "width": 360,
+        "height": 800
+      },
+      "client": 345,
+      "clipped": [],
+      "width": 345
+    },
+    {
+      "route": "/blogs/mastering-react-animations",
+      "size": {
+        "width": 360,
+        "height": 800
+      },
+      "client": 345,
+      "clipped": [],
+      "width": 345
+    },
+    {
+      "route": "/contact",
+      "size": {
+        "width": 360,
+        "height": 800
+      },
+      "client": 345,
+      "clipped": [],
+      "width": 345
+    },
+    {
+      "route": "/events",
+      "size": {
+        "width": 360,
+        "height": 800
+      },
+      "client": 345,
+      "clipped": [],
+      "width": 345
+    },
+    {
+      "route": "/projects",
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "client": 375,
+      "clipped": [],
+      "width": 375
+    },
+    {
+      "route": "/skills",
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "client": 375,
+      "clipped": [],
+      "width": 375
+    },
+    {
+      "route": "/experience",
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "client": 375,
+      "clipped": [],
+      "width": 375
+    },
+    {
+      "route": "/certificates",
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "client": 390,
+      "clipped": [],
+      "width": 390
+    },
+    {
+      "route": "/blogs",
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "client": 375,
+      "clipped": [],
+      "width": 375
+    },
+    {
+      "route": "/blogs/mastering-react-animations",
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "client": 375,
+      "clipped": [],
+      "width": 375
+    },
+    {
+      "route": "/contact",
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "client": 375,
+      "clipped": [],
+      "width": 375
+    },
+    {
+      "route": "/events",
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "client": 375,
+      "clipped": [],
+      "width": 375
+    },
+    {
+      "route": "/projects",
+      "size": {
+        "width": 430,
+        "height": 932
+      },
+      "client": 415,
+      "clipped": [],
+      "width": 415
+    },
+    {
+      "route": "/skills",
+      "size": {
+        "width": 430,
+        "height": 932
+      },
+      "client": 415,
+      "clipped": [],
+      "width": 415
+    },
+    {
+      "route": "/experience",
+      "size": {
+        "width": 430,
+        "height": 932
+      },
+      "client": 415,
+      "clipped": [],
+      "width": 415
+    },
+    {
+      "route": "/certificates",
+      "size": {
+        "width": 430,
+        "height": 932
+      },
+      "client": 430,
+      "clipped": [],
+      "width": 430
+    },
+    {
+      "route": "/blogs",
+      "size": {
+        "width": 430,
+        "height": 932
+      },
+      "client": 415,
+      "clipped": [],
+      "width": 415
+    },
+    {
+      "route": "/blogs/mastering-react-animations",
+      "size": {
+        "width": 430,
+        "height": 932
+      },
+      "client": 415,
+      "clipped": [],
+      "width": 415
+    },
+    {
+      "route": "/contact",
+      "size": {
+        "width": 430,
+        "height": 932
+      },
+      "client": 415,
+      "clipped": [],
+      "width": 415
+    },
+    {
+      "route": "/events",
+      "size": {
+        "width": 430,
+        "height": 932
+      },
+      "client": 415,
+      "clipped": [],
+      "width": 415
+    },
+    {
+      "route": "/projects",
+      "size": {
+        "width": 640,
+        "height": 800
+      },
+      "client": 625,
+      "clipped": [],
+      "width": 625
+    },
+    {
+      "route": "/skills",
+      "size": {
+        "width": 640,
+        "height": 800
+      },
+      "client": 625,
+      "clipped": [],
+      "width": 625
+    },
+    {
+      "route": "/experience",
+      "size": {
+        "width": 640,
+        "height": 800
+      },
+      "client": 625,
+      "clipped": [],
+      "width": 625
+    },
+    {
+      "route": "/certificates",
+      "size": {
+        "width": 640,
+        "height": 800
+      },
+      "client": 625,
+      "clipped": [],
+      "width": 625
+    },
+    {
+      "route": "/blogs",
+      "size": {
+        "width": 640,
+        "height": 800
+      },
+      "client": 625,
+      "clipped": [],
+      "width": 625
+    },
+    {
+      "route": "/blogs/mastering-react-animations",
+      "size": {
+        "width": 640,
+        "height": 800
+      },
+      "client": 625,
+      "clipped": [],
+      "width": 625
+    },
+    {
+      "route": "/contact",
+      "size": {
+        "width": 640,
+        "height": 800
+      },
+      "client": 625,
+      "clipped": [],
+      "width": 625
+    },
+    {
+      "route": "/events",
+      "size": {
+        "width": 640,
+        "height": 800
+      },
+      "client": 625,
+      "clipped": [],
+      "width": 625
+    },
+    {
+      "route": "/projects",
+      "size": {
+        "width": 768,
+        "height": 1024
+      },
+      "client": 753,
+      "clipped": [],
+      "width": 753
+    },
+    {
+      "route": "/skills",
+      "size": {
+        "width": 768,
+        "height": 1024
+      },
+      "client": 753,
+      "clipped": [],
+      "width": 753
+    },
+    {
+      "route": "/experience",
+      "size": {
+        "width": 768,
+        "height": 1024
+      },
+      "client": 753,
+      "clipped": [],
+      "width": 753
+    },
+    {
+      "route": "/certificates",
+      "size": {
+        "width": 768,
+        "height": 1024
+      },
+      "client": 768,
+      "clipped": [],
+      "width": 768
+    },
+    {
+      "route": "/blogs",
+      "size": {
+        "width": 768,
+        "height": 1024
+      },
+      "client": 753,
+      "clipped": [],
+      "width": 753
+    },
+    {
+      "route": "/blogs/mastering-react-animations",
+      "size": {
+        "width": 768,
+        "height": 1024
+      },
+      "client": 753,
+      "clipped": [],
+      "width": 753
+    },
+    {
+      "route": "/contact",
+      "size": {
+        "width": 768,
+        "height": 1024
+      },
+      "client": 753,
+      "clipped": [],
+      "width": 753
+    },
+    {
+      "route": "/events",
+      "size": {
+        "width": 768,
+        "height": 1024
+      },
+      "client": 753,
+      "clipped": [],
+      "width": 753
+    },
+    {
+      "route": "/projects",
+      "size": {
+        "width": 1024,
+        "height": 768
+      },
+      "client": 1009,
+      "clipped": [],
+      "width": 1009
+    },
+    {
+      "route": "/skills",
+      "size": {
+        "width": 1024,
+        "height": 768
+      },
+      "client": 1009,
+      "clipped": [],
+      "width": 1009
+    },
+    {
+      "route": "/experience",
+      "size": {
+        "width": 1024,
+        "height": 768
+      },
+      "client": 1009,
+      "clipped": [],
+      "width": 1009
+    },
+    {
+      "route": "/certificates",
+      "size": {
+        "width": 1024,
+        "height": 768
+      },
+      "client": 1024,
+      "clipped": [],
+      "width": 1024
+    },
+    {
+      "route": "/blogs",
+      "size": {
+        "width": 1024,
+        "height": 768
+      },
+      "client": 1009,
+      "clipped": [],
+      "width": 1009
+    },
+    {
+      "route": "/blogs/mastering-react-animations",
+      "size": {
+        "width": 1024,
+        "height": 768
+      },
+      "client": 1009,
+      "clipped": [],
+      "width": 1009
+    },
+    {
+      "route": "/contact",
+      "size": {
+        "width": 1024,
+        "height": 768
+      },
+      "client": 1009,
+      "clipped": [],
+      "width": 1009
+    },
+    {
+      "route": "/events",
+      "size": {
+        "width": 1024,
+        "height": 768
+      },
+      "client": 1009,
+      "clipped": [],
+      "width": 1009
+    },
+    {
+      "route": "/projects",
+      "size": {
+        "width": 1366,
+        "height": 768
+      },
+      "client": 1351,
+      "clipped": [],
+      "width": 1351
+    },
+    {
+      "route": "/skills",
+      "size": {
+        "width": 1366,
+        "height": 768
+      },
+      "client": 1351,
+      "clipped": [],
+      "width": 1351
+    },
+    {
+      "route": "/experience",
+      "size": {
+        "width": 1366,
+        "height": 768
+      },
+      "client": 1351,
+      "clipped": [],
+      "width": 1351
+    },
+    {
+      "route": "/certificates",
+      "size": {
+        "width": 1366,
+        "height": 768
+      },
+      "client": 1351,
+      "clipped": [],
+      "width": 1351
+    },
+    {
+      "route": "/blogs",
+      "size": {
+        "width": 1366,
+        "height": 768
+      },
+      "client": 1351,
+      "clipped": [],
+      "width": 1351
+    },
+    {
+      "route": "/blogs/mastering-react-animations",
+      "size": {
+        "width": 1366,
+        "height": 768
+      },
+      "client": 1351,
+      "clipped": [],
+      "width": 1351
+    },
+    {
+      "route": "/contact",
+      "size": {
+        "width": 1366,
+        "height": 768
+      },
+      "client": 1351,
+      "clipped": [],
+      "width": 1351
+    },
+    {
+      "route": "/events",
+      "size": {
+        "width": 1366,
+        "height": 768
+      },
+      "client": 1351,
+      "clipped": [],
+      "width": 1351
+    },
+    {
+      "route": "/projects",
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "client": 1425,
+      "clipped": [],
+      "width": 1425
+    },
+    {
+      "route": "/skills",
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "client": 1440,
+      "clipped": [],
+      "width": 1440
+    },
+    {
+      "route": "/experience",
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "client": 1425,
+      "clipped": [],
+      "width": 1425
+    },
+    {
+      "route": "/certificates",
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "client": 1440,
+      "clipped": [],
+      "width": 1440
+    },
+    {
+      "route": "/blogs",
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "client": 1425,
+      "clipped": [],
+      "width": 1425
+    },
+    {
+      "route": "/blogs/mastering-react-animations",
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "client": 1425,
+      "clipped": [],
+      "width": 1425
+    },
+    {
+      "route": "/contact",
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "client": 1425,
+      "clipped": [],
+      "width": 1425
+    },
+    {
+      "route": "/events",
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "client": 1425,
+      "clipped": [],
+      "width": 1425
+    },
+    {
+      "route": "/projects",
+      "size": {
+        "width": 1920,
+        "height": 904
+      },
+      "client": 1905,
+      "clipped": [],
+      "width": 1905
+    },
+    {
+      "route": "/skills",
+      "size": {
+        "width": 1920,
+        "height": 904
+      },
+      "client": 1920,
+      "clipped": [],
+      "width": 1920
+    },
+    {
+      "route": "/experience",
+      "size": {
+        "width": 1920,
+        "height": 904
+      },
+      "client": 1905,
+      "clipped": [],
+      "width": 1905
+    },
+    {
+      "route": "/certificates",
+      "size": {
+        "width": 1920,
+        "height": 904
+      },
+      "client": 1920,
+      "clipped": [],
+      "width": 1920
+    },
+    {
+      "route": "/blogs",
+      "size": {
+        "width": 1920,
+        "height": 904
+      },
+      "client": 1905,
+      "clipped": [],
+      "width": 1905
+    },
+    {
+      "route": "/blogs/mastering-react-animations",
+      "size": {
+        "width": 1920,
+        "height": 904
+      },
+      "client": 1905,
+      "clipped": [],
+      "width": 1905
+    },
+    {
+      "route": "/contact",
+      "size": {
+        "width": 1920,
+        "height": 904
+      },
+      "client": 1905,
+      "clipped": [],
+      "width": 1905
+    },
+    {
+      "route": "/events",
+      "size": {
+        "width": 1920,
+        "height": 904
+      },
+      "client": 1905,
+      "clipped": [],
+      "width": 1905
+    },
+    {
+      "route": "/projects",
+      "size": {
+        "width": 2560,
+        "height": 1440
+      },
+      "client": 2545,
+      "clipped": [],
+      "width": 2545
+    },
+    {
+      "route": "/skills",
+      "size": {
+        "width": 2560,
+        "height": 1440
+      },
+      "client": 2560,
+      "clipped": [],
+      "width": 2560
+    },
+    {
+      "route": "/experience",
+      "size": {
+        "width": 2560,
+        "height": 1440
+      },
+      "client": 2545,
+      "clipped": [],
+      "width": 2545
+    },
+    {
+      "route": "/certificates",
+      "size": {
+        "width": 2560,
+        "height": 1440
+      },
+      "client": 2560,
+      "clipped": [],
+      "width": 2560
+    },
+    {
+      "route": "/blogs",
+      "size": {
+        "width": 2560,
+        "height": 1440
+      },
+      "client": 2545,
+      "clipped": [],
+      "width": 2545
+    },
+    {
+      "route": "/blogs/mastering-react-animations",
+      "size": {
+        "width": 2560,
+        "height": 1440
+      },
+      "client": 2545,
+      "clipped": [],
+      "width": 2545
+    },
+    {
+      "route": "/contact",
+      "size": {
+        "width": 2560,
+        "height": 1440
+      },
+      "client": 2560,
+      "clipped": [],
+      "width": 2560
+    },
+    {
+      "route": "/events",
+      "size": {
+        "width": 2560,
+        "height": 1440
+      },
+      "client": 2545,
+      "clipped": [],
+      "width": 2545
+    },
+    {
+      "route": "/projects",
+      "size": {
+        "width": 844,
+        "height": 390
+      },
+      "client": 829,
+      "clipped": [],
+      "width": 829
+    },
+    {
+      "route": "/skills",
+      "size": {
+        "width": 844,
+        "height": 390
+      },
+      "client": 829,
+      "clipped": [],
+      "width": 829
+    },
+    {
+      "route": "/experience",
+      "size": {
+        "width": 844,
+        "height": 390
+      },
+      "client": 829,
+      "clipped": [],
+      "width": 829
+    },
+    {
+      "route": "/certificates",
+      "size": {
+        "width": 844,
+        "height": 390
+      },
+      "client": 829,
+      "clipped": [],
+      "width": 829
+    },
+    {
+      "route": "/blogs",
+      "size": {
+        "width": 844,
+        "height": 390
+      },
+      "client": 829,
+      "clipped": [],
+      "width": 829
+    },
+    {
+      "route": "/blogs/mastering-react-animations",
+      "size": {
+        "width": 844,
+        "height": 390
+      },
+      "client": 829,
+      "clipped": [],
+      "width": 829
+    },
+    {
+      "route": "/contact",
+      "size": {
+        "width": 844,
+        "height": 390
+      },
+      "client": 829,
+      "clipped": [],
+      "width": 829
+    },
+    {
+      "route": "/events",
+      "size": {
+        "width": 844,
+        "height": 390
+      },
+      "client": 829,
+      "clipped": [],
+      "width": 829
+    }
+  ]
+}
