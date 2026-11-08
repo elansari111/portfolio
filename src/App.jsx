@@ -1,7 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext'
-import Layout from './components/layout/Layout'
 import ProtectedRoute from './components/admin/ProtectedRoute'
 
 // Public Pages (Home loaded eagerly for fast first paint, other pages lazy loaded)
@@ -38,16 +37,16 @@ function App() {
                 <Suspense fallback={<PageLoader />}>
                     <Routes>
                         {/* Public Routes */}
-                        <Route path="/" element={<Layout><Home /></Layout>} />
-                        <Route path="/projects" element={<Layout><Projects /></Layout>} />
-                        <Route path="/skills" element={<Layout><Skills /></Layout>} />
-                        <Route path="/experience" element={<Layout><Experience /></Layout>} />
-                        <Route path="/events" element={<Layout><Events /></Layout>} />
+                        <Route path="/" element={<Home />} />
+                        <Route path="/projects" element={<Projects />} />
+                        <Route path="/skills" element={<Skills />} />
+                        <Route path="/experience" element={<Experience />} />
+                        <Route path="/events" element={<Events />} />
                         <Route path="/hackathons" element={<Navigate to="/events" replace />} />
-                        <Route path="/contact" element={<Layout><Contact /></Layout>} />
-                        <Route path="/certificates" element={<Layout><Certificates /></Layout>} />
-                        <Route path="/blogs" element={<Layout><Blogs /></Layout>} />
-                        <Route path="/blogs/:slug" element={<Layout><BlogDetail /></Layout>} />
+                        <Route path="/contact" element={<Contact />} />
+                        <Route path="/certificates" element={<Certificates />} />
+                        <Route path="/blogs" element={<Blogs />} />
+                        <Route path="/blogs/:slug" element={<BlogDetail />} />
 
                         {/* Admin Routes */}
                         <Route path="/login" element={<Login />} />

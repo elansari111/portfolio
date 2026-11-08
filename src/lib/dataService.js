@@ -188,8 +188,32 @@ export const dataService = {
     getProfile() {
         return defaultProfile
     },
-    getPosts() {
-        return defaultPosts
+    async getPosts() {
+        if (!supabase) return defaultPosts
+        try {
+            const { data, error } = await supabase
+                .from('posts')
+                .select('*')
+                .order('created_at', { ascending: false })
+
+            if (error || !data || data.length === 0) return defaultPosts
+
+            return data.map((item, idx) => ({
+                id: item.id || `post-${idx}`,
+                slug: item.slug,
+                title: item.title,
+                excerpt: item.excerpt || '',
+                content: item.content || '',
+                coverImage: item.cover_image || defaultPosts[idx % defaultPosts.length]?.coverImage,
+                category: item.category || 'TECH',
+                authorName: item.author_name || 'Yassine El Ansari',
+                authorAvatar: item.author_avatar || '/avatar.jpg',
+                date: item.created_at ? new Date(item.created_at).toISOString().split('T')[0] : '2024-01-01',
+                published: item.published ?? true
+            }))
+        } catch {
+            return defaultPosts
+        }
     },
     getEvents() {
         return defaultEvents
