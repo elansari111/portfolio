@@ -4,9 +4,11 @@ import { ArrowUpRight, Search } from 'lucide-react'
 import PageShell from '../../components/immersive/PageShell'
 import { PageIntro, PageCTA, LoadState } from '../../components/immersive/PageParts'
 import { usePublicData } from '../../hooks/usePublicData'
+import { useLanguage } from '../../context/LanguageContext'
 import SEO from '../../components/ui/SEO'
 
 export default function Blogs() {
+  const { t } = useLanguage()
   const { data: posts, loading, error } = usePublicData('getPosts')
   const [category, setCategory] = useState('All')
   const [search, setSearch] = useState('')
@@ -16,22 +18,22 @@ export default function Blogs() {
   const filtered = useMemo(() => publishedPosts.filter(post => (category === 'All' || post.category === category) && `${post.title} ${post.excerpt}`.toLowerCase().includes(search.trim().toLowerCase())), [publishedPosts, category, search])
 
   return <>
-    <SEO title="Journal" description="Notes on software engineering, architecture and building products." url="/blogs" />
-    <PageShell label="THE JOURNAL / IDEAS WORTH SHARING">
+    <SEO title={t.nav.journal} description={t.blogsPage.description} url="/blogs" />
+    <PageShell label={t.blogsPage.shellLabel}>
       <div className="renew-page-content">
-        <PageIntro eyebrow="ARTICLES & FIELD NOTES" title="THINKING OUT LOUD." accent="ONE IDEA AT A TIME." description="Things I’ve built, lessons I’ve learned, and the engineering decisions in between." />
+        <PageIntro eyebrow={t.blogsPage.eyebrow} title={t.blogsPage.title} accent={t.blogsPage.accent} description={t.blogsPage.description} />
         <div className="renew-toolbar">
           <div className="renew-filters" role="group" aria-label="Article category">
-            {categories.map(item => <button key={item} aria-pressed={category === item} onClick={() => setCategory(item)}>{item}</button>)}
+            {categories.map(item => <button key={item} aria-pressed={category === item} onClick={() => setCategory(item)}>{item === 'All' ? t.blogsPage.allCategory : item}</button>)}
           </div>
           <label className="renew-search">
             <Search size={16} />
-            <span className="im-sr-only">Search articles</span>
-            <input type="search" placeholder="Find an idea…" value={search} onChange={e => setSearch(e.target.value)} />
+            <span className="im-sr-only">{t.blogsPage.searchPlaceholder}</span>
+            <input type="search" placeholder={t.blogsPage.searchPlaceholder} value={search} onChange={e => setSearch(e.target.value)} />
           </label>
         </div>
         <LoadState loading={loading} error={error} empty={!publishedPosts.length}>
-          <p className="renew-result-count" role="status" aria-live="polite">{filtered.length} {filtered.length === 1 ? 'article' : 'articles'}</p>
+          <p className="renew-result-count" role="status" aria-live="polite">{filtered.length} {filtered.length === 1 ? t.blogsPage.articleSingular : t.blogsPage.articlePlural}</p>
           {filtered.length ? (
             <div className="renew-journal-grid">
               {filtered.map((post, i) => (
@@ -44,12 +46,12 @@ export default function Blogs() {
                     <div className="renew-post-copy">
                       <div>
                         <span>{post.date}</span>
-                        <span>{Math.max(1, Math.ceil((post.content || '').split(/\s+/).length / 200))} MIN READ</span>
+                        <span>{Math.max(1, Math.ceil((post.content || '').split(/\s+/).length / 200))} {t.blogsPage.minRead}</span>
                       </div>
                       <h2>{post.title}</h2>
                       <p>{post.excerpt}</p>
                       <footer>
-                        <span>{String(i + 1).padStart(2, '0')} / Read the story</span>
+                        <span>{String(i + 1).padStart(2, '0')} / {t.blogsPage.readStory}</span>
                         <ArrowUpRight size={23} />
                       </footer>
                     </div>
@@ -59,9 +61,9 @@ export default function Blogs() {
             </div>
           ) : (
             <div className="renew-state">
-              <h2>No articles found.</h2>
-              <p>Try a different category or search term.</p>
-              <button onClick={() => { setCategory('All'); setSearch('') }}>Reset filters ↗</button>
+              <h2>{t.blogsPage.noArticlesTitle}</h2>
+              <p>{t.blogsPage.noArticlesDesc}</p>
+              <button onClick={() => { setCategory('All'); setSearch('') }}>{t.blogsPage.resetFilters}</button>
             </div>
           )}
         </LoadState>

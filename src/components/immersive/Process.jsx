@@ -1,26 +1,18 @@
 import { useEffect, useRef, useState } from 'react'
 import { useReducedMotion } from '../../hooks/useReducedMotion'
-const steps = [
- { title: 'ANALYZE', text: 'Understand the problem, gather requirements, and define the technical constraints and acceptance criteria before writing code.', tags: ['Requirements', 'Technical analysis', 'Acceptance criteria'] },
- { title: 'DEVELOP', text: 'Turn requirements into working software. Build clear interfaces, implement APIs and data models, and keep the code modular and maintainable.', tags: ['Implementation', 'APIs & databases', 'Clean code'] },
- { title: 'TESTING', text: 'Verify the software against its requirements. Run unit, integration, and end-to-end tests, investigate defects, and check performance before release.', tags: ['Unit & integration tests', 'End-to-end testing', 'Bug fixes'] },
- { title: 'DEPLOY', text: 'Release through a repeatable CI/CD pipeline. Monitor errors and performance, maintain the system, and use production feedback to guide the next iteration.', tags: ['CI/CD', 'Monitoring', 'Maintenance'] },
-]
+import { useLanguage } from '../../context/LanguageContext'
 
 export default function Process(){
+ const { t } = useLanguage()
+ const steps = t.process.steps
  const host=useRef(null), canvas=useRef(null), progress=useRef(0), [active,setActive]=useState(0), reduced=useReducedMotion()
  useEffect(()=>{
   const el=host.current, cv=canvas.current, ctx=cv.getContext('2d');if(!ctx)return
   const stencil=document.createElement('canvas');stencil.width=360;stencil.height=360;const pen=stencil.getContext('2d')
-  // Sample vector shapes into stable particle targets; morph the same particles between stages.
   const icons = [
-   // Requirements document with a magnifying glass.
    'M100 65 L225 65 L225 180 M100 65 L100 280 L190 280 M120 100 L200 100 M120 125 L190 125 M120 150 L165 150 M120 175 L150 175 M235 210 A45 45 0 1 0 145 210 A45 45 0 1 0 235 210 M222 243 L260 282',
-   // Development: a code editor with opening and closing brackets.
    'M65 80 L295 80 L295 270 L65 270 Z M65 110 L295 110 M82 95 L88 95 M100 95 L106 95 M118 95 L124 95 M135 145 L105 175 L135 205 M220 145 L250 175 L220 205 M190 135 L165 215 M100 245 L155 245',
-   // Testing: a checklist with passing checks and verification rows.
    'M100 65 L260 65 L260 290 L100 290 Z M140 55 L220 55 L220 85 L140 85 Z M120 125 L130 135 L150 110 M170 125 L235 125 M120 185 L130 195 L150 170 M170 185 L235 185 M120 245 L130 255 L150 230 M170 245 L235 245',
-   // Production servers, status lights and a monitoring trace.
    'M80 75 L280 75 L280 125 L80 125 Z M80 145 L280 145 L280 195 L80 195 Z M100 100 L110 100 M100 170 L110 170 M220 100 L260 100 M220 170 L260 170 M80 240 L120 240 L140 215 L165 280 L190 230 L210 240 L280 240',
   ]
   const targets=icons.map(d=>{pen.clearRect(0,0,360,360);pen.strokeStyle='#fff';pen.lineWidth=3;pen.stroke(new Path2D(d));const data=pen.getImageData(0,0,360,360).data, points=[];for(let y=0;y<360;y+=2)for(let x=0;x<360;x+=2)if(data[(y*360+x)*4+3]>80)points.push([x-180,y-180]);return points})
@@ -33,5 +25,5 @@ export default function Process(){
   return()=>{cancelAnimationFrame(raf);ro.disconnect();io.disconnect();window.removeEventListener('scroll',onScroll)}
  },[reduced])
  const go=i=>window.scrollTo({top:host.current.offsetTop+(host.current.offsetHeight-innerHeight)*i/3,behavior:reduced?'auto':'smooth'})
- return <section className="im-process" ref={host} id="process" aria-labelledby="im-process-title"><div className="im-process-compact"><p className="im-kicker">SOFTWARE ENGINEERING PROCESS</p><h2>HOW I WORK</h2><ol>{steps.map((step,i)=><li key={step.title}><span className="im-kicker">0{i+1} / 04</span><h3>{step.title}</h3><p>{step.text}</p><div className="im-tags">{step.tags.map(tag=><span key={tag}>{tag}</span>)}</div></li>)}</ol></div><div className="im-process-sticky"><div className="im-section-caption"><span>04 / SOFTWARE ENGINEERING PROCESS</span><span>FROM REQUIREMENTS TO PRODUCTION</span></div><h2 id="im-process-title">HOW I WORK</h2><canvas ref={canvas} className="im-particles" aria-hidden="true"/><div className="im-process-copy" aria-live="polite"><span className="im-kicker">0{active+1} / 04</span><h3 key={active}>{steps[active].title}</h3><p>{steps[active].text}</p><div className="im-tags">{steps[active].tags.map(tag=><span key={tag}>{tag}</span>)}</div></div><div className="im-process-rail" aria-label="Process steps">{steps.map((step,i)=><button key={step.title} onClick={()=>go(i)} aria-current={active===i?'step':undefined}><span style={{transform:`scaleX(${Math.max(0,Math.min(1,active-i+1))})`}}/>{step.title}</button>)}</div></div></section>
+ return <section className="im-process" ref={host} id="process" aria-labelledby="im-process-title"><div className="im-process-compact"><p className="im-kicker">{t.process.compactKicker}</p><h2>{t.process.title}</h2><ol>{steps.map((step,i)=><li key={step.title}><span className="im-kicker">0{i+1} / 04</span><h3>{step.title}</h3><p>{step.text}</p><div className="im-tags">{step.tags.map(tag=><span key={tag}>{tag}</span>)}</div></li>)}</ol></div><div className="im-process-sticky"><div className="im-section-caption"><span>{t.process.captionLeft}</span><span>{t.process.captionRight}</span></div><h2 id="im-process-title">{t.process.title}</h2><canvas ref={canvas} className="im-particles" aria-hidden="true"/><div className="im-process-copy" aria-live="polite"><span className="im-kicker">0{active+1} / 04</span><h3 key={active}>{steps[active].title}</h3><p>{steps[active].text}</p><div className="im-tags">{steps[active].tags.map(tag=><span key={tag}>{tag}</span>)}</div></div><div className="im-process-rail" aria-label="Process steps">{steps.map((step,i)=><button key={step.title} onClick={()=>go(i)} aria-current={active===i?'step':undefined}><span style={{transform:`scaleX(${Math.max(0,Math.min(1,active-i+1))})`}}/>{step.title}</button>)}</div></div></section>
 }

@@ -11,6 +11,7 @@ import json from 'react-syntax-highlighter/dist/esm/languages/prism/json'
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { ArrowLeft, ArrowUpRight } from 'lucide-react'
 import { dataService } from '../../lib/dataService'
+import { useLanguage } from '../../context/LanguageContext'
 import SEO from '../../components/ui/SEO'
 import PageShell from '../../components/immersive/PageShell'
 
@@ -22,6 +23,7 @@ SyntaxHighlighter.registerLanguage('css', css)
 SyntaxHighlighter.registerLanguage('json', json)
 
 export default function BlogDetail() {
+  const { t } = useLanguage()
   const { slug } = useParams()
   const [posts, setPosts] = useState([])
   const [loading, setLoading] = useState(true)
@@ -39,7 +41,7 @@ export default function BlogDetail() {
     return (
       <PageShell label="JOURNAL / LOADING">
         <div className="renew-state">
-          <p>Loading article...</p>
+          <p>{t.blogsPage.loadingArticle}</p>
         </div>
       </PageShell>
     )
@@ -52,15 +54,15 @@ export default function BlogDetail() {
   if (!post) {
     return (
       <PageShell label="JOURNAL">
-        <SEO title="Article not found" />
+        <SEO title={t.blogsPage.notFoundTitle} />
         <div className="renew-state">
-          <h1>Article not found.</h1>
-          <Link to="/blogs">Back to the journal ↗</Link>
+          <h1>{t.blogsPage.notFoundTitle}</h1>
+          <Link to="/blogs">{t.blogsPage.backToJournal} ↗</Link>
         </div>
       </PageShell>
     )
   }
- return <><SEO title={post.title} description={post.excerpt} image={post.coverImage} url={`/blogs/${slug}`}/><PageShell label="JOURNAL / IN THE DETAILS"><article className="renew-article"><Link to="/blogs" className="renew-text-link"><ArrowLeft size={16}/> Back to the journal</Link><header><div className="renew-article-meta"><span>{post.category}</span><span>{post.date}</span><span>{Math.max(1,Math.ceil((post.content||'').split(/\s+/).length/200))} MIN READ</span></div><h1>{post.title}</h1><p>{post.excerpt}</p><div className="renew-author">{post.authorAvatar&&<img src={post.authorAvatar} alt=""/>}<div><b>{post.authorName}</b><span>Author / Field notes</span></div></div></header>{post.coverImage&&<img className="renew-article-cover" src={post.coverImage} alt=""/>}<div className="renew-prose"><ReactMarkdown remarkPlugins={[remarkGfm]} components={{h1:({children})=><h2>{children}</h2>,pre:({children})=><div className="renew-code-wrap">{children}</div>,code({node:_node,className,children,...props}){const match=/language-(\w+)/.exec(className||'');return match?<SyntaxHighlighter style={oneDark} language={match[1]} customStyle={{margin:0,padding:'22px',fontSize:'13px',lineHeight:1.8,background:'#161322'}}>{String(children).replace(/\n$/,'')}</SyntaxHighlighter>:<code className={className} {...props}>{children}</code>},a: ({ href, children }) => {
+  return <><SEO title={post.title} description={post.excerpt} image={post.coverImage} url={`/blogs/${slug}`}/><PageShell label="JOURNAL / IN THE DETAILS"><article className="renew-article"><Link to="/blogs" className="renew-text-link"><ArrowLeft size={16}/> {t.blogsPage.backToJournal}</Link><header><div className="renew-article-meta"><span>{post.category}</span><span>{post.date}</span><span>{Math.max(1,Math.ceil((post.content||'').split(/\s+/).length/200))} {t.blogsPage.minRead}</span></div><h1>{post.title}</h1><p>{post.excerpt}</p><div className="renew-author">{post.authorAvatar&&<img src={post.authorAvatar} alt=""/>}<div><b>{post.authorName}</b><span>{t.blogsPage.authorRole}</span></div></div></header>{post.coverImage&&<img className="renew-article-cover" src={post.coverImage} alt=""/>}<div className="renew-prose"><ReactMarkdown remarkPlugins={[remarkGfm]} components={{h1:({children})=><h2>{children}</h2>,pre:({children})=><div className="renew-code-wrap">{children}</div>,code({node:_node,className,children,...props}){const match=/language-(\w+)/.exec(className||'');return match?<SyntaxHighlighter style={oneDark} language={match[1]} customStyle={{margin:0,padding:'22px',fontSize:'13px',lineHeight:1.8,background:'#161322'}}>{String(children).replace(/\n$/,'')}</SyntaxHighlighter>:<code className={className} {...props}>{children}</code>},a: ({ href, children }) => {
   const isSafe = /^https?:\/\/|^mailto:|^tel:|^[/#]/.test(href || '')
   const safeHref = isSafe ? href : '#'
   const isExternal = /^https?:\/\//.test(safeHref)
@@ -69,5 +71,5 @@ export default function BlogDetail() {
       {children}
     </a>
   )
-}}}>{post.content}</ReactMarkdown></div>{related.length>0&&<nav className="renew-article-next" aria-label="More articles">{related.map(item=><Link to={`/blogs/${item.slug}`} key={item.slug}><small>KEEP READING</small><h2>{item.title}</h2><ArrowUpRight size={24}/></Link>)}</nav>}</article></PageShell></>
+}}}>{post.content}</ReactMarkdown></div>{related.length>0&&<nav className="renew-article-next" aria-label="More articles">{related.map(item=><Link to={`/blogs/${item.slug}`} key={item.slug}><small>{t.blogsPage.keepReading}</small><h2>{item.title}</h2><ArrowUpRight size={24}/></Link>)}</nav>}</article></PageShell></>
 }

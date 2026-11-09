@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext'
+import { LanguageProvider } from './context/LanguageContext'
 import ProtectedRoute from './components/admin/ProtectedRoute'
 
 // Public Pages (Home loaded eagerly for fast first paint, other pages lazy loaded)
@@ -32,8 +33,9 @@ function PageLoader() {
 
 function App() {
     return (
-        <AuthProvider>
-            <Router>
+        <LanguageProvider>
+            <AuthProvider>
+                <Router>
                 <Suspense fallback={<PageLoader />}>
                     <Routes>
                         {/* Public Routes */}
@@ -61,7 +63,8 @@ function App() {
                     </Routes>
                 </Suspense>
             </Router>
-        </AuthProvider>
+            </AuthProvider>
+        </LanguageProvider>
     )
 }
 
