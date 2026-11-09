@@ -14,7 +14,7 @@ export default function Contact() {
     const { isDark, toggleTheme } = useTheme()
     const [palette, setPalette] = useState(readPalette)
     const [picker, setPicker] = useState(false)
-    const [values, setValues] = useState({ name: '', email: '', message: '' })
+    const [values, setValues] = useState({ name: '', email: '', message: '', botField: '' })
     const [errors, setErrors] = useState({})
     const [status, setStatus] = useState('idle')
     const [copied, setCopied] = useState(false)
@@ -54,6 +54,21 @@ export default function Contact() {
     const submit = async event => {
         event.preventDefault()
         if (submitting.current) return
+
+        // Anti-bot honeypot: silently drop if filled
+        if (values.botField) {
+            setStatus('success')
+            setValues({ name: '', email: '', message: '', botField: '' })
+            return
+        }
+
+        // Rate limiting cooldown (15s between submissions)
+        const lastSent = sessionStorage.getItem('portfolio_contact_last_sent')
+        if (lastSent && Date.now() - Number(lastSent) < 15000) {
+            setErrors({ message: 'Please wait a moment before sending another message.' })
+            return
+        }
+
         const nextErrors = validateContact(values)
         setErrors(nextErrors)
         if (Object.keys(nextErrors).length) {
@@ -75,7 +90,10 @@ export default function Contact() {
             const received = hasConfirmedDelivery(results)
             if (mounted.current) {
                 setStatus(received ? 'success' : 'error')
-                if (received) setValues({ name: '', email: '', message: '' })
+                if (received) {
+                    sessionStorage.setItem('portfolio_contact_last_sent', Date.now().toString())
+                    setValues({ name: '', email: '', message: '', botField: '' })
+                }
             }
         } catch {
             if (mounted.current) setStatus('error')
@@ -121,13 +139,17 @@ export default function Contact() {
                     <h2 id="talk-form-title">WHAT’S ON<br />YOUR MIND?</h2>
                     <p>A few details are all we need to get started.</p>
                     <form ref={formRef} onSubmit={submit} noValidate aria-busy={status === 'sending'}>
+                        <div style={{ position: 'absolute', left: '-9999px', opacity: 0, height: 0, width: 0, overflow: 'hidden' }} aria-hidden="true">
+                            <label htmlFor="talk-botField">Do not fill this</label>
+                            <input id="talk-botField" name="botField" type="text" value={values.botField || ''} onChange={change} tabIndex="-1" autoComplete="off" />
+                        </div>
                         <fieldset disabled={status === 'sending'}>
                             <legend className="im-sr-only">Your contact details and message</legend>
                             <div className="talk-field-row">
-                                <div className="talk-field"><label htmlFor="talk-name">Your name <span>*</span></label><input {...fieldProps('name')} autoComplete="name" placeholder="What should I call you?" maxLength={120} />{errors.name && <small id="talk-name-error" className="talk-error">{errors.name}</small>}</div>
-                                <div className="talk-field"><label htmlFor="talk-email">Your email <span>*</span></label><input {...fieldProps('email')} type="email" autoComplete="email" placeholder="you@example.com" maxLength={254} />{errors.email && <small id="talk-email-error" className="talk-error">{errors.email}</small>}</div>
+                                <div className="talk-field"><label htmlFor="talk-name">Your name <span>*</span></label><input {...fieldProps('name')} autoComplete="name" placeholder="What should I call you?" maxLength={100} />{errors.name && <small id="talk-name-error" className="talk-error">{errors.name}</small>}</div>
+                                <div className="talk-field"><label htmlFor="talk-email">Your email <span>*</span></label><input {...fieldProps('email')} type="email" autoComplete="email" placeholder="you@example.com" maxLength={150} />{errors.email && <small id="talk-email-error" className="talk-error">{errors.email}</small>}</div>
                             </div>
-                            <div className="talk-field"><label htmlFor="talk-message">Your message <span>*</span></label><textarea {...fieldProps('message')} rows={6} placeholder="Tell me about your project, your team, or what you’d like to build…" maxLength={10000} />{errors.message && <small id="talk-message-error" className="talk-error">{errors.message}</small>}</div>
+                            <div className="talk-field"><label htmlFor="talk-message">Your message <span>*</span></label><textarea {...fieldProps('message')} rows={6} placeholder="Tell me about your project, your team, or what you’d like to build…" maxLength={3000} />{errors.message && <small id="talk-message-error" className="talk-error">{errors.message}</small>}</div>
                             <button className="talk-send" type="submit">{status === 'sending' ? <><span>Sending your message…</span><Loader2 className="talk-spinner" size={20} /></> : <><span>Send message</span><ArrowUpRight size={22} /></>}</button>
                         </fieldset>
                         <div className="talk-feedback" aria-live="polite" aria-atomic="true">

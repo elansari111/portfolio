@@ -119,6 +119,12 @@ create policy "Anyone can insert messages." on messages for insert with check (t
 drop policy if exists "Admin can view messages." on messages;
 create policy "Admin can view messages." on messages for select using (auth.role() = 'authenticated');
 
+drop policy if exists "Admin can update messages." on messages;
+create policy "Admin can update messages." on messages for update using (auth.role() = 'authenticated');
+
+drop policy if exists "Admin can delete messages." on messages;
+create policy "Admin can delete messages." on messages for delete using (auth.role() = 'authenticated');
+
 -- Storage Bucket for Images
 insert into storage.buckets (id, name, public) values ('portfolio', 'portfolio', true)
 on conflict (id) do nothing;
@@ -128,6 +134,12 @@ create policy "Images are publicly accessible." on storage.objects for select us
 
 drop policy if exists "Admin can upload images." on storage.objects;
 create policy "Admin can upload images." on storage.objects for insert with check ( bucket_id = 'portfolio' and auth.role() = 'authenticated' );
+
+drop policy if exists "Admin can update images." on storage.objects;
+create policy "Admin can update images." on storage.objects for update using ( bucket_id = 'portfolio' and auth.role() = 'authenticated' );
+
+drop policy if exists "Admin can delete images." on storage.objects;
+create policy "Admin can delete images." on storage.objects for delete using ( bucket_id = 'portfolio' and auth.role() = 'authenticated' );
 
 
 -- Posts Table (Blog)
