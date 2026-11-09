@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowDown, ArrowUpRight, Check, Copy, Menu, Moon, Palette, Sun, X } from 'lucide-react'
 import { dataService } from '../../lib/dataService'
+import { useProfile } from '../../hooks/useProfile'
 import { useReducedMotion } from '../../hooks/useReducedMotion'
 import Badge from './Badge'
 import Work from './Work'
@@ -12,7 +13,7 @@ import Game from './Game'
 import './portfolio.css'
 
 export default function Portfolio(){
- const profile=dataService.getProfile(),root=useRef(null),hero=useRef(null),footer=useRef(null),main=useRef(null),title=useRef(null),reduced=useReducedMotion()
+ const profile=useProfile(),root=useRef(null),hero=useRef(null),footer=useRef(null),main=useRef(null),title=useRef(null),reduced=useReducedMotion()
  const [palette,setPalette]=useState(readPalette),[picker,setPicker]=useState(false),[menu,setMenu]=useState(false),[nav,setNav]=useState(false),[ready,setReady]=useState(false),[copied,setCopied]=useState(false),[loading,setLoading]=useState(true),[error,setError]=useState(false)
  const [projects,setProjects]=useState([]),[skills,setSkills]=useState([]),[experiences,setExperiences]=useState([])
  const {isDark,toggleTheme}=useTheme()

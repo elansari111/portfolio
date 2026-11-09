@@ -2,7 +2,7 @@ import { validateContact, hasConfirmedDelivery } from '../../lib/contactForm'
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, ArrowUpRight, Check, CheckCircle2, Copy, Loader2, Moon, Palette, Sun } from 'lucide-react'
-import { profile } from '../../data/profile'
+import { useProfile } from '../../hooks/useProfile'
 import { dataService } from '../../lib/dataService'
 import { useTheme } from '../../hooks/useTheme'
 import { appearanceTokens, palettes, readPalette } from '../../components/immersive/appearance'
@@ -11,6 +11,7 @@ import '../../components/immersive/portfolio.css'
 import './contact.css'
 
 export default function Contact() {
+    const profile = useProfile()
     const { isDark, toggleTheme } = useTheme()
     const [palette, setPalette] = useState(readPalette)
     const [picker, setPicker] = useState(false)

@@ -2,13 +2,14 @@ import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { ArrowLeft, ArrowUpRight, Moon, Palette, Sun } from 'lucide-react'
 import { useTheme } from '../../hooks/useTheme'
-import { profile } from '../../data/profile'
+import { useProfile } from '../../hooks/useProfile'
 import { appearanceTokens, palettes, readPalette } from './appearance'
 import './portfolio.css'
 import './page-shell.css'
 import './renewed-pages.css'
 
 export default function PageShell({ children, className = '', label = 'EXPLORING THE JOURNEY', chrome = true }) {
+    const profile = useProfile()
     const location = useLocation()
     const { isDark, toggleTheme } = useTheme()
     const [palette, setPalette] = useState(readPalette)

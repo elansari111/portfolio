@@ -4,7 +4,7 @@ import { ArrowDown, ArrowLeft, ArrowUpRight, Award, CalendarDays, Mic2, Search, 
 import PageShell from '../../components/immersive/PageShell'
 import SEO from '../../components/ui/SEO'
 import { dataService } from '../../lib/dataService'
-import { store } from '../../data/store'
+import { events as defaultEvents } from '../../data/events'
 import { eventType, eventYear, eventTimestamp, filterEvents } from '../../lib/eventFilters'
 import './events.css'
 
@@ -18,13 +18,26 @@ function EventImage({ event, ...props }) {
 }
 
 export default function Events() {
-    const [events] = useState(() => dataService.getEvents() || [])
-    const [posts] = useState(() => store.getPosts() || [])
+    const [events, setEvents] = useState(defaultEvents)
+    const [posts, setPosts] = useState([])
     const [category, setCategory] = useState('All')
     const [year, setYear] = useState('All years')
     const [search, setSearch] = useState('')
     const [selected, setSelected] = useState(null)
     const dialog = useRef(null), trigger = useRef(null), closeButton = useRef(null)
+
+    useEffect(() => {
+        let active = true
+        Promise.all([dataService.getEvents(), dataService.getPosts()])
+            .then(([eventsData, postsData]) => {
+                if (!active) return
+                if (Array.isArray(eventsData)) setEvents(eventsData)
+                if (Array.isArray(postsData)) setPosts(postsData)
+            })
+            .catch(() => {})
+        return () => { active = false }
+    }, [])
+
     const years = useMemo(() => [...new Set(events.map(eventYear))].sort().reverse(), [events])
     const filtered = useMemo(() => filterEvents(events, { category, year, search }), [events, category, year, search])
     const latest = useMemo(() => [...events].sort((a, b) => eventTimestamp(b) - eventTimestamp(a))[0], [events])

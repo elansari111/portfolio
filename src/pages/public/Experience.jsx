@@ -4,9 +4,10 @@ import { ArrowUpRight, Download, Briefcase, GraduationCap } from 'lucide-react'
 import PageShell from '../../components/immersive/PageShell'
 import { PageIntro, LoadState, PageCTA } from '../../components/immersive/PageParts'
 import { usePublicData } from '../../hooks/usePublicData'
-import { profile } from '../../data/profile'
+import { useProfile } from '../../hooks/useProfile'
 import SEO from '../../components/ui/SEO'
 export default function Experience(){
+ const profile=useProfile()
  const {data,loading,error}=usePublicData('getExperiences')
  const [filter,setFilter]=useState('All')
  const education=item=>item.type==='education'||/graduation|university|degree|b\.s\./i.test(`${item.title} ${item.company} ${item.icon}`)

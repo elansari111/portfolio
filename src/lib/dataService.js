@@ -188,6 +188,39 @@ export const dataService = {
     getProfile() {
         return defaultProfile
     },
+    async fetchProfile() {
+        if (!supabase) return defaultProfile
+        try {
+            const { data, error } = await supabase
+                .from('profile')
+                .select('*')
+                .order('id', { ascending: true })
+                .limit(1)
+                .maybeSingle()
+
+            if (error || !data) return defaultProfile
+
+            const name = data.name || defaultProfile.name
+            return {
+                id: data.id,
+                name,
+                firstName: data.first_name || name.split(' ')[0] || defaultProfile.firstName,
+                roles: Array.isArray(data.roles) && data.roles.length > 0 ? data.roles : defaultProfile.roles,
+                greeting: data.greeting || defaultProfile.greeting,
+                bio: data.bio || defaultProfile.bio,
+                shortBio: data.short_bio || defaultProfile.shortBio,
+                avatar: data.avatar || defaultProfile.avatar,
+                resumeUrl: data.resume_url || defaultProfile.resumeUrl,
+                status: data.status || defaultProfile.status,
+                socials: {
+                    ...defaultProfile.socials,
+                    ...(typeof data.socials === 'object' && data.socials !== null ? data.socials : {})
+                }
+            }
+        } catch {
+            return defaultProfile
+        }
+    },
     async getPosts() {
         if (!supabase) return defaultPosts
         try {
@@ -215,7 +248,29 @@ export const dataService = {
             return defaultPosts
         }
     },
-    getEvents() {
-        return defaultEvents
+    async getEvents() {
+        if (!supabase) return defaultEvents
+        try {
+            const { data, error } = await supabase
+                .from('events')
+                .select('*')
+                .order('created_at', { ascending: false })
+
+            if (error || !data || data.length === 0) return defaultEvents
+
+            return data.map((item, idx) => ({
+                id: item.id || idx + 1,
+                slug: item.slug || '',
+                title: item.title,
+                role: item.role || '',
+                date: item.date || '',
+                award: item.award || '',
+                description: item.description || '',
+                image: item.image || defaultEvents[idx % defaultEvents.length]?.image || '',
+                tag: item.tag || 'HACKATHON & EVENT'
+            }))
+        } catch {
+            return defaultEvents
+        }
     }
 }

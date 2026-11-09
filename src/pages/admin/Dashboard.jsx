@@ -4,12 +4,12 @@ import { useEffect, useRef, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import {
     LogOut, User, FolderKanban, FileText, Briefcase,
-    Star, Calendar, Plus, Trash2, Edit2, Save, X,
-    RefreshCw, Eye, Menu, ArrowLeft,
+    Star, Calendar, X, RefreshCw, Eye, Menu,
     Award, FileDown, Mail
 } from 'lucide-react'
 import { store } from '../../data/store'
 import { useAuth } from '../../context/AuthContext'
+import ProfileManager from '../../components/admin/managers/ProfileManager'
 import ProjectsManager from '../../components/admin/managers/ProjectsManager'
 import PostsManager from '../../components/admin/managers/PostsManager'
 import ExperienceManager from '../../components/admin/managers/ExperienceManager'
@@ -17,191 +17,7 @@ import SkillsManager from '../../components/admin/managers/SkillsManager'
 import CertificatesManager from '../../components/admin/managers/CertificatesManager'
 import CVManager from '../../components/admin/managers/CVManager'
 import MessagesManager from '../../components/admin/managers/MessagesManager'
-
-/* ─── tiny helpers ───────────────────────────────────────── */
-const uid = () => Date.now().toString(36)
-
-/* ─── reusable input ─────────────────────────────────────── */
-function Input({ label, textarea = false, ...props }) {
-    const El = textarea ? 'textarea' : 'input'
-    return (
-        <label className="flex flex-col gap-1">
-            <span className="text-xs text-gray-400 uppercase tracking-wider">{label}</span>
-            <El
-                className={`bg-black border border-white/10 rounded-xl px-3 py-2 text-white text-sm outline-none focus:border-primary transition-colors resize-none ${textarea ? 'min-h-[100px]' : ''}`}
-                {...props}
-            />
-        </label>
-    )
-}
-
-/* ─── confirm delete ─────────────────────────────────────── */
-function useConfirm() {
-    return (msg) => window.confirm(msg)
-}
-
-/* ═══════════════════════════════════════════════════════════
-   SECTION MANAGERS
-═══════════════════════════════════════════════════════════ */
-
-/* ── Profile ─────────────────────────────────────────────── */
-function ProfileManager() {
-    const [data, setData] = useState(store.getProfile())
-    const [saved, setSaved] = useState(false)
-
-    const handleSave = () => {
-        store.saveProfile(data)
-        setSaved(true)
-        setTimeout(() => setSaved(false), 2000)
-    }
-
-    const field = (key, label, textarea = false) => (
-        <Input
-            label={label}
-            textarea={textarea}
-            value={data[key] || ''}
-            onChange={e => setData(p => ({ ...p, [key]: e.target.value }))}
-        />
-    )
-
-    return (
-        <div className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {field('name', 'Full Name')}
-                {field('greeting', 'Greeting text')}
-                {field('status', 'Status badge')}
-                {field('resumeUrl', 'Resume URL')}
-                {field('avatar', 'Avatar URL')}
-            </div>
-            {field('bio', 'Bio', true)}
-            {field('shortBio', 'Short Bio', true)}
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {['github', 'linkedin', 'twitter', 'instagram', 'email'].map(k => (
-                    <Input
-                        key={k}
-                        label={`Social — ${k}`}
-                        value={data.socials?.[k] || ''}
-                        onChange={e => setData(p => ({ ...p, socials: { ...p.socials, [k]: e.target.value } }))}
-                    />
-                ))}
-            </div>
-
-            <label className="flex flex-col gap-1">
-                <span className="text-xs text-gray-400 uppercase tracking-wider">Roles (comma-separated)</span>
-                <input
-                    className="bg-black border border-white/10 rounded-xl px-3 py-2 text-white text-sm outline-none focus:border-primary transition-colors"
-                    value={(data.roles || []).join(', ')}
-                    onChange={e => setData(p => ({ ...p, roles: e.target.value.split(',').map(r => r.trim()) }))}
-                />
-            </label>
-
-            <button
-                onClick={handleSave}
-                className="flex items-center gap-2 bg-primary hover:bg-primary/80 text-white px-6 py-2.5 rounded-full font-semibold text-sm transition-all"
-            >
-                <Save size={16} />
-                {saved ? 'Saved ✓' : 'Save Profile'}
-            </button>
-        </div>
-    )
-}
-
-/* ── Events ──────────────────────────────────────────────── */
-function EventsManager() {
-    const [items, setItems] = useState(store.getEvents())
-    const [editing, setEditing] = useState(null)
-    const confirm = useConfirm()
-
-    const save = (updated) => { store.saveEvents(updated); setItems(updated) }
-
-    const handleDelete = (id) => {
-        if (!confirm('Delete?')) return
-        save(items.filter(i => i.id !== id))
-    }
-
-    const handleSaveItem = (item) => {
-        if (items.find(i => i.id === item.id)) {
-            save(items.map(i => i.id === item.id ? item : i))
-        } else {
-            save([...items, { ...item, id: uid(), tag: 'HACKATHON & EVENT' }])
-        }
-        setEditing(null)
-    }
-
-    if (editing !== null) {
-        const blank = { title: '', slug: '', role: '', date: '', award: '', description: '', image: '' }
-        return (
-            <SimpleForm
-                title={editing === 'new' ? 'New Event' : 'Edit Event'}
-                item={editing === 'new' ? blank : editing}
-                fields={[
-                    { key: 'title', label: 'Title' },
-                    { key: 'slug', label: 'Blog Slug (links to post)' },
-                    { key: 'role', label: 'Your Role' },
-                    { key: 'date', label: 'Date' },
-                    { key: 'award', label: 'Award / Achievement' },
-                    { key: 'image', label: 'Image URL' },
-                    { key: 'description', label: 'Description', textarea: true },
-                ]}
-                onSave={handleSaveItem}
-                onCancel={() => setEditing(null)}
-            />
-        )
-    }
-
-    return (
-        <div className="space-y-3">
-            <button onClick={() => setEditing('new')} className="flex items-center gap-2 bg-primary/10 border border-primary/30 text-primary hover:bg-primary hover:text-white px-4 py-2 rounded-full text-sm font-semibold transition-all">
-                <Plus size={16} /> Add Event
-            </button>
-            {items.map(item => (
-                <div key={item.id} className="flex items-center gap-4 bg-black border border-white/10 rounded-xl p-4">
-                    {item.image && <img src={item.image} alt={item.title} className="w-16 h-12 object-cover rounded-lg flex-shrink-0" />}
-                    <div className="flex-1">
-                        <p className="font-bold text-white">{item.title}</p>
-                        <p className="text-gray-500 text-xs">{item.date} · {item.award}</p>
-                    </div>
-                    <div className="flex gap-2">
-                        <button onClick={() => setEditing(item)} className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-blue-400"><Edit2 size={16} /></button>
-                        <button onClick={() => handleDelete(item.id)} className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-red-400"><Trash2 size={16} /></button>
-                    </div>
-                </div>
-            ))}
-        </div>
-    )
-}
-
-/* ── Generic simple form ─────────────────────────────────── */
-function SimpleForm({ title, item, fields, onSave, onCancel }) {
-    const [data, setData] = useState({ ...item })
-    return (
-        <div className="space-y-4">
-            <div className="flex items-center gap-3 mb-2">
-                <button onClick={onCancel} className="text-gray-500 hover:text-white transition-colors"><ArrowLeft size={20} /></button>
-                <h3 className="font-heading font-bold text-white">{title}</h3>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {fields.map(f => (
-                    <div key={f.key} className={f.textarea ? 'md:col-span-2' : ''}>
-                        <Input
-                            label={f.label}
-                            textarea={f.textarea}
-                            value={data[f.key] || ''}
-                            onChange={e => setData(p => ({ ...p, [f.key]: e.target.value }))}
-                        />
-                    </div>
-                ))}
-            </div>
-            <div className="flex gap-3">
-                <button onClick={() => onSave(data)} className="flex items-center gap-2 bg-primary hover:bg-primary/80 text-white px-6 py-2.5 rounded-full font-semibold text-sm transition-all">
-                    <Save size={16} /> Save
-                </button>
-                <button onClick={onCancel} className="px-6 py-2.5 rounded-full border border-white/10 text-gray-400 hover:text-white text-sm transition-colors">Cancel</button>
-            </div>
-        </div>
-    )
-}
+import EventsManager from '../../components/admin/managers/EventsManager'
 
 /* ═══════════════════════════════════════════════════════════
    DASHBOARD SHELL

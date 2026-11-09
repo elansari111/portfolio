@@ -164,3 +164,65 @@ INSERT INTO messages (name, email, message, read, created_at) VALUES
 )
 ON CONFLICT DO NOTHING;
 
+-- 7. SEED PROFILE
+INSERT INTO profile (id, name, first_name, roles, greeting, bio, short_bio, avatar, resume_url, status, socials) VALUES
+(
+  1,
+  'Yassine El Ansari',
+  'Yassine',
+  ARRAY['Software Engineer', 'Full-Stack Developer', 'Creative Technologist'],
+  'Hello there!',
+  'I design and build high-performance web applications that merge thoughtful design with robust software architecture. Specialized in React, Next.js, TypeScript, and modern cloud backends.',
+  'Full-Stack Engineer building high-conversion digital experiences, performant web platforms, and interactive interfaces.',
+  '/avatar.jpg',
+  '/resume.pdf',
+  'Available for high-impact projects',
+  '{"github":"https://github.com/elansari111","linkedin":"https://linkedin.com/in/yassine-elansari","twitter":"https://twitter.com/yassine_dev","instagram":"https://instagram.com/yassine_codes","email":"mailto:contact@yassinelansari.dev"}'::jsonb
+)
+ON CONFLICT (id) DO UPDATE SET
+  name = EXCLUDED.name,
+  first_name = EXCLUDED.first_name,
+  roles = EXCLUDED.roles,
+  greeting = EXCLUDED.greeting,
+  bio = EXCLUDED.bio,
+  short_bio = EXCLUDED.short_bio,
+  avatar = EXCLUDED.avatar,
+  resume_url = EXCLUDED.resume_url,
+  status = EXCLUDED.status,
+  socials = EXCLUDED.socials;
+
+-- 8. SEED EVENTS (HACKATHONS & TALKS)
+INSERT INTO events (title, slug, role, date, award, description, image, tag) VALUES
+(
+  'Global Hackathon 2025',
+  'winning-the-global-hackathon',
+  'Lead Developer',
+  'Dec 2025',
+  '1st Place',
+  'Built a sustainable AI solution in 48 hours.',
+  'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=600&auto=format&fit=crop',
+  'HACKATHON & EVENT'
+),
+(
+  'Web3 Summit Buildathon',
+  'building-micro-frontends',
+  'Frontend Engineer',
+  'Oct 2024',
+  'Best UI/UX',
+  'Created an intuitive dashboard for decentralized finance.',
+  'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=600&auto=format&fit=crop',
+  'HACKATHON & EVENT'
+),
+(
+  'DevFest Morocco 2024',
+  'mastering-react-animations',
+  'Speaker',
+  'Nov 2024',
+  'Best Talk',
+  'Spoke about modern animation techniques in React.',
+  'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=600&auto=format&fit=crop',
+  'HACKATHON & EVENT'
+)
+ON CONFLICT DO NOTHING;
+
+
