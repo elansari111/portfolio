@@ -17,7 +17,7 @@ export default function Portfolio(){
  const [projects,setProjects]=useState([]),[skills,setSkills]=useState([]),[experiences,setExperiences]=useState([])
  const {isDark,toggleTheme}=useTheme()
  useEffect(()=>{let active=true;Promise.all([dataService.getProjects(),dataService.getSkills(),dataService.getExperiences()]).then(([p,s,e])=>{if(active){setProjects(p);setSkills(s);setExperiences(e)}}).catch(()=>{if(active)setError(true)}).finally(()=>{if(active)setLoading(false)});return()=>{active=false}},[])
- useEffect(()=>{let seen=false;try{seen=sessionStorage.getItem('portfolio-intro')==='1'}catch{/* Storage is optional. */}if(reduced||seen){setReady(true);return}const timer=setTimeout(()=>{setReady(true);try{sessionStorage.setItem('portfolio-intro','1')}catch{/* Storage is optional. */}},2100);return()=>clearTimeout(timer)},[reduced])
+ useEffect(()=>{try{sessionStorage.removeItem('portfolio-intro')}catch{/* ignore */}if(reduced){setReady(true);return}const timer=setTimeout(()=>{setReady(true)},2100);return()=>clearTimeout(timer)},[reduced])
  useEffect(()=>{try{sessionStorage.setItem('portfolio-palette',palette)}catch{/* Palette still works without storage. */}},[palette])
  useEffect(()=>{
   const el=root.current;let raf=0
